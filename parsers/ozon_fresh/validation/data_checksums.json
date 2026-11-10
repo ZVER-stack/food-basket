@@ -1,0 +1,37 @@
+{
+  "created_unix": 1794327711.8772707,
+  "files": [
+    {
+      "asset": "snapshot.sqlite.gz",
+      "bytes": 1311269735,
+      "sha256": "ca3650eddcd951f616929a03873f058c607edb354abe310159f8b64100a78bc7",
+      "uncompressed_bytes": 6775279616,
+      "uncompressed_sha256": "d36229abe325fe22d64d68a5fbefbccc59b8a6fc7c6fb6b7b765b70d04592f94",
+      "sqlite_quick_check": "ok"
+    },
+    {
+      "asset": "ozon_fresh.csv.gz",
+      "bytes": 522093333,
+      "sha256": "991e9fad5b2953df1b862e5d136f439f714acc101a90a8dd7e2b390420c1ac36",
+      "uncompressed_bytes": 2928652595,
+      "uncompressed_sha256": "6871860ca923fdf2b140d911a9e75585bb2f29540aeae63efd8130b4eb62ceea",
+      "sqlite_quick_check": null
+    },
+    {
+      "asset": "ozon_by_house.csv.gz",
+      "bytes": 422115330,
+      "sha256": "d75755c7fa0be44868347097e517add904e9e4dfb55a24a0862500659eac5905",
+      "uncompressed_bytes": 1095068447,
+      "uncompressed_sha256": "a1484600a44103dbb7e110e8bda4a9a72a86394934ba530da913fee137519365",
+      "sqlite_quick_check": null
+    },
+    {
+      "asset": "product_metadata_backfill.sqlite.gz",
+      "bytes": 10579696,
+      "sha256": "365f2b0b68fe6c82e972aa7074f9b2d1b44cd0bb83645d17efabe8b7d7fe41a5",
+      "uncompressed_bytes": 51372032,
+      "uncompressed_sha256": "bec16fa0d3e32aa59d0a395416698c5c9547d52b7f177ce3c35172d6c6c4cf6d",
+      "sqlite_quick_check": "ok"
+    }
+  ]
+}

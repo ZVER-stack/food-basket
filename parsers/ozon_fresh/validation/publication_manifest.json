@@ -1,5 +1,5 @@
 {
-  "status": "LOCAL_REVIEW_ONLY_AWAITING_USER_APPROVAL_AND_REPOSITORY_URL",
+  "status": "PUBLISHED",
   "file_count": 121,
   "total_bytes": 1137948,
   "files": [
@@ -614,25 +614,25 @@
       "source": "C:\\Users\\maxik\\PycharmProjects\\PythonProject\\fresh_fast\\results\\full_shared_20261018_111443\\snapshot.sqlite",
       "name": "snapshot.sqlite",
       "bytes": 6775279616,
-      "publication": "Separate data archive; not copied or uploaded; SQLite backup required before packaging"
+      "publication": "Uploaded as gzip release asset; SHA256 verified against GitHub; SQLite quick_check=ok for both databases"
     },
     {
       "source": "C:\\Users\\maxik\\PycharmProjects\\PythonProject\\fresh_fast\\results\\full_shared_20261018_111443\\ozon_fresh.csv",
       "name": "ozon_fresh.csv",
       "bytes": 2928652595,
-      "publication": "Separate data archive; not copied or uploaded; SQLite backup required before packaging"
+      "publication": "Uploaded as gzip release asset; SHA256 verified against GitHub; SQLite quick_check=ok for both databases"
     },
     {
       "source": "C:\\Users\\maxik\\Documents\\Codex\\2026-10-25\\new-chat-2\\outputs\\ozon_compact\\ozon_by_house.csv",
       "name": "ozon_by_house.csv",
       "bytes": 1095068447,
-      "publication": "Separate data archive; not copied or uploaded; SQLite backup required before packaging"
+      "publication": "Uploaded as gzip release asset; SHA256 verified against GitHub; SQLite quick_check=ok for both databases"
     },
     {
       "source": "C:\\Users\\maxik\\Documents\\Codex\\2026-10-17\\ghbd\\work\\product_metadata_backfill.sqlite",
       "name": "product_metadata_backfill.sqlite",
       "bytes": 51372032,
-      "publication": "Separate data archive; not copied or uploaded; SQLite backup required before packaging"
+      "publication": "Uploaded as gzip release asset; SHA256 verified against GitHub; SQLite quick_check=ok for both databases"
     }
   ],
   "secret_scan": {
@@ -644,5 +644,9 @@
     "temporary directories, caches, duplicate backups, raw HTTP logs/responses",
     "unrelated projects and personal files"
   ],
-  "source_code_match": true
+  "source_code_match": true,
+  "packaged_tests_passed": 418,
+  "repository": "https://github.com/ZVER-stack/food-basket",
+  "release_url": "https://github.com/ZVER-stack/food-basket/releases/tag/ozon-fresh-kp2-2026-11-10",
+  "published_at_utc": "2026-11-10T16:30:42.3495078Z"
 }
