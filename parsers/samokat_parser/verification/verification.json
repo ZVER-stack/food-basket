@@ -1,0 +1,42 @@
+{
+  "source": "real public Samokat responses collected in Firefox",
+  "date_moscow": "2026-10-21",
+  "firefox_version": "158.0.1",
+  "samokat_web_version": "2.86.1",
+  "h3_index": "8711aa632ffffff",
+  "address": "Москва, Бакунинская улица, 60/2",
+  "complete_zone": false,
+  "complete_201_zones": false,
+  "stop_reason": "HTTP 403, requests stopped; no bypass or live retries after this block",
+  "captured_public_responses": 34,
+  "sample_unique_products": 1504,
+  "excluded_non_food_or_virtual_products": 10,
+  "normalization_errors": [],
+  "captured_from": "2026-10-21 15:46:50",
+  "captured_to": "2026-10-21 15:48:10",
+  "top_sections_in_sample": [
+    "Готовая еда",
+    "Молоко, яйца и сыр",
+    "Морозилка",
+    "Мясо и рыба",
+    "Овощи и фрукты",
+    "Хлеб и выпечка"
+  ],
+  "offline_real_response_integration": {
+    "food_sections": [
+      "Готовая еда",
+      "Молоко, яйца и сыр",
+      "Мясо и рыба",
+      "Овощи и фрукты",
+      "Хлеб и выпечка"
+    ],
+    "unique_products": 1480,
+    "queries_replayed": 29,
+    "network_requests": 0,
+    "status": "passed"
+  },
+  "unit_tests_passed": 30,
+  "live_test_interval_seconds": 1.1,
+  "delivered_default_interval_seconds": 3.0,
+  "csv_validation": "passed: 37 columns, 1504 rows, required fields and unique zone/product IDs"
+}

@@ -1,0 +1,1 @@
+{"request": {"url": "/delivery/info", "method": "GET", "timeout": 150000, "params": {"lat": "55.7772", "lon": "37.6900"}}, "data": {"minimalAmount": 10000, "sla": {"timeUnit": "MINUTES", "value": 15}}, "captured_at": "2026-10-21 15:46:55"}

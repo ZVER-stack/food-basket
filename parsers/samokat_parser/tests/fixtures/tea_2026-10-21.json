@@ -1,0 +1,105 @@
+{
+  "attributes": {
+    "netContentUnit": "G",
+    "returnAllowed": "true"
+  },
+  "detailsAttributes": [
+    {
+      "displayName": "Тип товара",
+      "type": "STRING",
+      "value": "чай"
+    },
+    {
+      "displayName": "Бренд",
+      "type": "STRING",
+      "value": "Kioko"
+    },
+    {
+      "displayName": "Вид чая",
+      "type": "STRING",
+      "value": "чёрный"
+    },
+    {
+      "displayName": "Фасовка",
+      "type": "STRING",
+      "value": "в пакетиках"
+    },
+    {
+      "displayName": "Количество пакетиков",
+      "type": "NUMBER",
+      "unit": "шт.",
+      "value": "25"
+    },
+    {
+      "displayName": "Вес",
+      "type": "NUMBER",
+      "unit": "г",
+      "value": "50"
+    },
+    {
+      "displayName": "Вкус/добавки",
+      "type": "STRING",
+      "value": "масала"
+    },
+    {
+      "displayName": "Состав",
+      "type": "STRING",
+      "value": "Чай чёрный индийский, корень имбиря, кардамон,корица, перец чёрный, гвоздика, мускатный орех"
+    },
+    {
+      "displayName": "Без кофеина",
+      "type": "BOOLEAN",
+      "value": "FALSE"
+    },
+    {
+      "displayName": "Заморозка",
+      "type": "BOOLEAN",
+      "value": "FALSE"
+    },
+    {
+      "displayName": "Срок годности",
+      "type": "NUMBER",
+      "unit": "дн.",
+      "value": "1095"
+    },
+    {
+      "displayName": "Условия хранения",
+      "type": "STRING",
+      "value": "При температуре от +5°C до +25°C"
+    },
+    {
+      "displayName": "Производитель",
+      "type": "STRING",
+      "value": "ООО Универсальные Пищевые Технологии"
+    },
+    {
+      "displayName": "Страна-производитель",
+      "type": "STRING",
+      "value": "Россия"
+    },
+    {
+      "displayName": "Документы качества",
+      "type": "STRING",
+      "value": "<p><strong>Регистрационный номер декларации соответствия:</strong></p>\n<p>ЕАЭС N RU Д-RU.РА05.В.00873/26</p>\n<p><a href=\"https://pub.fsa.gov.ru/rds/declaration/view/21510147\">Посмотреть на сайте</a></p>"
+    }
+  ],
+  "isMatrix": true,
+  "media": [
+    {
+      "type": "IMAGE",
+      "url": "https://damcdn.samokat.ru/dam-storage-ext-env-prod/2026/09/6ff42cbc-053b-469c-81c8-6a7b2f87ec03?resolution=1000x1000"
+    }
+  ],
+  "name": "Чёрный чай Kioko, Масала, со специями, в пакетиках, 25 шт.",
+  "prices": {
+    "current": 17900,
+    "metaInfo": "3",
+    "old": 25900,
+    "pickup": 17900,
+    "promoId": "85b58850-5a2c-481d-a522-9f5a1466812c"
+  },
+  "quantity": 8,
+  "slug": "chyornyy-chay-kioko-masala-so-spetsiyami-v-paketikakh-25-sht",
+  "specification": "",
+  "uuid": "253caf15-add6-11f1-9ee2-be3af2b6059f"
+}

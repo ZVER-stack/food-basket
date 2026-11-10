@@ -1,0 +1,19 @@
+{
+  "updated_at": "2026-10-22 21:00:43",
+  "finished_zones": [
+    {
+      "h3_index": "8711aa632ffffff",
+      "status": "with_issues",
+      "products": 3232,
+      "finished_at": "2026-10-21 20:05:37"
+    }
+  ],
+  "partial_zones": [
+    {
+      "h3_index": "8711aa78dffffff",
+      "products": 3337,
+      "updated_at": "2026-10-22 21:00:42"
+    }
+  ],
+  "quarantined_records": 12
+}

@@ -1,0 +1,21 @@
+{
+  "status": "attention",
+  "pid": 8172,
+  "updated_at": "2026-11-01T08:08:18.292313+03:00",
+  "command": [
+    "C:\\Users\\andre\\OneDrive\\Desktop\\samokat_parser\\.venv\\Scripts\\python.exe",
+    "-m",
+    "samokat",
+    "run",
+    "--output",
+    ".\\results\\samokat_2026-10-21_arkhipov_recovered.csv",
+    "--interval",
+    "10",
+    "--startup-timeout",
+    "600",
+    "--capture-dir",
+    ".\\results\\raw_arkhipov"
+  ],
+  "output": "C:\\Users\\andre\\OneDrive\\Desktop\\samokat_parser\\results\\samokat_2026-10-21_arkhipov_recovered.csv",
+  "reason": "PermissionError: [WinError 5] Отказано в доступе: 'C:\\\\Users\\\\andre\\\\OneDrive\\\\Desktop\\\\samokat_parser\\\\results\\\\samokat_autoresume.state.json.tmp' -> 'C:\\\\Users\\\\andre\\\\OneDrive\\\\Desktop\\\\samokat_parser\\\\results\\\\samokat_autoresume.state.json'"
+}
