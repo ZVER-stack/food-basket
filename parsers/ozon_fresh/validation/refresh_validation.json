@@ -1,0 +1,10 @@
+{
+  "checked_at_msk": "2026-10-18 17:59:22",
+  "offline_tests_passed": 222,
+  "installed_plan_exit_code": 2,
+  "reason": "Повторный проход не запущен: Baseline must contain exactly all supplied houses",
+  "incomplete_first_baseline_rejected": true,
+  "live_refresh_started": false,
+  "live_two_hour_runtime_measured": false,
+  "full_collector_restarted_for_install": false
+}

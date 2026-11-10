@@ -1,0 +1,247 @@
+{
+  "synthetic": false,
+  "source": "Live anonymous Fresh category page, 2026-10-17",
+  "card": {
+    "id": "398644623",
+    "tileImage": {
+      "items": [
+        {
+          "type": "image",
+          "image": {
+            "link": "https://ir.ozone.ru/s3/multimedia-1-d/7851765829.jpg",
+            "contentMode": "SCALE_ASPECT_FIT"
+          }
+        },
+        {
+          "type": "image",
+          "image": {
+            "link": "https://ir.ozone.ru/s3/multimedia-1-r/7845394059.jpg",
+            "contentMode": "SCALE_ASPECT_FIT"
+          }
+        },
+        {
+          "type": "image",
+          "image": {
+            "link": "https://ir.ozone.ru/s3/multimedia-1-p/7845394057.jpg",
+            "contentMode": "SCALE_ASPECT_FIT"
+          }
+        },
+        {
+          "type": "image",
+          "image": {
+            "link": "https://ir.ozone.ru/s3/multimedia-1-l/7845394053.jpg",
+            "contentMode": "SCALE_ASPECT_FIT"
+          }
+        },
+        {
+          "type": "image",
+          "image": {
+            "link": "https://ir.ozone.ru/s3/multimedia-1-u/7845394062.jpg",
+            "contentMode": "SCALE_ASPECT_FIT"
+          }
+        }
+      ]
+    },
+    "topRightButtons": [
+      {
+        "type": "favoriteProductMoleculeV2",
+        "favoriteProductMoleculeV2": {
+          "id": "398644623",
+          "isFav": false,
+          "favLink": "favoriteBatchAddItems",
+          "unfavLink": "favoriteBatchDeleteItems",
+          "testInfo": {
+            "favoriteButton": {
+              "automatizationId": "favorite-button"
+            },
+            "unFavoriteButton": {
+              "automatizationId": "unfavorite-button"
+            }
+          }
+        }
+      }
+    ],
+    "sku": 398644623,
+    "isAdult": false,
+    "brandLogo": null,
+    "mainState": [
+      {
+        "type": "priceV2",
+        "priceV2": {
+          "price": [
+            {
+              "text": "149 ₽",
+              "textStyle": "PRICE"
+            },
+            {
+              "text": "/1кг",
+              "textStyle": "PPU"
+            },
+            {
+              "text": "179 ₽",
+              "textStyle": "ORIGINAL_PRICE"
+            }
+          ],
+          "discount": "−17%",
+          "priceStyle": {
+            "styleType": "CARD_PRICE"
+          },
+          "preset": "SIZE_500"
+        }
+      },
+      {
+        "type": "labelListV2",
+        "labelListV2": {
+          "items": [
+            {
+              "type": "text",
+              "text": {
+                "text": "1-1.50 кг",
+                "textColor": "textSecondary"
+              }
+            },
+            {
+              "type": "icon",
+              "icon": {
+                "icon": {
+                  "icon": "ic_s_download_filled_compact",
+                  "tintColor": "bgPositivePrimary"
+                },
+                "leftPadding": 4
+              }
+            },
+            {
+              "type": "text",
+              "text": {
+                "text": "Стало дешевле",
+                "leftPadding": 2
+              }
+            }
+          ],
+          "verticalIndents": {
+            "top": 2,
+            "bottom": 2
+          },
+          "testInfo": {
+            "automatizationId": "tile-list-labels"
+          }
+        }
+      },
+      {
+        "type": "textDS",
+        "textDS": {
+          "text": "Бананы, вес. 1 - 1,5 кг",
+          "textColor": "textPrimary",
+          "maxLines": 2,
+          "preset": "PRESET_CUSTOM",
+          "testInfo": {
+            "automatizationId": "tile-name"
+          }
+        },
+        "id": "name"
+      },
+      {
+        "type": "labelListV2",
+        "labelListV2": {
+          "items": [
+            {
+              "type": "icon",
+              "icon": {
+                "icon": {
+                  "icon": "ic_s_star_filled_compact",
+                  "tintColor": "graphicRating"
+                },
+                "leftPadding": -2
+              }
+            },
+            {
+              "type": "text",
+              "text": {
+                "text": "4.8",
+                "textColor": "textPremium",
+                "leftPadding": 2
+              }
+            },
+            {
+              "type": "icon",
+              "icon": {
+                "icon": {
+                  "icon": "ic_s_dialog_filled_compact",
+                  "tintColor": "graphicTertiary"
+                },
+                "leftPadding": 4
+              }
+            },
+            {
+              "type": "text",
+              "text": {
+                "text": "228 040 отзывов",
+                "textColor": "textSecondary",
+                "leftPadding": 2
+              }
+            }
+          ],
+          "verticalIndents": {
+            "top": 2,
+            "bottom": 2
+          },
+          "testInfo": {
+            "automatizationId": "tile-list-rating"
+          }
+        }
+      }
+    ],
+    "multiButton": {
+      "expressButton": {
+        "type": "addToCart",
+        "addToCart": {
+          "skuId": "398644623",
+          "actionButton": {
+            "common": {
+              "action": {
+                "behavior": "BEHAVIOR_TYPE_CUSTOM",
+                "id": "addToCart",
+                "params": {
+                  "id": "398644623",
+                  "quantity": "1",
+                  "selectedDeliverySchema": "131"
+                }
+              },
+              "testInfo": {
+                "automatizationId": "freshAddToCart"
+              }
+            },
+            "icon": "ic_s_grocery_cart_filled",
+            "title": "За 30 минут"
+          },
+          "quantityButton": {
+            "maxItems": 59,
+            "updateCartAction": {
+              "id": "398644623",
+              "quantity": 1,
+              "selectedDeliverySchema": 131
+            },
+            "isManualInputAllowed": true
+          },
+          "theme": {
+            "styleWrapper": {
+              "style": "DEFAULT_FRESH"
+            }
+          },
+          "inCartQuantity": 0,
+          "extendMap": {
+            "asb2": "AE8E4XT1z84rct-6qpugaZUJtH1jsZ4hcMguqvSpbz-S9lMDjoO-ZE0pNPVaZiL0RJaqtUW4MNLo_kTZpTaha9mu29eJc3VIXbAg16Uq4H0-juvcDbJN3VV9BKByUN9XaQ",
+            "qtyDiscountNotify": "true"
+          }
+        }
+      }
+    },
+    "action": {
+      "behavior": "BEHAVIOR_TYPE_REDIRECT",
+      "link": "https://www.ozon.ru/product/banany-ves-1-1-5-kg-398644623/",
+      "params": {
+        "target": "_blank"
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "columns": 13,
+  "house_product_rows": 992534,
+  "unique_products": 13148,
+  "houses_including_partial": 160,
+  "missing": {
+    "brand": 400365,
+    "kcal": 136428,
+    "protein": 146343,
+    "fat": 146280,
+    "carbs": 151571,
+    "amount": 214655,
+    "description": 56267,
+    "price_card": 542684
+  },
+  "metadata_statuses": {
+    "saved_complete": 2040,
+    "checked_missing_on_site": 7432,
+    "checked_complete": 864,
+    "identity_conflict": 162,
+    "unavailable_at_known_houses": 2022
+  },
+  "source_database_unchanged": true,
+  "price_policy": "all three prices from one saved observation of this exact house",
+  "metadata_policy": "same SKU, normalized name and declared amount; missing values never invented",
+  "csv": "C:\\Users\\maxik\\Documents\\Codex\\2026-10-25\\new-chat-2\\outputs\\ozon_compact\\ozon_by_house.csv"
+}

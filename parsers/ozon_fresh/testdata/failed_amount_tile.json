@@ -1,0 +1,213 @@
+{
+  "synthetic": false,
+  "captured_at": "2026-10-18 12:33:09",
+  "card": {
+    "brandLogo": null,
+    "tileImage": {
+      "items": [
+        {
+          "type": "image",
+          "image": {
+            "link": "https://ir.ozone.ru/s3/multimedia-1-z/9849475439.jpg",
+            "contentMode": "SCALE_ASPECT_FIT"
+          }
+        },
+        {
+          "type": "image",
+          "image": {
+            "link": "https://ir.ozone.ru/s3/multimedia-1-8/9460863800.jpg",
+            "contentMode": "SCALE_ASPECT_FIT"
+          }
+        },
+        {
+          "type": "image",
+          "image": {
+            "link": "https://ir.ozone.ru/s3/multimedia-1-2/9460863686.jpg",
+            "contentMode": "SCALE_ASPECT_FIT"
+          }
+        },
+        {
+          "type": "image",
+          "image": {
+            "link": "https://ir.ozone.ru/s3/multimedia-1-m/9460863850.jpg",
+            "contentMode": "SCALE_ASPECT_FIT"
+          }
+        }
+      ],
+      "leftBottomBadgeV2": {
+        "text": "Цена что надо",
+        "leftIcon": "ic_s_like_filled_compact",
+        "size": "SIZE_500",
+        "styleType": "CUSTOM",
+        "common": {
+          "testInfo": {
+            "automatizationId": "badge-priceIndex"
+          }
+        },
+        "customBadgeStyle": {
+          "backgroundColor": {
+            "color": "bgPositivePrimary"
+          },
+          "leftGraphicColor": "graphicLightKey",
+          "textColor": "textLightKey"
+        }
+      }
+    },
+    "mainState": [
+      {
+        "type": "priceV2",
+        "priceV2": {
+          "price": [
+            {
+              "text": "68 ₽",
+              "textStyle": "PRICE"
+            },
+            {
+              "text": "69 ₽",
+              "textStyle": "ORIGINAL_PRICE"
+            }
+          ],
+          "discount": "−2%",
+          "priceStyle": {
+            "styleType": "CARD_PRICE"
+          },
+          "preset": "SIZE_500"
+        }
+      },
+      {
+        "type": "textDS",
+        "textDS": {
+          "text": "Жевательные конфеты. Вкус кока-кола",
+          "textColor": "textPrimary",
+          "maxLines": 3,
+          "preset": "PRESET_CUSTOM",
+          "typographyToken": "tsBody500Medium",
+          "testInfo": {
+            "automatizationId": "tile-name"
+          }
+        },
+        "id": "name"
+      },
+      {
+        "type": "labelListV2",
+        "labelListV2": {
+          "items": [
+            {
+              "type": "icon",
+              "icon": {
+                "icon": {
+                  "icon": "ic_s_star_filled_compact",
+                  "tintColor": "graphicRating"
+                },
+                "leftPadding": -2
+              }
+            },
+            {
+              "type": "text",
+              "text": {
+                "text": "4.8",
+                "textColor": "textPremium",
+                "leftPadding": 2
+              }
+            },
+            {
+              "type": "icon",
+              "icon": {
+                "icon": {
+                  "icon": "ic_s_dialog_filled_compact",
+                  "tintColor": "graphicTertiary"
+                },
+                "leftPadding": 4
+              }
+            },
+            {
+              "type": "text",
+              "text": {
+                "text": "17 734 отзыва",
+                "textColor": "textSecondary",
+                "leftPadding": 2
+              }
+            }
+          ],
+          "verticalIndents": {
+            "top": 2,
+            "bottom": 2
+          },
+          "testInfo": {
+            "automatizationId": "tile-list-rating"
+          }
+        }
+      }
+    ],
+    "id": "3250518930",
+    "topRightButtons": [
+      {
+        "type": "favoriteProductMoleculeV2",
+        "favoriteProductMoleculeV2": {
+          "id": "3250518930",
+          "isFav": false,
+          "favLink": "favoriteBatchAddItems",
+          "unfavLink": "favoriteBatchDeleteItems",
+          "testInfo": {
+            "favoriteButton": {
+              "automatizationId": "favorite-button"
+            },
+            "unFavoriteButton": {
+              "automatizationId": "unfavorite-button"
+            }
+          }
+        }
+      }
+    ],
+    "multiButton": {
+      "expressButton": {
+        "type": "addToCart",
+        "addToCart": {
+          "skuId": "3250518930",
+          "actionButton": {
+            "common": {
+              "action": {
+                "behavior": "BEHAVIOR_TYPE_CUSTOM",
+                "id": "addToCart",
+                "params": {
+                  "id": "3250518930",
+                  "quantity": "1",
+                  "selectedDeliverySchema": "131"
+                }
+              },
+              "testInfo": {
+                "automatizationId": "freshAddToCart"
+              }
+            },
+            "icon": "ic_s_grocery_cart_filled",
+            "title": "За 30 минут"
+          },
+          "quantityButton": {
+            "maxItems": 37,
+            "updateCartAction": {
+              "id": "3250518930",
+              "quantity": 1,
+              "selectedDeliverySchema": 131
+            },
+            "isManualInputAllowed": true
+          },
+          "theme": {
+            "styleWrapper": {
+              "style": "DEFAULT_FRESH"
+            }
+          },
+          "inCartQuantity": 0
+        }
+      }
+    },
+    "sku": 3250518930,
+    "isAdult": false,
+    "action": {
+      "behavior": "BEHAVIOR_TYPE_REDIRECT",
+      "link": "/product/zhevatelnye-konfety-vkus-koka-kola-3250518930/",
+      "params": {
+        "target": "_blank"
+      }
+    }
+  }
+}

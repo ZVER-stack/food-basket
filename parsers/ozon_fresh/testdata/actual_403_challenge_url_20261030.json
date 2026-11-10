@@ -1,0 +1,10 @@
+{
+  "synthetic": false,
+  "observed_unix": 1793346686.8435967,
+  "source": "Passive observation of an existing parser request; challengeURL query redacted",
+  "response": {
+    "status": 403,
+    "type": "application/json",
+    "text": "{\"incidentId\":\"fab_chlg_20261030075126_01M65WNK75PB0QGK7JDZCAKHZM\",\"challengeURL\":\"https://www.ozon.ru/challenge.html?[redacted]\"}"
+  }
+}

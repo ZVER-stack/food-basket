@@ -1,0 +1,12 @@
+{
+  "verified_anonymous_contract": false,
+  "fresh_only": false,
+  "warehouse_defines_full_offer": false,
+  "status": "UNCONFIGURED: live anonymous API capture required; not a working Ozon contract",
+  "set_location": {},
+  "context": {},
+  "context_schema": {},
+  "catalog_schema": {},
+  "card_mapping": {},
+  "categories": []
+}

@@ -1,0 +1,164 @@
+[
+  {
+    "category_id": "9201000",
+    "name": "ПРОДУКТЫ > Овощи, фрукты, зелень",
+    "url": "https://www.ozon.ru/category/supermarket-ovoshchi-frukty-zelen-9201000/?miniapp=supermarket",
+    "scope": "food",
+    "verified_leaf": false,
+    "scope_verified_by": "food ancestry in captured Fresh menu",
+    "optimization": "one parent request tree replaces redundant requests for every menu leaf"
+  },
+  {
+    "category_id": "9971000",
+    "name": "ПРОДУКТЫ > Мясо, птица и рыба",
+    "url": "https://www.ozon.ru/category/myaso-ptitsa-i-ryba-9971000/?miniapp=supermarket",
+    "scope": "food",
+    "verified_leaf": false,
+    "scope_verified_by": "food ancestry in captured Fresh menu",
+    "optimization": "one parent request tree replaces redundant requests for every menu leaf"
+  },
+  {
+    "category_id": "30701000",
+    "name": "ПРОДУКТЫ > Бакалея",
+    "url": "https://www.ozon.ru/category/supermarket-bakaleya-30701000/?miniapp=supermarket",
+    "scope": "food",
+    "verified_leaf": false,
+    "scope_verified_by": "food ancestry in captured Fresh menu",
+    "optimization": "one parent request tree replaces redundant requests for every menu leaf"
+  },
+  {
+    "category_id": "9355000",
+    "name": "ПРОДУКТЫ > Орехи, снеки",
+    "url": "https://www.ozon.ru/category/supermarket-orehi-sneki-9355000/?miniapp=supermarket",
+    "scope": "food",
+    "verified_leaf": false,
+    "scope_verified_by": "food ancestry in captured Fresh menu",
+    "optimization": "one parent request tree replaces redundant requests for every menu leaf"
+  },
+  {
+    "category_id": "9521000",
+    "name": "ПРОДУКТЫ > Готовая еда",
+    "url": "https://www.ozon.ru/category/supermarket-gotovye-blyuda-9521000/?miniapp=supermarket",
+    "scope": "food",
+    "verified_leaf": false,
+    "scope_verified_by": "food ancestry in captured Fresh menu",
+    "optimization": "one parent request tree replaces redundant requests for every menu leaf"
+  },
+  {
+    "category_id": "9276000",
+    "name": "ПРОДУКТЫ > Молочные продукты и яйца",
+    "url": "https://www.ozon.ru/category/supermarket-molochnye-produkty-i-yaytsa-9276000/?miniapp=supermarket",
+    "scope": "food",
+    "verified_leaf": false,
+    "scope_verified_by": "food ancestry in captured Fresh menu",
+    "optimization": "one parent request tree replaces redundant requests for every menu leaf"
+  },
+  {
+    "category_id": "94610000",
+    "name": "ПРОДУКТЫ > Хлеб и выпечка",
+    "url": "https://www.ozon.ru/category/hleb-vypechka-94610000/?miniapp=supermarket",
+    "scope": "food",
+    "verified_leaf": false,
+    "scope_verified_by": "food ancestry in captured Fresh menu",
+    "optimization": "one parent request tree replaces redundant requests for every menu leaf"
+  },
+  {
+    "category_id": "9467000",
+    "name": "ПРОДУКТЫ > Вода, соки, напитки",
+    "url": "https://www.ozon.ru/category/supermarket-voda-soki-napitki-9467000/?miniapp=supermarket",
+    "scope": "food",
+    "verified_leaf": false,
+    "scope_verified_by": "food ancestry in captured Fresh menu",
+    "optimization": "one parent request tree replaces redundant requests for every menu leaf"
+  },
+  {
+    "category_id": "997771000",
+    "name": "ПРОДУКТЫ > Горячая еда Hot&fresh",
+    "url": "https://www.ozon.ru/category/goryachaya-eda-hot-fresh-997771000/?miniapp=supermarket",
+    "scope": "food",
+    "verified_leaf": false,
+    "scope_verified_by": "food ancestry in captured Fresh menu",
+    "optimization": "one parent request tree replaces redundant requests for every menu leaf"
+  },
+  {
+    "category_id": "9437000",
+    "name": "ПРОДУКТЫ > Замороженные продукты",
+    "url": "https://www.ozon.ru/category/supermarket-zamorozhennye-produkty-9437000/?miniapp=supermarket",
+    "scope": "food",
+    "verified_leaf": false,
+    "scope_verified_by": "food ancestry in captured Fresh menu",
+    "optimization": "one parent request tree replaces redundant requests for every menu leaf"
+  },
+  {
+    "category_id": "9312000",
+    "name": "ПРОДУКТЫ > Колбасы и деликатесы",
+    "url": "https://www.ozon.ru/category/supermarket-kolbasy-sosiski-delikatesy-9312000/?miniapp=supermarket",
+    "scope": "food",
+    "verified_leaf": false,
+    "scope_verified_by": "food ancestry in captured Fresh menu",
+    "optimization": "one parent request tree replaces redundant requests for every menu leaf"
+  },
+  {
+    "category_id": "9900000",
+    "name": "ПРОДУКТЫ > Торты и пирожные",
+    "url": "https://www.ozon.ru/category/torty-9900000/?miniapp=supermarket",
+    "scope": "food",
+    "verified_leaf": false,
+    "scope_verified_by": "food ancestry in captured Fresh menu",
+    "optimization": "one parent request tree replaces redundant requests for every menu leaf"
+  },
+  {
+    "category_id": "9378000",
+    "name": "ПРОДУКТЫ > Кондитерские изделия",
+    "url": "https://www.ozon.ru/category/supermarket-hleb-vypechka-sladosti-9378000/?miniapp=supermarket",
+    "scope": "food",
+    "verified_leaf": false,
+    "scope_verified_by": "food ancestry in captured Fresh menu",
+    "optimization": "one parent request tree replaces redundant requests for every menu leaf"
+  },
+  {
+    "category_id": "7030000",
+    "name": "ДЛЯ МАМ И ДЕТЕЙ > Товары для мам и детей > Детское питание",
+    "url": "https://www.ozon.ru/category/supermarket-detskoe-pitanie-7030000/?miniapp=supermarket",
+    "scope": "food",
+    "verified_leaf": false,
+    "scope_verified_by": "food ancestry in captured Fresh menu",
+    "optimization": "one parent request tree replaces redundant requests for every menu leaf"
+  },
+  {
+    "category_id": "145721000",
+    "name": "Бытовая химия > Для мытья посуды",
+    "url": "https://www.ozon.ru/category/dlya-mytya-posudy-145721000/?miniapp=supermarket",
+    "scope": "household_chemicals",
+    "verified_leaf": true,
+    "leaf_definition": "selected safe subtree of captured live household filter",
+    "source": "live public Fresh category filter, 2026-10-17"
+  },
+  {
+    "category_id": "14580000",
+    "name": "Бытовая химия > Средства для стирки",
+    "url": "https://www.ozon.ru/category/supermarket-sredstva-dlya-stirki-14580000/?miniapp=supermarket",
+    "scope": "household_chemicals",
+    "verified_leaf": true,
+    "leaf_definition": "selected safe subtree of captured live household filter",
+    "source": "live public Fresh category filter, 2026-10-17"
+  },
+  {
+    "category_id": "14587000",
+    "name": "Бытовая химия > Чистящие средства",
+    "url": "https://www.ozon.ru/category/supermarket-chistyashchie-sredstva-14587000/?miniapp=supermarket",
+    "scope": "household_chemicals",
+    "verified_leaf": true,
+    "leaf_definition": "selected safe subtree of captured live household filter",
+    "source": "live public Fresh category filter, 2026-10-17"
+  },
+  {
+    "category_id": "14579000",
+    "name": "Бытовая химия > Нейтрализаторы запаха",
+    "url": "https://www.ozon.ru/category/supermarket-osvezhiteli-i-aromatizatory-14579000/?miniapp=supermarket",
+    "scope": "household_chemicals",
+    "verified_leaf": true,
+    "leaf_definition": "selected safe subtree of captured live household filter",
+    "source": "live public Fresh category filter, 2026-10-17"
+  }
+]

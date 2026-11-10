@@ -1,0 +1,31 @@
+{
+  "checked_at_msk": "2026-10-18 18:56:46",
+  "kind": "offline_saved_response_request_plan_comparison",
+  "live_runtime_measured": false,
+  "ordinary_price_accuracy_now_verified": false,
+  "assumption": "Saved visible quotes replay unchanged; imported ordinary prices are explicitly historical/inferred",
+  "house": "8711aa632ffffff",
+  "saved_catalog_pages": 902,
+  "saved_observations": 6925,
+  "comparison_scope": "Only saved observations with original catalog_quote; older observations without that signature are skipped in both cases",
+  "without_historical_reference": {
+    "planned_product_requests": 1431,
+    "historical_inferred_cache_hits": 0,
+    "imported_reference_houses": 0,
+    "replayed_products": 2402,
+    "unusable_saved_signatures": 4513,
+    "local_replay_seconds": 0.087
+  },
+  "with_historical_reference": {
+    "planned_product_requests": 246,
+    "historical_inferred_cache_hits": 1171,
+    "imported_reference_houses": 4,
+    "replayed_products": 2402,
+    "unusable_saved_signatures": 4513,
+    "local_replay_seconds": 3.002
+  },
+  "product_requests_avoided_in_replay": 1185,
+  "catalog_requests_avoided": 0,
+  "full_197_house_two_hour_goal_achieved": false,
+  "network_requests": 0
+}

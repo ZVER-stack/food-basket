@@ -1,0 +1,648 @@
+{
+  "status": "LOCAL_REVIEW_ONLY_AWAITING_USER_APPROVAL_AND_REPOSITORY_URL",
+  "file_count": 121,
+  "total_bytes": 1137948,
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 113,
+      "sha256": "06b6dc0ef932739b53985e39e7ba24aa1319139b83c6a6085a1220b20e0b0e34"
+    },
+    {
+      "path": "01_open_old_chrome.cmd",
+      "bytes": 2076,
+      "sha256": "b8f4386956ed62a127073502cddcfe0045d9f170de9409d105c9e78314099e8f"
+    },
+    {
+      "path": "02_check_connection.cmd",
+      "bytes": 341,
+      "sha256": "9e6531121f984f13dcf73fc0d89f2de197ee4d67a5f961ca1ca1d04faa3eb88a"
+    },
+    {
+      "path": "03_run_pilot.cmd",
+      "bytes": 341,
+      "sha256": "555f22c7a39154e89dd4bdf2e462b47658a74cc0826460bd28031bfed17ed9da"
+    },
+    {
+      "path": "04_run_full.cmd",
+      "bytes": 504,
+      "sha256": "b8f84a0108e6f8c9507a38efcfdd0262441b35927f2a05b3188602261b3fa02c"
+    },
+    {
+      "path": "05_run_parallel.cmd",
+      "bytes": 1422,
+      "sha256": "a0279f477f2e282055e8935050e4f89fe9a02a246448fddd65e5cd7fc1877c76"
+    },
+    {
+      "path": "06_resume_after_captcha.cmd",
+      "bytes": 1182,
+      "sha256": "92ea38e82e7f3c85c7e10dfe760e6d956a486b69fdad4e01d2fd55cceb8a6bbc"
+    },
+    {
+      "path": "07_resume_current.cmd",
+      "bytes": 1009,
+      "sha256": "96159d15cb72d756dc856c89cd9730e718f6be1b4b8d99be81134230383e6960"
+    },
+    {
+      "path": "08_continue_all.cmd",
+      "bytes": 1404,
+      "sha256": "d92faa04c26ed61280b4cf096bd8e66b3ba2c2cbea32919b6f414143daf4a9bc"
+    },
+    {
+      "path": "09_refresh_two_hours.cmd",
+      "bytes": 764,
+      "sha256": "67c2b2af69e4c2fd3fb975eb046b86a3107b7bbdf0ec71b6288ffee8a3c262f9"
+    },
+    {
+      "path": "10_full_two_hours.cmd",
+      "bytes": 1181,
+      "sha256": "4e3ee56735a71bffcd8ee41c49c60024313226701463f38c4944a054045ab818"
+    },
+    {
+      "path": "11_one_address_5_minutes.cmd",
+      "bytes": 1770,
+      "sha256": "a7b922cedd139b4222062634293a1f0164c7b8476829c15e2ff2a86a02f3cfcc"
+    },
+    {
+      "path": "12_status.cmd",
+      "bytes": 391,
+      "sha256": "44630f2cf9e55faa2e7dd1ef15e069cd22cb866abbf8de15a0a697ab2e506247"
+    },
+    {
+      "path": "13_watch_captcha.cmd",
+      "bytes": 250,
+      "sha256": "13a433249f8ba943b8b9cb020a88937ce129761455f0f964ae0fbcf2b1f8c342"
+    },
+    {
+      "path": "14_open_happ_proxy.cmd",
+      "bytes": 2263,
+      "sha256": "638bf1e7baa25734089c498a3c6893bc677b72cd15374631d303c4557b04126f"
+    },
+    {
+      "path": "benchmark_reference_replay.py",
+      "bytes": 3279,
+      "sha256": "de1bbd0412927b9d125d2fcf459e421ca42d3113a46289c8fbc63a309b6fbfcd"
+    },
+    {
+      "path": "budget_scenario.json",
+      "bytes": 690,
+      "sha256": "513dbb07ee20916063f256fc0a81ce9033b16af0567600b3917388526e5f38eb"
+    },
+    {
+      "path": "categories_live.json",
+      "bytes": 7725,
+      "sha256": "6440e29f7aaec1613b83ae57aa1841b7c426e5a261fa348b1ccc1e730685bfcb"
+    },
+    {
+      "path": "category_request_plan.json",
+      "bytes": 974,
+      "sha256": "96e608584c7c0b6b91d2073f5837d459514239476e128d4da988fe25285c1667"
+    },
+    {
+      "path": "contract.unconfigured.json",
+      "bytes": 330,
+      "sha256": "67febbec62b79f65d1ce1a9021610c9573a17165bcf4bf4fc6ba2c0e6a69ed79"
+    },
+    {
+      "path": "excluded_zones.csv",
+      "bytes": 726,
+      "sha256": "09af41ff9bb106b3f12103e479a30f6bf4f3cf16cabc1591f5e488e6837a90f6"
+    },
+    {
+      "path": "export_page_checkpoint.py",
+      "bytes": 2804,
+      "sha256": "ecc1f9fe4ca0c75dc76fa777b81f2dccb3639775a2f20a3d617f135df8511b2c"
+    },
+    {
+      "path": "HAPP_PROXY.md",
+      "bytes": 3972,
+      "sha256": "5ecfa897193a11238612968941d5aa3cb143cade5d7f2574053ed4ab66786f8a"
+    },
+    {
+      "path": "hexagons.csv",
+      "bytes": 33286,
+      "sha256": "ff04e842effd2ef8c8b47c6a94c3ba7661b2689ad26257637b2761d9394ee7cf"
+    },
+    {
+      "path": "inhabited_zones.csv",
+      "bytes": 32858,
+      "sha256": "bc59310486ccfbfd7180b0377a40c49db1bd7135b87e8ecdd1968235f52d891a"
+    },
+    {
+      "path": "operations/captcha_sound_monitor_20261030.py",
+      "bytes": 6022,
+      "sha256": "95085150591bafb4e49e9f569c2095aac93b7d0ed67a32381b2880cc73a4ed36"
+    },
+    {
+      "path": "operations/resume_overnight_20261030.ps1",
+      "bytes": 7154,
+      "sha256": "c96b116d45170e0208fb324946bd112445ca58511e5605065f2b81fc82cd1d4d"
+    },
+    {
+      "path": "ozon_address_search.py",
+      "bytes": 9516,
+      "sha256": "ef0eabca80ab774521f11bf769201507345e2d5394f5dcfb6efd145d135a4981"
+    },
+    {
+      "path": "ozon_backoff.py",
+      "bytes": 16388,
+      "sha256": "990df641d52aad70353ed5e526df1c0691f8d13b7f9098fe475e5933e7b83267"
+    },
+    {
+      "path": "ozon_browser_transport.py",
+      "bytes": 19376,
+      "sha256": "d81927091cd56bbc2c5f77e23900eb79c6423035db46b823745346d04d7c6c23"
+    },
+    {
+      "path": "ozon_catalog_index.py",
+      "bytes": 25644,
+      "sha256": "d53e22a3b834d467a7e97089198279aae8840478f034b476b59e0676edc914dd"
+    },
+    {
+      "path": "ozon_catalog_scheduler.py",
+      "bytes": 6400,
+      "sha256": "d8516bcb9db01b3de904f22d7e3fa7f63dd77f3973dde5a20b11cd253847b6fd"
+    },
+    {
+      "path": "ozon_fresh_fast.py",
+      "bytes": 52776,
+      "sha256": "a143290183941576a11633cbbf1fd0d7b38f9c1e4b942c7b7747db99a59572e5"
+    },
+    {
+      "path": "ozon_har_catalog.py",
+      "bytes": 36111,
+      "sha256": "ef7ae2dec40fb6357aeb82fb55b408f450a6155ef8e44b4fed4cb3c8d393fbeb"
+    },
+    {
+      "path": "ozon_house_export.py",
+      "bytes": 9520,
+      "sha256": "c07ad3c76d0731cec0a7fa631c3c643b1690b09419fc47428a97d171d1a31b53"
+    },
+    {
+      "path": "ozon_live_parser.py",
+      "bytes": 34163,
+      "sha256": "f742ca6ec414dae3e2fb43986cd61d0205c569573479226c243a8165455efe59"
+    },
+    {
+      "path": "ozon_metadata_backfill.py",
+      "bytes": 16697,
+      "sha256": "b4d6593212c5dbbbab3080674d51f82f1c444592c3bf97d3ee43f6d7c47c423c"
+    },
+    {
+      "path": "ozon_pagination_probe.py",
+      "bytes": 2970,
+      "sha256": "34b46c312f55be65f1a79f215488861ceba527017d0d5ebda419dc6aa98323a8"
+    },
+    {
+      "path": "ozon_parallel.py",
+      "bytes": 11911,
+      "sha256": "d97b1b8708a02001a5c6eee8b863102a9061bf46b39b4eeb29078fc0fe2cc41c"
+    },
+    {
+      "path": "OZON_POWERSHELL.md",
+      "bytes": 7169,
+      "sha256": "64b0460e27f9cb87b8cbb8c790718de16bdf72aa5190659262a5cf5ca3ac3809"
+    },
+    {
+      "path": "ozon_price_pool.py",
+      "bytes": 6688,
+      "sha256": "c5c9d8e98fdd76fee19b9e5984b192ae3de806c6bde7cd3ca79ac728e7ad2f01"
+    },
+    {
+      "path": "ozon_product_prices.py",
+      "bytes": 15002,
+      "sha256": "78b3d206595f41615b17f7f2f33946df8bfd526c14c61f080e48a6e058a42b50"
+    },
+    {
+      "path": "ozon_product_redirect.py",
+      "bytes": 3818,
+      "sha256": "9ef676f030dcb0f5455c4fbf680781b35f4b02022f4f2f8e69e0c7825a265435"
+    },
+    {
+      "path": "ozon_refresh.py",
+      "bytes": 17401,
+      "sha256": "9a3292912b972069025015c3a972dcaead796cb25d720f7d2424b7fae9ba4eec"
+    },
+    {
+      "path": "ozon_refresh_model.py",
+      "bytes": 7729,
+      "sha256": "4a3a76532b12edf3b08cb8274811d7a1b722767026650b92bdacb729b26fa240"
+    },
+    {
+      "path": "ozon_refresh_pool.py",
+      "bytes": 6382,
+      "sha256": "34f0f637aae56076b8f7d0aa1d37d4ea8c21c679c0fa31a53e4a261d3cad6d81"
+    },
+    {
+      "path": "ozon_refresh_state.py",
+      "bytes": 13862,
+      "sha256": "53f1281fb03183f1fc90c9bceba50a4ba432d89d11286961f6bd39adb1470628"
+    },
+    {
+      "path": "ozon_repair_counter.py",
+      "bytes": 4418,
+      "sha256": "d0a3b4e1c6f2d05bdca87496794aa1713eb20fa48912b75aa1d8336b3ce8535f"
+    },
+    {
+      "path": "ozon_run_lock.py",
+      "bytes": 1578,
+      "sha256": "de46149ec9f90cfdcd23a85e68e2f0793bc9325f621a3c7cf8dd4313c087a9f8"
+    },
+    {
+      "path": "ozon_runtime.py",
+      "bytes": 690,
+      "sha256": "a1dc3e287f578a21c8cdd6c46f148190a0a79d9bcae456fcfc282cbe5dc7ea95"
+    },
+    {
+      "path": "ozon_status.py",
+      "bytes": 6339,
+      "sha256": "0e62ce968e5dce54d84fc5b0617647225c8fb5f31a188bb123eb6f4f91706e59"
+    },
+    {
+      "path": "ozon_transport_probe.py",
+      "bytes": 2584,
+      "sha256": "2e198474a69c9d8345a8e0228b052417856eadbf1c561923098be6221d2e411c"
+    },
+    {
+      "path": "ozon_watch.py",
+      "bytes": 5685,
+      "sha256": "1a3eb0138d234ee6309636d2cd878cc9393c0f07d582ae5e6215b02c6355b720"
+    },
+    {
+      "path": "README.md",
+      "bytes": 5713,
+      "sha256": "73b983fa79bff3018a057aa8397fb7eac938b6268fb804f252979fbdb1b62109"
+    },
+    {
+      "path": "README_FAST.md",
+      "bytes": 14810,
+      "sha256": "48c369fd4911710c821520c737a402193e22695a5565945d163971d0b3a1c4ac"
+    },
+    {
+      "path": "README_HAR_RESULT.md",
+      "bytes": 8737,
+      "sha256": "de488e33ff68dea49fe7798000d2045ede55a986b437b23ce58b2d516e34787d"
+    },
+    {
+      "path": "README_LIVE_RESULT.md",
+      "bytes": 26046,
+      "sha256": "5923ce9ed71beb4b30b40d71d3a2791396fa928f9a15e334842de7e3a001be49"
+    },
+    {
+      "path": "README_OPTIMIZATION.md",
+      "bytes": 6005,
+      "sha256": "412016339b5339fd00a981fabc4a308072bfcc0a23baf44ee53149d7d10b7093"
+    },
+    {
+      "path": "README_REFRESH.md",
+      "bytes": 6653,
+      "sha256": "fd383dd1b60180b80d3e3e5c93f909a418d680cec1e4ea7a4493f56ce70aa7a8"
+    },
+    {
+      "path": "README_RUN.md",
+      "bytes": 33692,
+      "sha256": "046d2c5f7d4393ba3ace3b069254ef65a9fb420a382fbdea3bc6a2f081d0780d"
+    },
+    {
+      "path": "README_START_HERE.md",
+      "bytes": 9579,
+      "sha256": "c95ac8244eb46702ce34471d12345c882a10e85b828df6aeddc8b4546aac7e50"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 12,
+      "sha256": "1c4194a30e36d04790a59ecc799ab13d86113d34508837ba277dc528063839b0"
+    },
+    {
+      "path": "run_parser.py",
+      "bytes": 22404,
+      "sha256": "54eade5ba463b4f56382f0e101027f643e3ec7d0c9e3fd65b93568e5bb1bd086"
+    },
+    {
+      "path": "source_audit.json",
+      "bytes": 13412,
+      "sha256": "28cbf6990e58e0c34a92927ec212a17a6b55c2e98df8fa94b535eb047ad3998e"
+    },
+    {
+      "path": "standalone_configuration.json",
+      "bytes": 730,
+      "sha256": "a6473607a9fa5e86eac4ccd72ea1677c31f698a2505ac26837223bacf3bed85a"
+    },
+    {
+      "path": "start_chrome_for_parser.cmd",
+      "bytes": 601,
+      "sha256": "7ae334ef0a62d213ef20c75f4aae998cbfd110352d2239d99b7e2c97abb4cba9"
+    },
+    {
+      "path": "template.csv",
+      "bytes": 361,
+      "sha256": "9b7cb8318466f5bf76e13d80070fb94f6f0024fc4dbd2d02b3f9f069b3553520"
+    },
+    {
+      "path": "test_ozon_403_only_steps.py",
+      "bytes": 2375,
+      "sha256": "4c591ebb135e6dd613ef06efb5c47f214c3f172b88dadeadb06f7a8c94383ec6"
+    },
+    {
+      "path": "test_ozon_address_search.py",
+      "bytes": 9908,
+      "sha256": "a4f8cedcbf082f8479586e74c4222011cc4c2d572aa609a1194ad219d1448e53"
+    },
+    {
+      "path": "test_ozon_backfill_catalog_cache.py",
+      "bytes": 5151,
+      "sha256": "1bae2e6cdd5cde9063f09242ec84841c3332d0fc263d6df72136cec3fc12b945"
+    },
+    {
+      "path": "test_ozon_backoff.py",
+      "bytes": 25028,
+      "sha256": "6668cec6462b616bc326f12a8157b2cf008a95bc547b1e2bbe14bd8210d36716"
+    },
+    {
+      "path": "test_ozon_catalog_index.py",
+      "bytes": 19019,
+      "sha256": "b18056b6879ab5b2d32dbe53af04e16916beeccacd26504b839cd81463cf0c4a"
+    },
+    {
+      "path": "test_ozon_catalog_parallel.py",
+      "bytes": 4095,
+      "sha256": "14520821005dac1f6dcdb06bc1cbda0468a9505edc7a51e58bb21e46ab319a21"
+    },
+    {
+      "path": "test_ozon_catalog_scheduler.py",
+      "bytes": 8209,
+      "sha256": "7353a403fee871413e831517a556bee0c6dc796b3db25ebd50a21a1885c08505"
+    },
+    {
+      "path": "test_ozon_counter_repair.py",
+      "bytes": 2890,
+      "sha256": "10ce723f51f54421c51169e72d7e8cdaf6ff4fb58ffccde9967bbe50f3289326"
+    },
+    {
+      "path": "test_ozon_empty_category.py",
+      "bytes": 16054,
+      "sha256": "0cc35095509e8f5b7af0a3cfddca9da8e6ef3ff0e43feb0fdb3c83c09b7a396a"
+    },
+    {
+      "path": "test_ozon_fresh_fast.py",
+      "bytes": 13116,
+      "sha256": "972a889988d5da479848af848dcf49f396eef42e77038b124620694c0b3608a4"
+    },
+    {
+      "path": "test_ozon_full_deadline.py",
+      "bytes": 5296,
+      "sha256": "271cbbed4224c7f8bcec70beb7c858d3c95581c06439a4f9356c0a5014656281"
+    },
+    {
+      "path": "test_ozon_har_catalog.py",
+      "bytes": 9580,
+      "sha256": "30c1fecf5e967e78a3f6e079a80cdbe783b5b2a1c86e5509dba0c22e892ddc48"
+    },
+    {
+      "path": "test_ozon_historical_reference.py",
+      "bytes": 4626,
+      "sha256": "27b9e2efcb0edb8d76c8af5c93774b1c4b4f6ad609b8af8e0c8e885cc2f2a658"
+    },
+    {
+      "path": "test_ozon_house_backfill.py",
+      "bytes": 11673,
+      "sha256": "c3847664893195211098f37e6437f995b56e6a2ace33d995ed4d87fbb79673e4"
+    },
+    {
+      "path": "test_ozon_http_steps.py",
+      "bytes": 6236,
+      "sha256": "34cf582ebcfdef1865a3a91e94d56b38bcb72a66ff85580984f0aaa68ea9fbcd"
+    },
+    {
+      "path": "test_ozon_live_protocol.py",
+      "bytes": 23289,
+      "sha256": "910cd86bab5360ed80ecaafd9893a0215e7ab357ef32e5d566a6dd528c4283e8"
+    },
+    {
+      "path": "test_ozon_metadata_recovery.py",
+      "bytes": 4085,
+      "sha256": "8941d3f818c53f8ad87810e0a1a73e9c26979d6dd4998db6ad0a40cd3fde37fb"
+    },
+    {
+      "path": "test_ozon_metadata_strategy.py",
+      "bytes": 6202,
+      "sha256": "7b51a6dde1dfcdfaacaab6354348d05b32125bad60bababbf40bcbc1e5092790"
+    },
+    {
+      "path": "test_ozon_nutrition_precision.py",
+      "bytes": 2528,
+      "sha256": "3e440d76f36e3e2e39fc4342e3ae92a8996adecee9cbe76bf4fb75949568e599"
+    },
+    {
+      "path": "test_ozon_parallel.py",
+      "bytes": 6380,
+      "sha256": "f816853ff8c2f7c13afbd5cd7616d3ee18b453a4b754e48d365cf375b7ecc010"
+    },
+    {
+      "path": "test_ozon_parallel_chronology.py",
+      "bytes": 4706,
+      "sha256": "abe41bbec4a88e2badb8630c0f2961d7108ff1f38310c03a592f7457ea30162f"
+    },
+    {
+      "path": "test_ozon_preflight_selection.py",
+      "bytes": 3512,
+      "sha256": "8fc1dbebe6efe7b64811148cbdbd493a342c7e325004c49a47e2550e0471e2b0"
+    },
+    {
+      "path": "test_ozon_price_pool.py",
+      "bytes": 9995,
+      "sha256": "f42015a7021cd6ce4c233d164bc069df61de49631979652bd290adcf794b46f2"
+    },
+    {
+      "path": "test_ozon_product_prices.py",
+      "bytes": 11684,
+      "sha256": "227676f6484caf979cbc58e337d634246ac0cbbb4a440ebcfd2adc6a443c4bfd"
+    },
+    {
+      "path": "test_ozon_product_redirect.py",
+      "bytes": 4860,
+      "sha256": "0c1854d233adde2b12b5176ef4cd422b361b7d49ff28d3a68723efac5cb8127d"
+    },
+    {
+      "path": "test_ozon_refresh_model.py",
+      "bytes": 9805,
+      "sha256": "785e36564e28be7d32a783f4dafd424d0264405574d6d4d20b993042f6ccbb7f"
+    },
+    {
+      "path": "test_ozon_refresh_pool.py",
+      "bytes": 9995,
+      "sha256": "9b58d597730952eb3b7ed7245faa2f40465416538c5171638dd7f505ed06308e"
+    },
+    {
+      "path": "test_ozon_refresh_runner.py",
+      "bytes": 9144,
+      "sha256": "84e16c5a38f015aa7582b49a73961746eddc15defbba21713d3eec5adc9bfff1"
+    },
+    {
+      "path": "test_ozon_refresh_state.py",
+      "bytes": 8800,
+      "sha256": "3dbb63cd6cd149ee975cab320e87bd7e92d4461124ac129c088e6e4de3bd4a8d"
+    },
+    {
+      "path": "test_ozon_status.py",
+      "bytes": 5893,
+      "sha256": "9e242fe78063a4302671d68c8e644010cfabcfc2b535bedf6e61912f45421975"
+    },
+    {
+      "path": "test_ozon_transport_probe.py",
+      "bytes": 2704,
+      "sha256": "8d902105702f993c0137a3859a4a68d855ba9d5616dfddaa448829a7330e3c1f"
+    },
+    {
+      "path": "test_ozon_user_run.py",
+      "bytes": 5721,
+      "sha256": "19f1d784a5f8c07bfce328ccb3b6e10e77e8ee3bf694ec973a2eb04b6b32554f"
+    },
+    {
+      "path": "test_ozon_watch.py",
+      "bytes": 3004,
+      "sha256": "5cd5cdffbd88da5967f6d52f095b3a9b735ae6217e7f23091c7b178d029db664"
+    },
+    {
+      "path": "testdata/actual_403_challenge_url_20261030.json",
+      "bytes": 391,
+      "sha256": "9514c0d6628a5f3f415a9dd85cc3a728d14005bd55ebcfc50ccc3fe7bfe478fc"
+    },
+    {
+      "path": "testdata/actual_empty_fresh_category.json",
+      "bytes": 5370,
+      "sha256": "83cb072a4d2a14be457d54f41f3609b8d56bb1ad185d65d4ffd65c27ba3e1ed5"
+    },
+    {
+      "path": "testdata/actual_house_search_20261028.json",
+      "bytes": 68060,
+      "sha256": "e360f0f4d10d68a7e093232a330eb6543513f563c10b4ef03e635b3ffdd59af8"
+    },
+    {
+      "path": "testdata/actual_prospekt_header_20261028.json",
+      "bytes": 900,
+      "sha256": "61f08766a4a93b345b5b68be106522d4424b0987451c8a5fd3450d2dfe93966d"
+    },
+    {
+      "path": "testdata/actual_red_guard_address.json",
+      "bytes": 529,
+      "sha256": "0cdfa68ae6008f50d544a4381194562eb2daefccdf77aea639f86902fa18f885"
+    },
+    {
+      "path": "testdata/actual_separator_continuation_20261028.json",
+      "bytes": 6463,
+      "sha256": "dab4435c71162053158349d17bbf3a8404dcfd7499978faa66031932a4a8c815"
+    },
+    {
+      "path": "testdata/amount_product.json",
+      "bytes": 21999,
+      "sha256": "b24fb5f2c41f39ce49789aafbbe71a641fae35985ae7074a9e49192879cf506e"
+    },
+    {
+      "path": "testdata/count_unit_tile.json",
+      "bytes": 8581,
+      "sha256": "119dd84a4f50ff40980c3249b04a502488cc950d1c4a65676c13ce10d5bd88df"
+    },
+    {
+      "path": "testdata/count_word_products.json",
+      "bytes": 72652,
+      "sha256": "a2c02b612077462ca66188f5fbde00b082031db4f275dc365e613d550adda7ba"
+    },
+    {
+      "path": "testdata/current_product_price.json",
+      "bytes": 1383,
+      "sha256": "502de7b8b5322b7ef276c95c1eca03c3782554e27abdd4cbab67db69a39ed0b9"
+    },
+    {
+      "path": "testdata/failed_amount_tile.json",
+      "bytes": 5803,
+      "sha256": "604c7392c3462b8ffedc353d363cbae1207f61727febcb3908a5b665faed2a73"
+    },
+    {
+      "path": "testdata/legacy_product_price.json",
+      "bytes": 464,
+      "sha256": "61f99b428108bdda7511ac40cf587c8baf4a54306c6e18fe2ddc2781c8f54452"
+    },
+    {
+      "path": "testdata/live_address_protocol.json",
+      "bytes": 4664,
+      "sha256": "4f745e25bc1155402d7f3f4aaabb997fcc6162f7e5e6365a81f2ab980d20d630"
+    },
+    {
+      "path": "testdata/public_tiles.json",
+      "bytes": 20945,
+      "sha256": "22622a5e17172292f4e8caab75e0c439fb13de7092ec72b7c3b1ef885182f6da"
+    },
+    {
+      "path": "testdata/quarantine_set_product.json",
+      "bytes": 26390,
+      "sha256": "b081b4c625c8d1696b9485da8d26a65c15e8401e215c2c750ebc01dc330b694f"
+    },
+    {
+      "path": "testdata/unit_price_tile.json",
+      "bytes": 6740,
+      "sha256": "26efcbae08bfbed4b55f357069f947e14aec46a4423234ddaf884844fb8acdac"
+    },
+    {
+      "path": "testdata/weighted_product_price.json",
+      "bytes": 1297,
+      "sha256": "70b8a42419210de523270e7fe2d4b7a6647db7975c33bcc231b854a195cdd229"
+    },
+    {
+      "path": "validation/all_test_results.txt",
+      "bytes": 2832,
+      "sha256": "d14632fd34efe0a822c2970ebc074f71f03871ec275b0d25dda8de40b376e12b"
+    },
+    {
+      "path": "validation/optimization_benchmark.json",
+      "bytes": 1245,
+      "sha256": "6eef4d689fcec0fce462bbb5b43e221c717fe2d146d6f15f8336676003e0266f"
+    },
+    {
+      "path": "validation/ozon_by_house.coverage.json",
+      "bytes": 867,
+      "sha256": "85309b4b824c7af04b97aea6a9cde19b1a6ebd6538cddfd9b43950229d51dffe"
+    },
+    {
+      "path": "validation/refresh_validation.json",
+      "bytes": 407,
+      "sha256": "266f0c4b4699c11cb345dde731cb4ce8162ecfe7c6fa2612ec1a5a50a62c6726"
+    }
+  ],
+  "data_archives_proposed": [
+    {
+      "source": "C:\\Users\\maxik\\PycharmProjects\\PythonProject\\fresh_fast\\results\\full_shared_20261018_111443\\snapshot.sqlite",
+      "name": "snapshot.sqlite",
+      "bytes": 6775279616,
+      "publication": "Separate data archive; not copied or uploaded; SQLite backup required before packaging"
+    },
+    {
+      "source": "C:\\Users\\maxik\\PycharmProjects\\PythonProject\\fresh_fast\\results\\full_shared_20261018_111443\\ozon_fresh.csv",
+      "name": "ozon_fresh.csv",
+      "bytes": 2928652595,
+      "publication": "Separate data archive; not copied or uploaded; SQLite backup required before packaging"
+    },
+    {
+      "source": "C:\\Users\\maxik\\Documents\\Codex\\2026-10-25\\new-chat-2\\outputs\\ozon_compact\\ozon_by_house.csv",
+      "name": "ozon_by_house.csv",
+      "bytes": 1095068447,
+      "publication": "Separate data archive; not copied or uploaded; SQLite backup required before packaging"
+    },
+    {
+      "source": "C:\\Users\\maxik\\Documents\\Codex\\2026-10-17\\ghbd\\work\\product_metadata_backfill.sqlite",
+      "name": "product_metadata_backfill.sqlite",
+      "bytes": 51372032,
+      "publication": "Separate data archive; not copied or uploaded; SQLite backup required before packaging"
+    }
+  ],
+  "secret_scan": {
+    "scope": "High-confidence token and private-key patterns; not a guarantee",
+    "findings": []
+  },
+  "excluded": [
+    "Chrome profile, cookies, HAR, session authorization, runtime guards and signals",
+    "temporary directories, caches, duplicate backups, raw HTTP logs/responses",
+    "unrelated projects and personal files"
+  ],
+  "source_code_match": true
+}

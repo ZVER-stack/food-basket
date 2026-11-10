@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.venv/
+work/
+results/
+data/
+*.sqlite*
+*.db
+*.har
+*cookies*
+.env
+.env.*
+*.log

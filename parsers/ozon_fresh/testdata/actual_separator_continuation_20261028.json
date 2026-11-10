@@ -1,0 +1,94 @@
+{
+  "synthetic": false,
+  "source": "Minimal projection of saved parse failure at 2026-10-28 03:42:06; browser and user tokens omitted",
+  "category": {
+    "category_id": "9467000",
+    "name": "ПРОДУКТЫ > Вода, соки, напитки",
+    "url": "https://www.ozon.ru/category/supermarket-voda-soki-napitki-9467000/?miniapp=supermarket",
+    "scope": "food",
+    "verified_leaf": false,
+    "scope_verified_by": "food ancestry in captured Fresh menu",
+    "optimization": "one parent request tree replaces redundant requests for every menu leaf"
+  },
+  "zone": {
+    "h3_index": "8711aa701ffffff",
+    "lat": "55.863891",
+    "lon": "37.525336",
+    "address": "Москва, улица Ивана Сусанина, 2 к1",
+    "address_lat": "55.865238",
+    "address_lon": "37.528589",
+    "address_dist_m": "252",
+    "address_in_zone": "True",
+    "okrug": "САО",
+    "district": "район Западное Дегунино"
+  },
+  "request_url": "https://www.ozon.ru/category/supermarket-voda-soki-napitki-9467000/?layout_container=default&layout_page_index=55&miniapp=supermarket&page=55&paginator_token=3635012&search_page_state=RG4d2BcnDKk59Q1opOPmvNE-6SWOc1WazerhF7ClL_BMudGUDF1lAEWetC084THzn0nlrRgCZOkF_uV7czij-qepIjJvclXzK_TWzkMeh3oMn491XmvTC4NJRWqbTUYWj7kWqvA%3D&start_page_id=3360dfa8a9d039d06e615eff65d7d854",
+  "previous_url": "https://www.ozon.ru/category/supermarket-voda-soki-napitki-9467000/?layout_container=default&layout_page_index=54&miniapp=supermarket&page=54&paginator_token=3635012&search_page_state=C_fXJBboNKT7fJ0ANuoLSw9gj0tgX7cNervGeo2o2ftb3dQhY9YaY81jwKMm0559-i_ZLgxvWZHbaG1s24hbp45EdS47EgRqJhTY4w3nIbSogc5F2Iq3s606fWH2NWPge-WUbC8%3D&start_page_id=3360dfa8a9d039d06e615eff65d7d854",
+  "previous_next": "/category/supermarket-voda-soki-napitki-9467000/?layout_container=default&layout_page_index=55&miniapp=supermarket&page=55&paginator_token=3635012&search_page_state=RG4d2BcnDKk59Q1opOPmvNE-6SWOc1WazerhF7ClL_BMudGUDF1lAEWetC084THzn0nlrRgCZOkF_uV7czij-qepIjJvclXzK_TWzkMeh3oMn491XmvTC4NJRWqbTUYWj7kWqvA%3D&start_page_id=3360dfa8a9d039d06e615eff65d7d854",
+  "previous_row": {
+    "product_id": "686577014",
+    "name": "Кофе молотый Poetti Leggenda Original, 250 г",
+    "price": "479",
+    "price_regular": "967",
+    "price_card": "489",
+    "discount_percent": "49",
+    "amount": "250 г",
+    "unit_price": null,
+    "unit_price_basis": null,
+    "in_stock": "true",
+    "rating": "4.9",
+    "reviews_count": "170596",
+    "image_url": "https://ir.ozone.ru/s3/multimedia-1-y/9180015226.jpg",
+    "url": "https://www.ozon.ru/product/kofe-molotyy-poetti-leggenda-original-250-g-686577014/",
+    "labels": "",
+    "delivery_eta_min": null,
+    "extra": "{\"price_style\": \"CARD_PRICE\", \"fresh_action_verified\": true, \"delivery_schema\": \"131\", \"catalog_quote_observed_at\": \"2026-10-28 03:41:50.069479\", \"catalog_quote\": {\"name\": \"кофе молотый poetti leggenda original, 250 г\", \"amount\": \"250 г\", \"in_stock\": \"true\", \"price_style\": \"CARD_PRICE\", \"price\": null, \"price_regular\": \"967\", \"price_card\": \"489\", \"unit_price\": null, \"unit_price_basis\": null}, \"ordinary_price_origin\": {\"h3_index\": \"8711aa632ffffff\", \"parsed_at\": \"2026-10-18 11:49:45\", \"source\": \"product_webPrice\"}, \"ordinary_price_source\": \"matching_catalog_cache\", \"ordinary_price_verified_for_address\": false, \"ordinary_price_inferred\": true, \"inferred_price_fields\": [\"price\"], \"visible_price_fields_source\": \"current_address_catalog\", \"reused_product_prices\": {\"price\": \"479\", \"price_regular\": \"967\", \"price_card\": \"469\"}, \"price_cache_match\": \"SKU, name, amount, stock, style and all displayed catalog prices\", \"price_reused_from_h3\": \"8711aa632ffffff\", \"observation_received_at\": \"2026-10-28 03:41:50.069479\"}",
+    "category": "ПРОДУКТЫ > Вода, соки, напитки",
+    "parsed_at": "2026-10-28 03:41:50"
+  },
+  "response": {
+    "layout": [
+      {
+        "component": "separator",
+        "stateId": "separator-3669747-default-55",
+        "widgetTrackingInfo": "{\"name\":\"cms.separator\", \"vertical\":\"cms\", \"component\":\"separator\", \"version\":1, \"id\":3669747, \"revisionId\":4185617, \"provider\":\"cms-api\"}"
+      }
+    ],
+    "widgetStates": {
+      "separator-3669747-default-55": {
+        "height": 12
+      }
+    },
+    "pageInfo": {
+      "url": "/category/supermarket-voda-soki-napitki-9467000/?layout_container=default&layout_page_index=55&miniapp=supermarket&page=55&paginator_token=3635012&search_page_state=RG4d2BcnDKk59Q1opOPmvNE-6SWOc1WazerhF7ClL_BMudGUDF1lAEWetC084THzn0nlrRgCZOkF_uV7czij-qepIjJvclXzK_TWzkMeh3oMn491XmvTC4NJRWqbTUYWj7kWqvA%3D&start_page_id=3360dfa8a9d039d06e615eff65d7d854",
+      "layoutId": 149755,
+      "layoutVersion": 7,
+      "pageType": "category",
+      "pageTypeTracking": "category",
+      "analyticsInfo": {
+        "categoryId": 9467000
+      }
+    },
+    "layoutTrackingInfo": "{\"layoutId\":149755, \"layoutVersion\":7, \"pageType\":\"category\", \"layoutContainer\":\"default\", \"layoutPageIndex\":55, \"categoryId\":9467000, \"deviceType\":\"desktop\", \"platform\":\"site\", \"templateType\":\"desktop\", \"marketplaceId\":1, \"requestId\":\"02d3f4f855cfd94f8ac36248b2c23a1f\", \"miniapp\":\"supermarket\", \"userWwId\":1}",
+    "location": {
+      "current": {
+        "areaId": 2,
+        "areaType": 4,
+        "city": "Москва",
+        "country": "Россия",
+        "countryCode": "RUS",
+        "countryId": 1,
+        "fias": "0c5b2444-70a0-4932-980c-b4dc0d3f02b5",
+        "fullName": "Россия, Москва, улица Ивана Сусанина, 2 корпус 1",
+        "name": "Москва",
+        "timeZoneUtcname": "UTC+3",
+        "geoCoordinate": {
+          "latitude": 55.86524,
+          "longitude": 37.528587
+        },
+        "uid": "0c5b2444-70a0-4932-980c-b4dc0d3f02b5"
+      }
+    },
+    "nextPage": "/category/supermarket-voda-soki-napitki-9467000/?layout_container=default&layout_page_index=56&miniapp=supermarket&non_found=1&page=55&paginator_token=3635012&search_page_state=RG4d2BcnDKk59Q1opOPmvNE-6SWOc1WazerhF7ClL_BMudGUDF1lAEWetC084THzn0nlrRgCZOkF_uV7czij-qepIjJvclXzK_TWzkMeh3oMn491XmvTC4NJRWqbTUYWj7kWqvA%3D&sold_out_page=1&start_page_id=3360dfa8a9d039d06e615eff65d7d854"
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "synthetic": false,
+  "minimized": true,
+  "redactions": "Opaque pagination tokens and unrelated analytics removed",
+  "category": {
+    "category_id": "997771000",
+    "name": "ПРОДУКТЫ > Горячая еда Hot&fresh",
+    "url": "https://www.ozon.ru/category/goryachaya-eda-hot-fresh-997771000/?miniapp=supermarket",
+    "scope": "food",
+    "verified_leaf": false,
+    "scope_verified_by": "food ancestry in captured Fresh menu",
+    "optimization": "one parent request tree replaces redundant requests for every menu leaf"
+  },
+  "zone": {
+    "h3_index": "8711aa781ffffff",
+    "lat": "55.723297",
+    "lon": "37.624589",
+    "address": "Москва, Большая Серпуховская улица, 40 с2",
+    "address_lat": "55.723289",
+    "address_lon": "37.62565",
+    "address_dist_m": "67",
+    "address_in_zone": "True",
+    "okrug": "ЦАО",
+    "district": "район Замоскворечье"
+  },
+  "response": {
+    "layout": [
+      {
+        "component": "addressBookBarWeb",
+        "stateId": "addressBookBarWeb-7278510-default-1",
+        "widgetTrackingInfo": {
+          "name": "addressBookMap.addressBookBarWeb"
+        }
+      },
+      {
+        "component": "separator",
+        "stateId": "separator-244418-default-1",
+        "widgetTrackingInfo": {
+          "name": "cms.separator"
+        }
+      },
+      {
+        "component": "statusWidget",
+        "stateId": "statusWidget-5644427-default-1",
+        "widgetTrackingInfo": {
+          "name": "catalog.searchEmptyState"
+        }
+      },
+      {
+        "component": "infiniteVirtualPaginator",
+        "stateId": "infiniteVirtualPaginator-3618992-default-1",
+        "widgetTrackingInfo": {
+          "name": "composer.paginator"
+        }
+      },
+      {
+        "component": "separator",
+        "stateId": "separator-1404200-default-1",
+        "widgetTrackingInfo": {
+          "name": "cms.separator"
+        }
+      }
+    ],
+    "widgetStates": {
+      "addressBookBarWeb-7278510-default-1": {
+        "customCell": {
+          "actionMode": "common",
+          "cells": [
+            {
+              "text": {
+                "text": "Большая Серпуховская ул., 40 стр. 2"
+              }
+            }
+          ]
+        }
+      },
+      "separator-244418-default-1": {
+        "height": 24
+      },
+      "statusWidget-5644427-default-1": {
+        "titleAtom": {
+          "text": "Ничего не нашлось",
+          "testInfo": {
+            "automatizationId": "not-found-title"
+          }
+        },
+        "messageAtom": {
+          "text": "Возможно, запрос слишком сложный <br/>или&nbsp;товар не&nbsp;доставляется на&nbsp;указанный адрес",
+          "testInfo": {
+            "automatizationId": "not-found-message"
+          }
+        },
+        "newButtons": [
+          {
+            "common": {
+              "action": {
+                "behavior": "BEHAVIOR_TYPE_REDIRECT",
+                "link": "/category/supermarket-25000/?miniapp=supermarket"
+              },
+              "testInfo": {
+                "automatizationId": "redirect-to-brand-seller-fresh-button"
+              }
+            }
+          }
+        ]
+      },
+      "infiniteVirtualPaginator-3618992-default-1": {
+        "prevPage": "/category/goryachaya-eda-hot-fresh-997771000/?miniapp=supermarket&non_found=1&page=2&paginator_token=REDACTED&search_page_state=REDACTED&sold_out_page=1&start_page_id=REDACTED",
+        "nextPage": "/category/goryachaya-eda-hot-fresh-997771000/?layout_page_index=2&miniapp=supermarket&non_found=1&page=2&paginator_token=REDACTED&search_page_state=REDACTED&sold_out_page=1&start_page_id=REDACTED"
+      },
+      "separator-1404200-default-1": {
+        "height": 10
+      }
+    },
+    "pageInfo": {
+      "url": "/category/goryachaya-eda-hot-fresh-997771000/?miniapp=supermarket",
+      "pageType": "category",
+      "analyticsInfo": {
+        "categoryId": 997771000
+      }
+    },
+    "nextPage": "/category/goryachaya-eda-hot-fresh-997771000/?layout_container=default&layout_page_index=2&miniapp=supermarket&non_found=1&page=2&search_page_state=REDACTED&sold_out_page=1"
+  },
+  "continuation_url": "/category/goryachaya-eda-hot-fresh-997771000/?layout_container=default&layout_page_index=2&miniapp=supermarket&non_found=1&page=2&search_page_state=REDACTED&sold_out_page=1",
+  "tail": {
+    "widgetStates": {},
+    "pageInfo": {
+      "url": "/category/goryachaya-eda-hot-fresh-997771000/?layout_container=default&layout_page_index=2&miniapp=supermarket&non_found=1&page=2&search_page_state=REDACTED&sold_out_page=1",
+      "pageType": "category",
+      "analyticsInfo": {
+        "categoryId": 997771000
+      },
+      "layoutId": 3474,
+      "layoutVersion": 43
+    },
+    "layoutTrackingInfo": {
+      "layoutId": 3474,
+      "layoutVersion": 43,
+      "pageType": "category",
+      "layoutContainer": "default",
+      "layoutPageIndex": 2,
+      "categoryId": 997771000,
+      "miniapp": "supermarket"
+    },
+    "location": {
+      "current": {
+        "geoCoordinate": {
+          "latitude": 55.72329,
+          "longitude": 37.62565
+        }
+      }
+    }
+  }
+}

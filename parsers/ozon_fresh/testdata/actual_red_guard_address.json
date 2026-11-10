@@ -1,0 +1,26 @@
+{
+  "synthetic": false,
+  "captured_at": "2026-10-19 22:06:13",
+  "location": {
+    "current": {
+      "geoCoordinate": {
+        "latitude": 55.74937,
+        "longitude": 37.534073
+      }
+    }
+  },
+  "widgetStates": {
+    "addressBookBarWeb-actual": {
+      "customCell": {
+        "actionMode": "common",
+        "cells": [
+          {
+            "text": {
+              "text": "1-й Красногвардейский пр-д, 21 стр. 2"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,663 @@
+{
+  "synthetic": false,
+  "data": {
+    "widgetStates": {
+      "webAddToCart-13432895-default-1": {
+        "firstButton": {
+          "isInCart": false,
+          "toCart": {
+            "backgroundColor": "bgFreshPrimary",
+            "cornerRadius": "RADIUS_500",
+            "title": {
+              "text": "В корзину",
+              "textColor": "textLightKey",
+              "textAlignment": "CENTER",
+              "preset": "PRESET_CUSTOM",
+              "typographyToken": "tsBodyControl500Medium",
+              "testInfo": {
+                "automatizationId": "pdp-add-to-cart-title"
+              }
+            },
+            "action": {
+              "behavior": "BEHAVIOR_TYPE_CUSTOM",
+              "id": "addToCart",
+              "params": {
+                "selectedDeliverySchema": "131",
+                "sku": "3250518930"
+              }
+            },
+            "asyncFetchType": "SUBTITLE",
+            "buttonHoverColor": "bgActiveFreshPrimary",
+            "testInfo": {
+              "automatizationId": "saleblock-add-to-cart-button-express"
+            }
+          },
+          "inCart": {
+            "backgroundColor": "bgPositivePrimary",
+            "cornerRadius": "RADIUS_500",
+            "title": {
+              "text": "В корзине",
+              "textColor": "textLightKey",
+              "textAlignment": "CENTER",
+              "preset": "PRESET_CUSTOM",
+              "typographyToken": "tsBodyControl500Medium",
+              "testInfo": {
+                "automatizationId": "pdp-add-in-cart-title"
+              }
+            },
+            "subtitle": {
+              "text": "Перейти",
+              "textColor": "textPrimaryOnDark",
+              "textAlignment": "CENTER",
+              "preset": "PRESET_CUSTOM",
+              "typographyToken": "tsCompact400Small",
+              "testInfo": {
+                "automatizationId": "pdp-add-in-cart-subtitle"
+              }
+            },
+            "action": {
+              "behavior": "BEHAVIOR_TYPE_REDIRECT",
+              "link": "/cart",
+              "id": "toCheckout",
+              "params": {
+                "selectedDeliverySchema": "131",
+                "sku": "3250518930"
+              }
+            },
+            "asyncFetchType": "SUBTITLE",
+            "buttonHoverColor": "bgActivePositivePrimary",
+            "testInfo": {
+              "automatizationId": "button-go-to-cart"
+            }
+          },
+          "additionalButton": {
+            "incrementButton": {
+              "action": {
+                "params": {
+                  "selectedDeliverySchema": "131",
+                  "sku": "3250518930"
+                }
+              }
+            },
+            "decrementButton": {
+              "action": {
+                "params": {
+                  "selectedDeliverySchema": "131",
+                  "sku": "3250518930"
+                }
+              }
+            },
+            "countPicker": {
+              "size": "SIZE_600",
+              "sizing": "SIZING_HUG",
+              "styleType": "CUSTOM",
+              "customStyle": {
+                "backgroundColor": "bgSecondary"
+              }
+            }
+          },
+          "sku": "3250518930",
+          "deliverySchema": "131",
+          "freeRest": 37,
+          "minAddToCartQuantity": 1,
+          "inCartQuantity": 0
+        },
+        "secondButton": {
+          "isInCart": false,
+          "toCart": {
+            "backgroundColor": "bgActionPrimary",
+            "cornerRadius": "RADIUS_500",
+            "title": {
+              "text": "В корзину",
+              "textColor": "textLightKey",
+              "textAlignment": "CENTER",
+              "preset": "PRESET_CUSTOM",
+              "typographyToken": "tsBodyControl500Medium",
+              "testInfo": {
+                "automatizationId": "pdp-add-to-cart-title"
+              }
+            },
+            "action": {
+              "behavior": "BEHAVIOR_TYPE_CUSTOM",
+              "id": "addToCart",
+              "params": {
+                "sku": "3250518930"
+              }
+            },
+            "asyncFetchType": "SUBTITLE",
+            "buttonHoverColor": "bgActiveActionPrimary",
+            "testInfo": {
+              "automatizationId": "saleblock-add-to-cart-button"
+            }
+          },
+          "inCart": {
+            "backgroundColor": "bgPositivePrimary",
+            "cornerRadius": "RADIUS_500",
+            "title": {
+              "text": "В корзине",
+              "textColor": "textLightKey",
+              "textAlignment": "CENTER",
+              "preset": "PRESET_CUSTOM",
+              "typographyToken": "tsBodyControl500Medium",
+              "testInfo": {
+                "automatizationId": "pdp-add-in-cart-title"
+              }
+            },
+            "subtitle": {
+              "text": "Перейти",
+              "textColor": "textPrimaryOnDark",
+              "textAlignment": "CENTER",
+              "preset": "PRESET_CUSTOM",
+              "typographyToken": "tsCompact400Small",
+              "testInfo": {
+                "automatizationId": "pdp-add-in-cart-subtitle"
+              }
+            },
+            "action": {
+              "behavior": "BEHAVIOR_TYPE_REDIRECT",
+              "link": "/cart",
+              "id": "toCheckout",
+              "params": {
+                "sku": "3250518930"
+              }
+            },
+            "asyncFetchType": "SUBTITLE",
+            "buttonHoverColor": "bgActivePositivePrimary",
+            "testInfo": {
+              "automatizationId": "button-go-to-cart"
+            }
+          },
+          "additionalButton": {
+            "incrementButton": {
+              "action": {
+                "params": {
+                  "sku": "3250518930"
+                }
+              }
+            },
+            "decrementButton": {
+              "action": {
+                "params": {
+                  "sku": "3250518930"
+                }
+              }
+            },
+            "countPicker": {
+              "size": "SIZE_600",
+              "sizing": "SIZING_HUG",
+              "styleType": "CUSTOM",
+              "customStyle": {
+                "backgroundColor": "bgSecondary"
+              }
+            }
+          },
+          "sku": "3250518930",
+          "freeRest": 800,
+          "minAddToCartQuantity": 1,
+          "inCartQuantity": 0
+        },
+        "asyncAction": {
+          "behavior": "BEHAVIOR_TYPE_CUSTOM",
+          "link": "pdpGetButtonTexts",
+          "id": "asyncDatesRequest",
+          "params": {
+            "enableProductViewedExtended": "true",
+            "inCartPosition": "subtitle",
+            "pageType": "pdp",
+            "referer": "https://www.ozon.ru/product/moloko-parmalat-protein-s-kollagenom-1-l-2952307571/?abt_att=1&sh=xzqu8syAPw",
+            "toCartPosition": "subtitle"
+          }
+        },
+        "webData": {
+          "tooltipTextOutOfFreeRest": {
+            "text": "В наличии больше нет",
+            "textColor": "textPrimaryOnDark",
+            "typographyToken": "tsBody400Small"
+          }
+        }
+      },
+      "webShortCharacteristics-3385952-default-1": {
+        "titleRs": [
+          {
+            "type": "text",
+            "content": "О товаре",
+            "font": "tsHeadline500Medium",
+            "color": "textPrimary"
+          }
+        ],
+        "goTo": {
+          "text": "Перейти к описанию",
+          "styleType": "NEUTRAL_PRIMARY",
+          "common": {
+            "action": {
+              "behavior": "BEHAVIOR_TYPE_SCROLL_TO_WIDGET",
+              "link": "section-description",
+              "params": {
+                "offsetTop": "144"
+              }
+            }
+          }
+        },
+        "characteristics": [
+          {
+            "id": "Type_0",
+            "title": {
+              "textRs": [
+                {
+                  "type": "text",
+                  "content": "Тип",
+                  "font": "tsBodyM",
+                  "color": "textSecondary"
+                }
+              ]
+            },
+            "values": [
+              {
+                "id": "Type_0",
+                "text": "Конфеты",
+                "textColor": "textPrimary",
+                "textStyle": "tsBody400Small"
+              }
+            ]
+          },
+          {
+            "id": "KindCandy_1",
+            "title": {
+              "textRs": [
+                {
+                  "type": "text",
+                  "content": "Вид конфет",
+                  "font": "tsBodyM",
+                  "color": "textSecondary"
+                }
+              ]
+            },
+            "values": [
+              {
+                "id": "KindCandy_0",
+                "text": "Жевательные",
+                "textColor": "textPrimary",
+                "textStyle": "tsBody400Small"
+              }
+            ]
+          },
+          {
+            "id": "Weight_2",
+            "title": {
+              "textRs": [
+                {
+                  "type": "text",
+                  "content": "Вес товара, г",
+                  "font": "tsBodyM",
+                  "color": "textSecondary"
+                }
+              ]
+            },
+            "values": [
+              {
+                "id": "Weight_0",
+                "text": "35",
+                "textColor": "textPrimary",
+                "textStyle": "tsBody400Small"
+              }
+            ]
+          },
+          {
+            "id": "ServiceMinTemperature_3",
+            "title": {
+              "textRs": [
+                {
+                  "type": "text",
+                  "content": "Минимальная температура",
+                  "font": "tsBodyM",
+                  "color": "textSecondary"
+                }
+              ]
+            },
+            "values": [
+              {
+                "id": "ServiceMinTemperature_0",
+                "text": "5",
+                "textColor": "textPrimary",
+                "textStyle": "tsBody400Small"
+              }
+            ]
+          },
+          {
+            "id": "ServiceMaxTemperature_4",
+            "title": {
+              "textRs": [
+                {
+                  "type": "text",
+                  "content": "Максимальная температура",
+                  "font": "tsBodyM",
+                  "color": "textSecondary"
+                }
+              ]
+            },
+            "values": [
+              {
+                "id": "ServiceMaxTemperature_0",
+                "text": "25",
+                "textColor": "textPrimary",
+                "textStyle": "tsBody400Small"
+              }
+            ]
+          }
+        ],
+        "params": {
+          "anchor": "",
+          "disablePaidBrand": false,
+          "isFreshColorsEnabled": true,
+          "isWidgetCharacteristicsOnPage": true,
+          "isWidgetDescriptionOnPage": true,
+          "limit": 5,
+          "linkToCharacteristics": "section-characteristics",
+          "linkToCharacteristicsButtonText": "Перейти к характеристикам",
+          "linkToDescription": "section-description",
+          "linkToDescriptionButtonText": "Перейти к описанию",
+          "linkToExternal": "",
+          "linkToExternalText": "Подробнее",
+          "offsetScrol": 144,
+          "paramsLinkTarget": "self",
+          "showLongCharacteristics": true,
+          "thresholdLength": 60
+        }
+      },
+      "webAddToCart-8707205-default-1": {
+        "firstButton": {
+          "isInCart": false,
+          "toCart": {
+            "backgroundColor": "bgFreshPrimary",
+            "cornerRadius": "RADIUS_500",
+            "title": {
+              "text": "В корзину",
+              "textColor": "textLightKey",
+              "textAlignment": "CENTER",
+              "preset": "PRESET_CUSTOM",
+              "typographyToken": "tsBodyControl500Medium",
+              "testInfo": {
+                "automatizationId": "pdp-add-to-cart-title"
+              }
+            },
+            "action": {
+              "behavior": "BEHAVIOR_TYPE_CUSTOM",
+              "id": "addToCart",
+              "params": {
+                "selectedDeliverySchema": "131",
+                "sku": "3250518930"
+              }
+            },
+            "asyncFetchType": "SUBTITLE",
+            "buttonHoverColor": "bgActiveFreshPrimary",
+            "testInfo": {
+              "automatizationId": "saleblock-add-to-cart-button-express"
+            }
+          },
+          "inCart": {
+            "backgroundColor": "bgPositivePrimary",
+            "cornerRadius": "RADIUS_500",
+            "title": {
+              "text": "В корзине",
+              "textColor": "textLightKey",
+              "textAlignment": "CENTER",
+              "preset": "PRESET_CUSTOM",
+              "typographyToken": "tsBodyControl500Medium",
+              "testInfo": {
+                "automatizationId": "pdp-add-in-cart-title"
+              }
+            },
+            "subtitle": {
+              "text": "Перейти",
+              "textColor": "textPrimaryOnDark",
+              "textAlignment": "CENTER",
+              "preset": "PRESET_CUSTOM",
+              "typographyToken": "tsCompact400Small",
+              "testInfo": {
+                "automatizationId": "pdp-add-in-cart-subtitle"
+              }
+            },
+            "action": {
+              "behavior": "BEHAVIOR_TYPE_REDIRECT",
+              "link": "/cart",
+              "id": "toCheckout",
+              "params": {
+                "selectedDeliverySchema": "131",
+                "sku": "3250518930"
+              }
+            },
+            "asyncFetchType": "SUBTITLE",
+            "buttonHoverColor": "bgActivePositivePrimary",
+            "testInfo": {
+              "automatizationId": "button-go-to-cart"
+            }
+          },
+          "additionalButton": {
+            "incrementButton": {
+              "action": {
+                "params": {
+                  "selectedDeliverySchema": "131",
+                  "sku": "3250518930"
+                }
+              }
+            },
+            "decrementButton": {
+              "action": {
+                "params": {
+                  "selectedDeliverySchema": "131",
+                  "sku": "3250518930"
+                }
+              }
+            },
+            "countPicker": {
+              "size": "SIZE_600",
+              "sizing": "SIZING_HUG",
+              "styleType": "CUSTOM",
+              "customStyle": {
+                "backgroundColor": "bgSecondary"
+              }
+            }
+          },
+          "sku": "3250518930",
+          "deliverySchema": "131",
+          "freeRest": 37,
+          "minAddToCartQuantity": 1,
+          "inCartQuantity": 0
+        },
+        "secondButton": {
+          "isInCart": false,
+          "toCart": {
+            "backgroundColor": "bgActionPrimary",
+            "cornerRadius": "RADIUS_500",
+            "title": {
+              "text": "В корзину",
+              "textColor": "textLightKey",
+              "textAlignment": "CENTER",
+              "preset": "PRESET_CUSTOM",
+              "typographyToken": "tsBodyControl500Medium",
+              "testInfo": {
+                "automatizationId": "pdp-add-to-cart-title"
+              }
+            },
+            "action": {
+              "behavior": "BEHAVIOR_TYPE_CUSTOM",
+              "id": "addToCart",
+              "params": {
+                "sku": "3250518930"
+              }
+            },
+            "asyncFetchType": "SUBTITLE",
+            "buttonHoverColor": "bgActiveActionPrimary",
+            "testInfo": {
+              "automatizationId": "saleblock-add-to-cart-button"
+            }
+          },
+          "inCart": {
+            "backgroundColor": "bgPositivePrimary",
+            "cornerRadius": "RADIUS_500",
+            "title": {
+              "text": "В корзине",
+              "textColor": "textLightKey",
+              "textAlignment": "CENTER",
+              "preset": "PRESET_CUSTOM",
+              "typographyToken": "tsBodyControl500Medium",
+              "testInfo": {
+                "automatizationId": "pdp-add-in-cart-title"
+              }
+            },
+            "subtitle": {
+              "text": "Перейти",
+              "textColor": "textPrimaryOnDark",
+              "textAlignment": "CENTER",
+              "preset": "PRESET_CUSTOM",
+              "typographyToken": "tsCompact400Small",
+              "testInfo": {
+                "automatizationId": "pdp-add-in-cart-subtitle"
+              }
+            },
+            "action": {
+              "behavior": "BEHAVIOR_TYPE_REDIRECT",
+              "link": "/cart",
+              "id": "toCheckout",
+              "params": {
+                "sku": "3250518930"
+              }
+            },
+            "asyncFetchType": "SUBTITLE",
+            "buttonHoverColor": "bgActivePositivePrimary",
+            "testInfo": {
+              "automatizationId": "button-go-to-cart"
+            }
+          },
+          "additionalButton": {
+            "incrementButton": {
+              "action": {
+                "params": {
+                  "sku": "3250518930"
+                }
+              }
+            },
+            "decrementButton": {
+              "action": {
+                "params": {
+                  "sku": "3250518930"
+                }
+              }
+            },
+            "countPicker": {
+              "size": "SIZE_600",
+              "sizing": "SIZING_HUG",
+              "styleType": "CUSTOM",
+              "customStyle": {
+                "backgroundColor": "bgSecondary"
+              }
+            }
+          },
+          "sku": "3250518930",
+          "freeRest": 800,
+          "minAddToCartQuantity": 1,
+          "inCartQuantity": 0
+        },
+        "asyncAction": {
+          "behavior": "BEHAVIOR_TYPE_CUSTOM",
+          "link": "pdpGetButtonTexts",
+          "id": "asyncDatesRequest",
+          "params": {
+            "inCartPosition": "subtitle",
+            "pageType": "pdp",
+            "referer": "https://www.ozon.ru/product/moloko-parmalat-protein-s-kollagenom-1-l-2952307571/?abt_att=1&sh=xzqu8syAPw",
+            "toCartPosition": "subtitle"
+          }
+        },
+        "webData": {
+          "tooltipTextOutOfFreeRest": {
+            "text": "В наличии больше нет",
+            "textColor": "textPrimaryOnDark",
+            "typographyToken": "tsBody400Small"
+          }
+        }
+      },
+      "webProductHeading-3385933-default-1": {
+        "title": "Жевательные конфеты. Вкус кока-кола",
+        "rowCount": 3,
+        "lexemes": {
+          "showMore": "ещё"
+        },
+        "params": {
+          "rowsCount": 3
+        }
+      },
+      "webPrice-3121879-default-1": {
+        "isAvailable": true,
+        "cardPrice": "68 ₽",
+        "price": "69 ₽",
+        "showOriginalPrice": true,
+        "link": "/modal/pdpListOfBanks",
+        "lexemes": {
+          "currency": "Валюта",
+          "includeVatTextMobile": "Цена с НДС",
+          "moreText": "Подробнее",
+          "notRefundVatText": "НДС не возмещается",
+          "withOzonCard": "С банками",
+          "withoutOzonCard": "С другими банками",
+          "withoutVatText": "без НДС",
+          "withoutVatTextCapitalize": "Без НДС",
+          "withoutVatTextMobile": "Цена без НДС"
+        },
+        "trackingInfoOzonBank": {
+          "click": {
+            "actionType": "click",
+            "key": "1sCo1W3tptP2xjWr3LZvJTW-yCKWOzx2"
+          }
+        },
+        "colorBlockRightContent": {
+          "images": [
+            {
+              "image": "https://ir.ozone.ru/s3/payments-cdn/ozon-price-compact-new-ozon-light.png",
+              "aspectRatio": "RATIO_1_1",
+              "imageWidth": 23,
+              "cdnSettings": {
+                "size": 64
+              },
+              "fitType": "FIT_CENTER"
+            },
+            {
+              "image": "https://ir.ozone.ru/s3/payments-cdn/ozon_other_sovkombank_dark.png",
+              "aspectRatio": "RATIO_1_1",
+              "imageWidth": 20,
+              "cdnSettings": {
+                "size": 64
+              },
+              "fitType": "FIT_CENTER"
+            },
+            {
+              "image": "https://ir.ozone.ru/s3/payments-cdn/ozon_other_otp_light.png",
+              "aspectRatio": "RATIO_1_1",
+              "imageWidth": 20,
+              "cdnSettings": {
+                "size": 64
+              },
+              "fitType": "FIT_CENTER"
+            },
+            {
+              "image": "https://ir.ozone.ru/s3/payments-cdn/ozon_other_crediteurope_black.png",
+              "aspectRatio": "RATIO_1_1",
+              "imageWidth": 20,
+              "cdnSettings": {
+                "size": 64
+              },
+              "fitType": "FIT_CENTER"
+            }
+          ]
+        },
+        "params": {
+          "ladderPriceHide": false,
+          "showPpu": true,
+          "withOzonAccount": "/modal/withOzonAccount",
+          "withOzonAccountLegal": "/modal/OzoneAccountForLegal",
+          "withoutOzonAccount": "/modal/withoutOzonAccount"
+        }
+      }
+    }
+  }
+}

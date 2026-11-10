@@ -1,0 +1,712 @@
+{
+  "source": "User-provided anonymous HAR, actual tileGridDesktop response subset, 2026-10-17",
+  "synthetic": false,
+  "samples": {
+    "SALE_PRICE": {
+      "isAdult": false,
+      "mainState": [
+        {
+          "type": "priceV2",
+          "priceV2": {
+            "price": [
+              {
+                "text": "293 ₽",
+                "textStyle": "PRICE"
+              },
+              {
+                "text": "399 ₽",
+                "textStyle": "ORIGINAL_PRICE"
+              }
+            ],
+            "discount": "−26%",
+            "priceStyle": {
+              "styleType": "SALE_PRICE",
+              "gradient": {
+                "startColor": "#F1117E",
+                "endColor": "#F1117E"
+              }
+            },
+            "preset": "SIZE_500"
+          }
+        },
+        {
+          "type": "textDS",
+          "textDS": {
+            "text": "62 ед осталось",
+            "textColor": "textAccent",
+            "maxLines": 1,
+            "preset": "PRESET_CUSTOM",
+            "typographyToken": "tsBodyControl400Small",
+            "topPadding": "PADDING_100",
+            "bottomPadding": "PADDING_100",
+            "testInfo": {
+              "automatizationId": "tile-blackFridayStockbar"
+            }
+          }
+        },
+        {
+          "type": "labelListV2",
+          "labelListV2": {
+            "items": [
+              {
+                "type": "text",
+                "text": {
+                  "text": "500 г",
+                  "textColor": "textSecondary",
+                  "typographyToken": "tsBodyControl400Small"
+                }
+              },
+              {
+                "type": "text",
+                "text": {
+                  "text": "·",
+                  "textColor": "textPrimary",
+                  "typographyToken": "tsBodyControl400Small",
+                  "leftPadding": 4
+                }
+              },
+              {
+                "type": "text",
+                "text": {
+                  "text": "Ozon fresh",
+                  "textColor": "textPrimary",
+                  "typographyToken": "tsBodyControl400Small",
+                  "leftPadding": 4
+                }
+              }
+            ],
+            "verticalIndents": {
+              "top": 2,
+              "bottom": 2
+            },
+            "testInfo": {
+              "automatizationId": "tile-list-labels"
+            }
+          }
+        },
+        {
+          "type": "textDS",
+          "textDS": {
+            "text": "Чернослив без косточки 500 г, Ozon fresh",
+            "textColor": "textPrimary",
+            "maxLines": 2,
+            "preset": "PRESET_CUSTOM",
+            "typographyToken": "tsBody500Medium",
+            "testInfo": {
+              "automatizationId": "tile-name"
+            }
+          },
+          "id": "name"
+        },
+        {
+          "type": "labelListV2",
+          "labelListV2": {
+            "items": [
+              {
+                "type": "icon",
+                "icon": {
+                  "icon": {
+                    "icon": "ic_s_star_filled_compact",
+                    "tintColor": "graphicRating"
+                  },
+                  "leftPadding": -2
+                }
+              },
+              {
+                "type": "text",
+                "text": {
+                  "text": "4.8",
+                  "textColor": "textPremium",
+                  "leftPadding": 2
+                }
+              },
+              {
+                "type": "icon",
+                "icon": {
+                  "icon": {
+                    "icon": "ic_s_dialog_filled_compact",
+                    "tintColor": "graphicTertiary"
+                  },
+                  "leftPadding": 4
+                }
+              },
+              {
+                "type": "text",
+                "text": {
+                  "text": "11 211 отзывов",
+                  "textColor": "textSecondary",
+                  "leftPadding": 2
+                }
+              }
+            ],
+            "verticalIndents": {
+              "top": 2,
+              "bottom": 2
+            },
+            "testInfo": {
+              "automatizationId": "tile-list-rating"
+            }
+          }
+        }
+      ],
+      "multiButton": {
+        "expressButton": {
+          "type": "addToCart",
+          "addToCart": {
+            "skuId": "1928919936",
+            "actionButton": {
+              "common": {
+                "action": {
+                  "behavior": "BEHAVIOR_TYPE_CUSTOM",
+                  "id": "addToCart",
+                  "params": {
+                    "id": "1928919936",
+                    "quantity": "1",
+                    "selectedDeliverySchema": "131"
+                  }
+                },
+                "testInfo": {
+                  "automatizationId": "freshAddToCart"
+                }
+              },
+              "icon": "ic_s_grocery_cart_filled",
+              "title": "За 30 минут"
+            },
+            "quantityButton": {
+              "maxItems": 10,
+              "updateCartAction": {
+                "id": "1928919936",
+                "quantity": 1,
+                "selectedDeliverySchema": 131
+              },
+              "isManualInputAllowed": true
+            },
+            "theme": {
+              "styleWrapper": {
+                "style": "DEFAULT_FRESH"
+              }
+            },
+            "inCartQuantity": 0,
+            "extendMap": {
+              "qtyDiscountNotify": "true"
+            }
+          }
+        }
+      },
+      "action": {
+        "behavior": "BEHAVIOR_TYPE_REDIRECT",
+        "link": "/product/chernosliv-bez-kostochki-500-g-ozon-fresh-1928919936/",
+        "params": {
+          "target": "_blank"
+        }
+      },
+      "brandLogo": null,
+      "sku": 1928919936,
+      "tileImage": {
+        "items": [
+          {
+            "type": "image",
+            "image": {
+              "link": "https://ir.ozone.ru/s3/multimedia-1-l/9323013117.jpg",
+              "contentMode": "SCALE_ASPECT_FIT"
+            }
+          },
+          {
+            "type": "image",
+            "image": {
+              "link": "https://ir.ozone.ru/s3/multimedia-1-y/8279284246.jpg",
+              "contentMode": "SCALE_ASPECT_FIT"
+            }
+          },
+          {
+            "type": "image",
+            "image": {
+              "link": "https://ir.ozone.ru/s3/multimedia-1-2/8279284286.jpg",
+              "contentMode": "SCALE_ASPECT_FIT"
+            }
+          }
+        ],
+        "leftBottomBadgeV2": {
+          "text": "Распродажа",
+          "leftIcon": "ic_s_hot_filled_compact",
+          "size": "SIZE_500",
+          "styleType": "CUSTOM",
+          "common": {
+            "testInfo": {
+              "automatizationId": "badge-marketingSuperHigh"
+            }
+          },
+          "customBadgeStyle": {
+            "backgroundColor": {
+              "color": "#f1117eff"
+            },
+            "leftGraphicColor": "#ffffffff",
+            "textColor": "#ffffffff"
+          }
+        }
+      },
+      "topRightButtons": [
+        {
+          "type": "favoriteProductMoleculeV2",
+          "favoriteProductMoleculeV2": {
+            "id": "1928919936",
+            "isFav": false,
+            "favLink": "favoriteBatchAddItems",
+            "unfavLink": "favoriteBatchDeleteItems",
+            "testInfo": {
+              "favoriteButton": {
+                "automatizationId": "favorite-button"
+              },
+              "unFavoriteButton": {
+                "automatizationId": "unfavorite-button"
+              }
+            }
+          }
+        }
+      ],
+      "id": "1928919936"
+    },
+    "CARD_PRICE": {
+      "mainState": [
+        {
+          "type": "priceV2",
+          "priceV2": {
+            "price": [
+              {
+                "text": "399 ₽",
+                "textStyle": "PRICE"
+              },
+              {
+                "text": "631 ₽",
+                "textStyle": "ORIGINAL_PRICE"
+              }
+            ],
+            "discount": "−36%",
+            "priceStyle": {
+              "styleType": "CARD_PRICE"
+            },
+            "preset": "SIZE_500"
+          }
+        },
+        {
+          "type": "labelListV2",
+          "labelListV2": {
+            "items": [
+              {
+                "type": "text",
+                "text": {
+                  "text": "1000 г",
+                  "textColor": "textSecondary",
+                  "typographyToken": "tsBodyControl400Small"
+                }
+              },
+              {
+                "type": "text",
+                "text": {
+                  "text": "·",
+                  "textColor": "textPrimary",
+                  "typographyToken": "tsBodyControl400Small",
+                  "leftPadding": 4
+                }
+              },
+              {
+                "type": "text",
+                "text": {
+                  "text": "Ozon fresh",
+                  "textColor": "textPrimary",
+                  "typographyToken": "tsBodyControl400Small",
+                  "leftPadding": 4
+                }
+              }
+            ],
+            "verticalIndents": {
+              "top": 2,
+              "bottom": 2
+            },
+            "testInfo": {
+              "automatizationId": "tile-list-labels"
+            }
+          }
+        },
+        {
+          "type": "textDS",
+          "textDS": {
+            "text": "Арахис жареный соленый 1000 г, Ozon fresh",
+            "textColor": "textPrimary",
+            "maxLines": 2,
+            "preset": "PRESET_CUSTOM",
+            "typographyToken": "tsBody500Medium",
+            "testInfo": {
+              "automatizationId": "tile-name"
+            }
+          },
+          "id": "name"
+        },
+        {
+          "type": "labelListV2",
+          "labelListV2": {
+            "items": [
+              {
+                "type": "icon",
+                "icon": {
+                  "icon": {
+                    "icon": "ic_s_star_filled_compact",
+                    "tintColor": "graphicRating"
+                  },
+                  "leftPadding": -2
+                }
+              },
+              {
+                "type": "text",
+                "text": {
+                  "text": "4.9",
+                  "textColor": "textPremium",
+                  "leftPadding": 2
+                }
+              },
+              {
+                "type": "icon",
+                "icon": {
+                  "icon": {
+                    "icon": "ic_s_dialog_filled_compact",
+                    "tintColor": "graphicTertiary"
+                  },
+                  "leftPadding": 4
+                }
+              },
+              {
+                "type": "text",
+                "text": {
+                  "text": "11 723 отзыва",
+                  "textColor": "textSecondary",
+                  "leftPadding": 2
+                }
+              }
+            ],
+            "verticalIndents": {
+              "top": 2,
+              "bottom": 2
+            },
+            "testInfo": {
+              "automatizationId": "tile-list-rating"
+            }
+          }
+        }
+      ],
+      "action": {
+        "behavior": "BEHAVIOR_TYPE_REDIRECT",
+        "link": "/product/arahis-zharenyy-solenyy-1000-g-ozon-fresh-1928610102/",
+        "params": {
+          "target": "_blank"
+        }
+      },
+      "sku": 1928610102,
+      "topRightButtons": [
+        {
+          "type": "favoriteProductMoleculeV2",
+          "favoriteProductMoleculeV2": {
+            "id": "1928610102",
+            "isFav": false,
+            "favLink": "favoriteBatchAddItems",
+            "unfavLink": "favoriteBatchDeleteItems",
+            "testInfo": {
+              "favoriteButton": {
+                "automatizationId": "favorite-button"
+              },
+              "unFavoriteButton": {
+                "automatizationId": "unfavorite-button"
+              }
+            }
+          }
+        }
+      ],
+      "id": "1928610102",
+      "brandLogo": null,
+      "multiButton": {
+        "expressButton": {
+          "type": "addToCart",
+          "addToCart": {
+            "skuId": "1928610102",
+            "actionButton": {
+              "common": {
+                "action": {
+                  "behavior": "BEHAVIOR_TYPE_CUSTOM",
+                  "id": "addToCart",
+                  "params": {
+                    "id": "1928610102",
+                    "quantity": "1",
+                    "selectedDeliverySchema": "131"
+                  }
+                },
+                "testInfo": {
+                  "automatizationId": "freshAddToCart"
+                }
+              },
+              "icon": "ic_s_grocery_cart_filled",
+              "title": "За 30 минут"
+            },
+            "quantityButton": {
+              "maxItems": 5,
+              "updateCartAction": {
+                "id": "1928610102",
+                "quantity": 1,
+                "selectedDeliverySchema": 131
+              },
+              "isManualInputAllowed": true
+            },
+            "theme": {
+              "styleWrapper": {
+                "style": "DEFAULT_FRESH"
+              }
+            },
+            "inCartQuantity": 0,
+            "extendMap": {
+              "qtyDiscountNotify": "true"
+            }
+          }
+        }
+      },
+      "isAdult": false,
+      "tileImage": {
+        "items": [
+          {
+            "type": "image",
+            "image": {
+              "link": "https://ir.ozone.ru/s3/multimedia-1-g/8339052472.jpg",
+              "contentMode": "SCALE_ASPECT_FIT"
+            }
+          },
+          {
+            "type": "image",
+            "image": {
+              "link": "https://ir.ozone.ru/s3/multimedia-1-u/8279284494.jpg",
+              "contentMode": "SCALE_ASPECT_FIT"
+            }
+          },
+          {
+            "type": "image",
+            "image": {
+              "link": "https://ir.ozone.ru/s3/multimedia-1-x/8279284533.jpg",
+              "contentMode": "SCALE_ASPECT_FIT"
+            }
+          }
+        ]
+      }
+    },
+    "ACTUAL_PRICE": {
+      "topRightButtons": [
+        {
+          "type": "favoriteProductMoleculeV2",
+          "favoriteProductMoleculeV2": {
+            "id": "1783447531",
+            "isFav": false,
+            "favLink": "favoriteBatchAddItems",
+            "unfavLink": "favoriteBatchDeleteItems",
+            "testInfo": {
+              "favoriteButton": {
+                "automatizationId": "favorite-button"
+              },
+              "unFavoriteButton": {
+                "automatizationId": "unfavorite-button"
+              }
+            }
+          }
+        }
+      ],
+      "mainState": [
+        {
+          "type": "priceV2",
+          "priceV2": {
+            "price": [
+              {
+                "text": "59 ₽",
+                "textStyle": "PRICE"
+              }
+            ],
+            "priceStyle": {
+              "styleType": "ACTUAL_PRICE"
+            },
+            "preset": "SIZE_500"
+          }
+        },
+        {
+          "type": "labelListV2",
+          "labelListV2": {
+            "items": [
+              {
+                "type": "text",
+                "text": {
+                  "text": "80 г",
+                  "textColor": "textSecondary",
+                  "typographyToken": "tsBodyControl400Small"
+                }
+              },
+              {
+                "type": "text",
+                "text": {
+                  "text": "·",
+                  "textColor": "textPrimary",
+                  "typographyToken": "tsBodyControl400Small",
+                  "leftPadding": 4
+                }
+              },
+              {
+                "type": "text",
+                "text": {
+                  "text": "Ozon fresh",
+                  "textColor": "textPrimary",
+                  "typographyToken": "tsBodyControl400Small",
+                  "leftPadding": 4
+                }
+              }
+            ],
+            "verticalIndents": {
+              "top": 2,
+              "bottom": 2
+            },
+            "testInfo": {
+              "automatizationId": "tile-list-labels"
+            }
+          }
+        },
+        {
+          "type": "textDS",
+          "textDS": {
+            "text": "Пломбир шоколадный в вафельном стаканчике 80 г, Ozon fresh",
+            "textColor": "textPrimary",
+            "maxLines": 2,
+            "preset": "PRESET_CUSTOM",
+            "typographyToken": "tsBody500Medium",
+            "testInfo": {
+              "automatizationId": "tile-name"
+            }
+          },
+          "id": "name"
+        },
+        {
+          "type": "labelListV2",
+          "labelListV2": {
+            "items": [
+              {
+                "type": "icon",
+                "icon": {
+                  "icon": {
+                    "icon": "ic_s_star_filled_compact",
+                    "tintColor": "graphicRating"
+                  },
+                  "leftPadding": -2
+                }
+              },
+              {
+                "type": "text",
+                "text": {
+                  "text": "4.9",
+                  "textColor": "textPremium",
+                  "leftPadding": 2
+                }
+              },
+              {
+                "type": "icon",
+                "icon": {
+                  "icon": {
+                    "icon": "ic_s_dialog_filled_compact",
+                    "tintColor": "graphicTertiary"
+                  },
+                  "leftPadding": 4
+                }
+              },
+              {
+                "type": "text",
+                "text": {
+                  "text": "137 624 отзыва",
+                  "textColor": "textSecondary",
+                  "leftPadding": 2
+                }
+              }
+            ],
+            "verticalIndents": {
+              "top": 2,
+              "bottom": 2
+            },
+            "testInfo": {
+              "automatizationId": "tile-list-rating"
+            }
+          }
+        }
+      ],
+      "action": {
+        "behavior": "BEHAVIOR_TYPE_REDIRECT",
+        "link": "/product/plombir-shokoladnyy-v-vafelnom-stakanchike-80-g-ozon-fresh-1783447531/",
+        "params": {
+          "target": "_blank"
+        }
+      },
+      "id": "1783447531",
+      "tileImage": {
+        "items": [
+          {
+            "type": "image",
+            "image": {
+              "link": "https://ir.ozone.ru/s3/multimedia-1-2/7412102966.jpg",
+              "contentMode": "SCALE_ASPECT_FIT"
+            }
+          },
+          {
+            "type": "image",
+            "image": {
+              "link": "https://ir.ozone.ru/s3/multimedia-1-9/7412102973.jpg",
+              "contentMode": "SCALE_ASPECT_FIT"
+            }
+          }
+        ]
+      },
+      "brandLogo": null,
+      "multiButton": {
+        "expressButton": {
+          "type": "addToCart",
+          "addToCart": {
+            "skuId": "1783447531",
+            "actionButton": {
+              "common": {
+                "action": {
+                  "behavior": "BEHAVIOR_TYPE_CUSTOM",
+                  "id": "addToCart",
+                  "params": {
+                    "id": "1783447531",
+                    "quantity": "1",
+                    "selectedDeliverySchema": "131"
+                  }
+                },
+                "testInfo": {
+                  "automatizationId": "freshAddToCart"
+                }
+              },
+              "icon": "ic_s_grocery_cart_filled",
+              "title": "За 30 минут"
+            },
+            "quantityButton": {
+              "maxItems": 33,
+              "updateCartAction": {
+                "id": "1783447531",
+                "quantity": 1,
+                "selectedDeliverySchema": 131
+              },
+              "isManualInputAllowed": true
+            },
+            "theme": {
+              "styleWrapper": {
+                "style": "DEFAULT_FRESH"
+              }
+            },
+            "inCartQuantity": 0,
+            "extendMap": {
+              "qtyDiscountNotify": "true"
+            }
+          }
+        }
+      },
+      "sku": 1783447531,
+      "isAdult": false
+    }
+  }
+}

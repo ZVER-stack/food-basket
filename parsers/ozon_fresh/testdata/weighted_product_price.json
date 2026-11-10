@@ -1,0 +1,49 @@
+{
+  "synthetic": false,
+  "source": "Live anonymous product document, 2026-10-17",
+  "data": {
+    "widgetStates": {
+      "webProductHeading-fixture": {
+        "title": "Бананы, вес. 1 - 1,5 кг"
+      },
+      "webPrice-fixture": {
+        "price": "236 ₽",
+        "originalPrice": "269 ₽",
+        "cardPrice": "224 ₽",
+        "measurePerUnit": "за 1 кг",
+        "pricePerUnit": "150 ₽",
+        "isAvailable": true
+      },
+      "addressBookBarWeb-fixture": {
+        "customCell": {
+          "actionMode": "common",
+          "cells": [
+            {
+              "text": {
+                "text": "Бакунинская ул., 60/2"
+              }
+            }
+          ]
+        }
+      },
+      "webAddToCart-fixture": {
+        "firstButton": {
+          "sku": "398644623",
+          "toCart": {
+            "testInfo": {
+              "automatizationId": "saleblock-add-to-cart-button-express"
+            },
+            "action": {
+              "behavior": "BEHAVIOR_TYPE_CUSTOM",
+              "id": "addToCart",
+              "params": {
+                "selectedDeliverySchema": "131",
+                "sku": "398644623"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "synthetic": false,
+  "source": "Anonymous product_prices.har public product HTML, 2026-10-17",
+  "har_sha256": "4c98e6d33352b97672f0f106b292d648260cc0aea2360d38c980ff4b23a1daaf",
+  "data": {
+    "widgetStates": {
+      "webProductHeading-fixture": {
+        "title": "Молоко Parmalat Protein с коллагеном, 1 л"
+      },
+      "webPrice-fixture": {
+        "isAvailable": true,
+        "cardPrice": "195 ₽",
+        "price": "199 ₽",
+        "originalPrice": "215 ₽",
+        "showOriginalPrice": true
+      },
+      "addressBookBarWeb-fixture": {
+        "customCell": {
+          "actionMode": "common",
+          "cells": [
+            {
+              "text": {
+                "text": "Новощукинская ул., 2"
+              }
+            }
+          ]
+        }
+      },
+      "webAddToCart-fixture": {
+        "firstButton": {
+          "sku": "2952307571",
+          "toCart": {
+            "testInfo": {
+              "automatizationId": "saleblock-add-to-cart-button-express"
+            },
+            "action": {
+              "behavior": "BEHAVIOR_TYPE_CUSTOM",
+              "id": "addToCart",
+              "params": {
+                "selectedDeliverySchema": "131",
+                "sku": "2952307571"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

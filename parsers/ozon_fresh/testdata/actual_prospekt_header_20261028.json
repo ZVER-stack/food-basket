@@ -1,0 +1,19 @@
+{
+  "source": "Expected and reported address strings from the saved run_status.json stop_reason on 2026-10-28 12:25:55 MSK; input house from hexagons.csv. Full response not persisted.",
+  "synthetic": false,
+  "response_payload_available": false,
+  "zone": {
+    "h3_index": "8711aa634ffffff",
+    "lat": "55.799563",
+    "lon": "37.640108",
+    "address": "Москва, проспект Мира, 102 с30",
+    "address_lat": "55.800513",
+    "address_lon": "37.638067",
+    "address_dist_m": "165",
+    "address_in_zone": "True",
+    "okrug": "СВАО",
+    "district": "Алексеевский район"
+  },
+  "reported_title": "пр-кт Мира, 102 стр. 30",
+  "stop_reason": "Дом не подтверждён заголовком Ozon: ожидался 'Москва, проспект Мира, 102 с30'; получен 'пр-кт Мира, 102 стр. 30'"
+}

@@ -1,0 +1,175 @@
+{
+  "source": "Actual successful anonymous address workflow captured 2026-10-17; minimized to public house coordinates and action shapes",
+  "synthetic": false,
+  "initial": {
+    "widgetStates": {
+      "addressEditMap-3411203-default-1": {
+        "viewport": {
+          "leftBottom": {
+            "latitude": 55.49133,
+            "longitude": 37.326051
+          },
+          "rightTop": {
+            "latitude": 55.957565,
+            "longitude": 37.96779
+          }
+        },
+        "linkTplDragCenter": "/modal/fresh?lat=__lat__&long=__lng__&miniapp=supermarket&pid=4",
+        "centerPin": {
+          "coordinates": {
+            "latitude": 55.755814,
+            "longitude": 37.617635
+          },
+          "isAvailable": true
+        }
+      }
+    },
+    "location": {
+      "current": {
+        "geoCoordinate": {}
+      }
+    }
+  },
+  "house": {
+    "widgetStates": {
+      "addressEditMap-3411203-default-1": {
+        "viewport": {
+          "leftBottom": {
+            "latitude": 55.77522980386135,
+            "longitude": 37.68650192739199
+          },
+          "rightTop": {
+            "latitude": 55.779168096641925,
+            "longitude": 37.69350442642916
+          }
+        },
+        "linkTplDragCenter": "/modal/fresh?lat=__lat__&long=__lng__&miniapp=supermarket&pid=4",
+        "centerPin": {
+          "coordinates": {
+            "latitude": 55.777199,
+            "longitude": 37.690003
+          },
+          "isAvailable": true
+        }
+      },
+      "addressEditConfirmButton-3411200-default-1": {
+        "buttonsWeb": [
+          {
+            "text": "Привезти сюда",
+            "action": {
+              "link": "/modal/fresh?lat=55.7771990&long=37.6900030&miniapp=supermarket&pid=5"
+            }
+          }
+        ]
+      }
+    },
+    "location": {
+      "current": {
+        "geoCoordinate": {}
+      }
+    }
+  },
+  "deliver": {
+    "widgetStates": {
+      "addressEditMap-3411203-default-1": {
+        "viewport": {
+          "leftBottom": {
+            "latitude": 55.77522980386135,
+            "longitude": 37.68650192739199
+          },
+          "rightTop": {
+            "latitude": 55.779168096641925,
+            "longitude": 37.69350442642916
+          }
+        },
+        "linkTplDragCenter": "/modal/fresh?lat=__lat__&long=__lng__&miniapp=supermarket&pid=4",
+        "centerPin": {
+          "coordinates": {
+            "latitude": 55.777199,
+            "longitude": 37.690003
+          },
+          "isAvailable": true
+        }
+      },
+      "addressEditConfirmButton-3411200-default-1": {
+        "buttonsWeb": [
+          {
+            "text": "Сохранить адрес",
+            "action": {
+              "link": "/modal/fresh?lat=55.7771990&long=37.6900030&miniapp=supermarket&pid=7"
+            }
+          }
+        ]
+      }
+    },
+    "location": {
+      "current": {
+        "geoCoordinate": {}
+      }
+    }
+  },
+  "save": {
+    "widgetStates": {
+      "addressEditMap-3411203-default-1": {
+        "viewport": {
+          "leftBottom": {
+            "latitude": 55.77522980386135,
+            "longitude": 37.68650192739199
+          },
+          "rightTop": {
+            "latitude": 55.779168096641925,
+            "longitude": 37.69350442642916
+          }
+        },
+        "linkTplDragCenter": "/modal/fresh?lat=__lat__&long=__lng__&miniapp=supermarket&pid=4",
+        "centerPin": {
+          "coordinates": {
+            "latitude": 55.777199,
+            "longitude": 37.690003
+          },
+          "isAvailable": true
+        }
+      },
+      "addressEditConfirmButton-3411200-default-1": {
+        "buttonsWeb": [
+          {
+            "text": "Сохранить адрес",
+            "action": {
+              "link": "/modal/fresh?lat=55.7771990&long=37.6900030&miniapp=supermarket&pid=7"
+            }
+          }
+        ]
+      }
+    },
+    "location": {
+      "current": {
+        "geoCoordinate": {}
+      }
+    }
+  },
+  "root": {
+    "widgetStates": {
+      "profileMenuAnonymous-7278492-default-1": {},
+      "addressBookBarWeb-7278510-default-1": {
+        "customCell": {
+          "actionMode": "common",
+          "cells": [
+            {
+              "text": {
+                "text": "Бакунинская ул., 60/2"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "location": {
+      "current": {
+        "geoCoordinate": {
+          "latitude": 55.7772,
+          "longitude": 37.690002
+        }
+      }
+    }
+  }
+}

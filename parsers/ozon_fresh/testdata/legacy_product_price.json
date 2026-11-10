@@ -1,0 +1,16 @@
+{
+  "synthetic": false,
+  "source": "Original parser saved public product response, 2026-10-11",
+  "data": {
+    "widgetStates": {
+      "webPrice-fixture": {
+        "price": "179 ₽",
+        "originalPrice": "251 ₽",
+        "isAvailable": true
+      },
+      "webProductHeading-fixture": {
+        "title": "Масло сливочное \"Традиционное\" 82,5% 175 г Село Зеленое, фольга"
+      }
+    }
+  }
+}

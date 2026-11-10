@@ -1,0 +1,19 @@
+{
+  "food_parent_routes": 14,
+  "chemical_routes": 4,
+  "total_routes_per_zone": 18,
+  "eligible_zones": 197,
+  "minimum_requests_before_any_extra_pages": 4728,
+  "includes": "Five requests for address selection, category first pages, one final house confirmation",
+  "is_measured_full_runtime": false,
+  "note": "Extra pagination and mandatory ordinary-price retrieval add requests. Cross-zone warehouse cache remains disabled without a verified warehouse ID.",
+  "request_rate_scope": "per_independent_worker_user_authorized",
+  "workers": 4,
+  "interval_seconds_per_worker": 1.05,
+  "active_mode": "one_house_coordinator_and_three_price_readers_same_session",
+  "minimum_coordinator_requests": 4728,
+  "minimum_coordinator_interval_seconds": 4963.35,
+  "initial_worker_home_requests": 0,
+  "minimum_own_requests_including_bootstrap": 4728,
+  "floor_excludes": "All extra pages, product-price requests, response latency, startup, processing and export"
+}

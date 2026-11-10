@@ -1,0 +1,1996 @@
+{
+  "synthetic": false,
+  "samples": [
+    {
+      "card": {
+        "brandLogo": null,
+        "tileImage": {
+          "items": [
+            {
+              "type": "image",
+              "image": {
+                "link": "https://ir.ozone.ru/s3/multimedia-1-6/20245670790.jpg",
+                "contentMode": "SCALE_ASPECT_FIT"
+              }
+            },
+            {
+              "type": "image",
+              "image": {
+                "link": "https://ir.ozone.ru/s3/multimedia-1-g/8222282800.jpg",
+                "contentMode": "SCALE_ASPECT_FIT"
+              }
+            },
+            {
+              "type": "image",
+              "image": {
+                "link": "https://ir.ozone.ru/s3/multimedia-1-f/9194220231.jpg",
+                "contentMode": "SCALE_ASPECT_FIT"
+              }
+            },
+            {
+              "type": "image",
+              "image": {
+                "link": "https://ir.ozone.ru/s3/multimedia-1-h/8222282369.jpg",
+                "contentMode": "SCALE_ASPECT_FIT"
+              }
+            },
+            {
+              "type": "image",
+              "image": {
+                "link": "https://ir.ozone.ru/s3/multimedia-1-t/11689158521.jpg",
+                "contentMode": "SCALE_ASPECT_FIT"
+              }
+            },
+            {
+              "type": "image",
+              "image": {
+                "link": "https://ir.ozone.ru/s3/multimedia-1-t/8222282309.jpg",
+                "contentMode": "SCALE_ASPECT_FIT"
+              }
+            }
+          ],
+          "leftBottomBadgeV2": {
+            "text": "Распродажа",
+            "leftIcon": "ic_s_hot_filled_compact",
+            "size": "SIZE_500",
+            "styleType": "CUSTOM",
+            "common": {
+              "testInfo": {
+                "automatizationId": "badge-marketingSuperHigh"
+              }
+            },
+            "customBadgeStyle": {
+              "backgroundColor": {
+                "color": "#f1117eff"
+              },
+              "leftGraphicColor": "#ffffffff",
+              "textColor": "#ffffffff"
+            }
+          }
+        },
+        "action": {
+          "behavior": "BEHAVIOR_TYPE_REDIRECT",
+          "link": "/product/kapsuly-dlya-stirki-belya-synergetic-universal-beskrayniy-okean-100-shtuk-eko-2054381065/",
+          "params": {
+            "target": "_blank"
+          }
+        },
+        "id": "2054381065",
+        "isAdult": false,
+        "mainState": [
+          {
+            "type": "priceV2",
+            "priceV2": {
+              "price": [
+                {
+                  "text": "1 134 ₽",
+                  "textStyle": "PRICE"
+                },
+                {
+                  "text": "3 300 ₽",
+                  "textStyle": "ORIGINAL_PRICE"
+                }
+              ],
+              "discount": "−65%",
+              "priceStyle": {
+                "styleType": "SALE_PRICE",
+                "gradient": {
+                  "startColor": "#F1117E",
+                  "endColor": "#F1117E"
+                }
+              },
+              "preset": "SIZE_500"
+            }
+          },
+          {
+            "type": "textDS",
+            "textDS": {
+              "text": "2 012 ед осталось",
+              "textColor": "textAccent",
+              "maxLines": 1,
+              "preset": "PRESET_CUSTOM",
+              "typographyToken": "tsBodyControl400Small",
+              "topPadding": "PADDING_100",
+              "bottomPadding": "PADDING_100",
+              "testInfo": {
+                "automatizationId": "tile-blackFridayStockbar"
+              }
+            }
+          },
+          {
+            "type": "labelListV2",
+            "labelListV2": {
+              "items": [
+                {
+                  "type": "icon",
+                  "icon": {
+                    "icon": {
+                      "icon": "ic_s_confirmed_filled_compact",
+                      "tintColor": "graphicPositivePrimary"
+                    },
+                    "leftPadding": -2
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": {
+                    "text": "Бренд проверен",
+                    "textColor": "textPrimary",
+                    "typographyToken": "tsBodyControl400Small",
+                    "leftPadding": 2
+                  }
+                }
+              ],
+              "verticalIndents": {
+                "top": 2,
+                "bottom": 2
+              },
+              "testInfo": {
+                "automatizationId": "tile-list-labels"
+              }
+            }
+          },
+          {
+            "type": "textDS",
+            "textDS": {
+              "text": "Капсулы для стирки белья SYNERGETIC UNIVERSAL Бескрайний океан 100 штук ЭКО",
+              "textColor": "textPrimary",
+              "maxLines": 2,
+              "preset": "PRESET_CUSTOM",
+              "typographyToken": "tsBody500Medium",
+              "testInfo": {
+                "automatizationId": "tile-name"
+              }
+            },
+            "id": "name"
+          },
+          {
+            "type": "labelListV2",
+            "labelListV2": {
+              "items": [
+                {
+                  "type": "icon",
+                  "icon": {
+                    "icon": {
+                      "icon": "ic_s_star_filled_compact",
+                      "tintColor": "graphicRating"
+                    },
+                    "leftPadding": -2
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": {
+                    "text": "4.9",
+                    "textColor": "textPremium",
+                    "leftPadding": 2
+                  }
+                },
+                {
+                  "type": "icon",
+                  "icon": {
+                    "icon": {
+                      "icon": "ic_s_dialog_filled_compact",
+                      "tintColor": "graphicTertiary"
+                    },
+                    "leftPadding": 4
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": {
+                    "text": "152 376 отзывов",
+                    "textColor": "textSecondary",
+                    "leftPadding": 2
+                  }
+                }
+              ],
+              "verticalIndents": {
+                "top": 2,
+                "bottom": 2
+              },
+              "testInfo": {
+                "automatizationId": "tile-list-rating"
+              }
+            }
+          }
+        ],
+        "multiButton": {
+          "expressButton": {
+            "type": "addToCart",
+            "addToCart": {
+              "skuId": "2054381065",
+              "actionButton": {
+                "common": {
+                  "action": {
+                    "behavior": "BEHAVIOR_TYPE_CUSTOM",
+                    "id": "addToCart",
+                    "params": {
+                      "id": "2054381065",
+                      "quantity": "1",
+                      "selectedDeliverySchema": "131"
+                    }
+                  },
+                  "testInfo": {
+                    "automatizationId": "freshAddToCart"
+                  }
+                },
+                "icon": "ic_s_grocery_cart_filled",
+                "title": "За 30 минут",
+                "sellerIcon": {
+                  "sellerIcon": "ic_m_status_points_filled",
+                  "sellerIconBackground": "graphicMarketing",
+                  "tileBackground": "layerFloor1",
+                  "sellerIconTint": "graphicLightKey",
+                  "testInfo": {
+                    "automatizationId": "premium-seller-icon"
+                  }
+                }
+              },
+              "quantityButton": {
+                "maxItems": 3,
+                "updateCartAction": {
+                  "id": "2054381065",
+                  "quantity": 1,
+                  "selectedDeliverySchema": 131
+                },
+                "isManualInputAllowed": true
+              },
+              "theme": {
+                "styleWrapper": {
+                  "style": "DEFAULT_FRESH"
+                }
+              },
+              "inCartQuantity": 0
+            }
+          }
+        },
+        "sku": 2054381065,
+        "topRightButtons": [
+          {
+            "type": "favoriteProductMoleculeV2",
+            "favoriteProductMoleculeV2": {
+              "id": "2054381065",
+              "isFav": false,
+              "favLink": "favoriteBatchAddItems",
+              "unfavLink": "favoriteBatchDeleteItems",
+              "testInfo": {
+                "favoriteButton": {
+                  "automatizationId": "favorite-button"
+                },
+                "unFavoriteButton": {
+                  "automatizationId": "unfavorite-button"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "data": {
+        "widgetStates": {
+          "webAddToCart-13432895-default-1": {
+            "firstButton": {
+              "isInCart": false,
+              "toCart": {
+                "backgroundColor": "bgAccentPrimary",
+                "cornerRadius": "RADIUS_500",
+                "title": {
+                  "text": "В корзину",
+                  "textColor": "textLightKey",
+                  "textAlignment": "CENTER",
+                  "preset": "PRESET_CUSTOM",
+                  "typographyToken": "tsBodyControl500Medium",
+                  "testInfo": {
+                    "automatizationId": "pdp-add-to-cart-title"
+                  }
+                },
+                "action": {
+                  "behavior": "BEHAVIOR_TYPE_CUSTOM",
+                  "id": "addToCart",
+                  "params": {
+                    "selectedDeliverySchema": "131",
+                    "sku": "2054381065"
+                  }
+                },
+                "asyncFetchType": "SUBTITLE",
+                "buttonHoverColor": "bgActiveAccentPrimary",
+                "testInfo": {
+                  "automatizationId": "saleblock-add-to-cart-button-express"
+                }
+              },
+              "inCart": {
+                "backgroundColor": "bgPositivePrimary",
+                "cornerRadius": "RADIUS_500",
+                "title": {
+                  "text": "В корзине",
+                  "textColor": "textLightKey",
+                  "textAlignment": "CENTER",
+                  "preset": "PRESET_CUSTOM",
+                  "typographyToken": "tsBodyControl500Medium",
+                  "testInfo": {
+                    "automatizationId": "pdp-add-in-cart-title"
+                  }
+                },
+                "subtitle": {
+                  "text": "Перейти",
+                  "textColor": "textPrimaryOnDark",
+                  "textAlignment": "CENTER",
+                  "preset": "PRESET_CUSTOM",
+                  "typographyToken": "tsCompact400Small",
+                  "testInfo": {
+                    "automatizationId": "pdp-add-in-cart-subtitle"
+                  }
+                },
+                "action": {
+                  "behavior": "BEHAVIOR_TYPE_REDIRECT",
+                  "link": "/cart",
+                  "id": "toCheckout",
+                  "params": {
+                    "selectedDeliverySchema": "131",
+                    "sku": "2054381065"
+                  }
+                },
+                "asyncFetchType": "SUBTITLE",
+                "buttonHoverColor": "bgActivePositivePrimary",
+                "testInfo": {
+                  "automatizationId": "button-go-to-cart"
+                }
+              },
+              "additionalButton": {
+                "incrementButton": {
+                  "action": {
+                    "params": {
+                      "selectedDeliverySchema": "131",
+                      "sku": "2054381065"
+                    }
+                  }
+                },
+                "decrementButton": {
+                  "action": {
+                    "params": {
+                      "selectedDeliverySchema": "131",
+                      "sku": "2054381065"
+                    }
+                  }
+                },
+                "countPicker": {
+                  "size": "SIZE_600",
+                  "sizing": "SIZING_HUG",
+                  "styleType": "CUSTOM",
+                  "customStyle": {
+                    "backgroundColor": "bgSecondary"
+                  }
+                }
+              },
+              "sku": "2054381065",
+              "deliverySchema": "131",
+              "freeRest": 3,
+              "minAddToCartQuantity": 1,
+              "inCartQuantity": 0
+            },
+            "secondButton": {
+              "isInCart": false,
+              "toCart": {
+                "backgroundColor": "bgActionPrimary",
+                "cornerRadius": "RADIUS_500",
+                "title": {
+                  "text": "В корзину",
+                  "textColor": "textLightKey",
+                  "textAlignment": "CENTER",
+                  "preset": "PRESET_CUSTOM",
+                  "typographyToken": "tsBodyControl500Medium",
+                  "testInfo": {
+                    "automatizationId": "pdp-add-to-cart-title"
+                  }
+                },
+                "action": {
+                  "behavior": "BEHAVIOR_TYPE_CUSTOM",
+                  "id": "addToCart",
+                  "params": {
+                    "sku": "2054381065"
+                  }
+                },
+                "asyncFetchType": "SUBTITLE",
+                "buttonHoverColor": "bgActiveActionPrimary",
+                "testInfo": {
+                  "automatizationId": "saleblock-add-to-cart-button"
+                }
+              },
+              "inCart": {
+                "backgroundColor": "bgPositivePrimary",
+                "cornerRadius": "RADIUS_500",
+                "title": {
+                  "text": "В корзине",
+                  "textColor": "textLightKey",
+                  "textAlignment": "CENTER",
+                  "preset": "PRESET_CUSTOM",
+                  "typographyToken": "tsBodyControl500Medium",
+                  "testInfo": {
+                    "automatizationId": "pdp-add-in-cart-title"
+                  }
+                },
+                "subtitle": {
+                  "text": "Перейти",
+                  "textColor": "textPrimaryOnDark",
+                  "textAlignment": "CENTER",
+                  "preset": "PRESET_CUSTOM",
+                  "typographyToken": "tsCompact400Small",
+                  "testInfo": {
+                    "automatizationId": "pdp-add-in-cart-subtitle"
+                  }
+                },
+                "action": {
+                  "behavior": "BEHAVIOR_TYPE_REDIRECT",
+                  "link": "/cart",
+                  "id": "toCheckout",
+                  "params": {
+                    "sku": "2054381065"
+                  }
+                },
+                "asyncFetchType": "SUBTITLE",
+                "buttonHoverColor": "bgActivePositivePrimary",
+                "testInfo": {
+                  "automatizationId": "button-go-to-cart"
+                }
+              },
+              "additionalButton": {
+                "incrementButton": {
+                  "action": {
+                    "params": {
+                      "sku": "2054381065"
+                    }
+                  }
+                },
+                "decrementButton": {
+                  "action": {
+                    "params": {
+                      "sku": "2054381065"
+                    }
+                  }
+                },
+                "countPicker": {
+                  "size": "SIZE_600",
+                  "sizing": "SIZING_HUG",
+                  "styleType": "CUSTOM",
+                  "customStyle": {
+                    "backgroundColor": "bgSecondary"
+                  }
+                }
+              },
+              "sku": "2054381065",
+              "freeRest": 800,
+              "minAddToCartQuantity": 1,
+              "inCartQuantity": 0
+            },
+            "asyncAction": {
+              "behavior": "BEHAVIOR_TYPE_CUSTOM",
+              "link": "pdpGetButtonTexts",
+              "id": "asyncDatesRequest",
+              "params": {
+                "enableProductViewedExtended": "true",
+                "inCartPosition": "subtitle",
+                "pageType": "pdp",
+                "referer": "https://www.ozon.ru/product/moloko-parmalat-protein-s-kollagenom-1-l-2952307571/?abt_att=1&sh=xzqu8syAPw",
+                "toCartPosition": "subtitle"
+              }
+            },
+            "webData": {
+              "tooltipTextOutOfFreeRest": {
+                "text": "В наличии больше нет",
+                "textColor": "textPrimaryOnDark",
+                "typographyToken": "tsBody400Small"
+              }
+            }
+          },
+          "webShortCharacteristics-3385952-default-1": {
+            "titleRs": [
+              {
+                "type": "text",
+                "content": "О товаре",
+                "font": "tsHeadline500Medium",
+                "color": "textPrimary"
+              }
+            ],
+            "goTo": {
+              "text": "Перейти к описанию",
+              "styleType": "NEUTRAL_PRIMARY",
+              "common": {
+                "action": {
+                  "behavior": "BEHAVIOR_TYPE_SCROLL_TO_WIDGET",
+                  "link": "section-description",
+                  "params": {
+                    "offsetTop": "144"
+                  }
+                }
+              }
+            },
+            "characteristics": [
+              {
+                "id": "Type_0",
+                "title": {
+                  "textRs": [
+                    {
+                      "type": "text",
+                      "content": "Тип",
+                      "font": "tsBodyM",
+                      "color": "textSecondary"
+                    }
+                  ]
+                },
+                "values": [
+                  {
+                    "id": "Type_0",
+                    "text": "Капсулы для стирки",
+                    "textColor": "textPrimary",
+                    "textStyle": "tsBody400Small"
+                  }
+                ]
+              },
+              {
+                "id": "TasteNF_1",
+                "title": {
+                  "textRs": [
+                    {
+                      "type": "text",
+                      "content": "Аромат",
+                      "font": "tsBodyM",
+                      "color": "textSecondary"
+                    }
+                  ]
+                },
+                "values": [
+                  {
+                    "id": "TasteNF_0",
+                    "text": "Морская свежесть, ",
+                    "textColor": "textPrimary",
+                    "textStyle": "tsBody400Small"
+                  },
+                  {
+                    "id": "TasteNF_1",
+                    "text": "Океан",
+                    "textColor": "textPrimary",
+                    "textStyle": "tsBody400Small"
+                  }
+                ]
+              },
+              {
+                "id": "WashingAppointment_2",
+                "title": {
+                  "textRs": [
+                    {
+                      "type": "text",
+                      "content": "Назначение средства для стирки",
+                      "font": "tsBodyM",
+                      "color": "textSecondary"
+                    }
+                  ]
+                },
+                "values": [
+                  {
+                    "id": "WashingAppointment_0",
+                    "text": "Для белых тканей, ",
+                    "textColor": "textPrimary",
+                    "textStyle": "tsBody400Small",
+                    "href": "/category/kapsuly-dlya-stirki-belogo/"
+                  },
+                  {
+                    "id": "WashingAppointment_1",
+                    "text": "Для цветных тканей, ",
+                    "textColor": "textPrimary",
+                    "textStyle": "tsBody400Small",
+                    "href": "/category/kapsuly-dlya-stirki-dlya-tsvetnogo/"
+                  },
+                  {
+                    "id": "WashingAppointment_2",
+                    "text": "Для черных и темных тканей",
+                    "textColor": "textPrimary",
+                    "textStyle": "tsBody400Small",
+                    "href": "/category/kapsuly-dlya-stirki-chernogo/"
+                  }
+                ]
+              },
+              {
+                "id": "NumberCapsules_3",
+                "title": {
+                  "textRs": [
+                    {
+                      "type": "text",
+                      "content": "Общее количество капсул/таблеток",
+                      "font": "tsBodyM",
+                      "color": "textSecondary"
+                    }
+                  ]
+                },
+                "values": [
+                  {
+                    "id": "NumberCapsules_0",
+                    "text": "100",
+                    "textColor": "textPrimary",
+                    "textStyle": "tsBody400Small"
+                  }
+                ]
+              },
+              {
+                "id": "Features_4",
+                "title": {
+                  "textRs": [
+                    {
+                      "type": "text",
+                      "content": "Особенности применения",
+                      "font": "tsBodyM",
+                      "color": "textSecondary"
+                    }
+                  ]
+                },
+                "values": [
+                  {
+                    "id": "Features_0",
+                    "text": "Гипоаллергенность, ",
+                    "textColor": "textPrimary",
+                    "textStyle": "tsBody400Small",
+                    "href": "/category/kapsuly-dlya-stirki-gipoallergennye/"
+                  },
+                  {
+                    "id": "Features_1",
+                    "text": "Концентрат, ",
+                    "textColor": "textPrimary",
+                    "textStyle": "tsBody400Small",
+                    "href": "/category/kapsuly-i-tabletki-dlya-stirki-kontsentrat/"
+                  },
+                  {
+                    "id": "Features_2",
+                    "text": "Экосредство, ",
+                    "textColor": "textPrimary",
+                    "textStyle": "tsBody400Small",
+                    "href": "/category/kapsuly-dlya-stirki-eko/"
+                  },
+                  {
+                    "id": "Features_3",
+                    "text": "Ароматизация, ",
+                    "textColor": "textPrimary",
+                    "textStyle": "tsBody400Small"
+                  },
+                  {
+                    "id": "Features_4",
+                    "text": "Восстановление цвета",
+                    "textColor": "textPrimary",
+                    "textStyle": "tsBody400Small",
+                    "href": "/category/kapsuly-dlya-vosstanovleniya-tsveta-dlya-stirki/"
+                  }
+                ]
+              }
+            ],
+            "params": {
+              "anchor": "",
+              "disablePaidBrand": false,
+              "isFreshColorsEnabled": true,
+              "isWidgetCharacteristicsOnPage": true,
+              "isWidgetDescriptionOnPage": true,
+              "limit": 5,
+              "linkToCharacteristics": "section-characteristics",
+              "linkToCharacteristicsButtonText": "Перейти к характеристикам",
+              "linkToDescription": "section-description",
+              "linkToDescriptionButtonText": "Перейти к описанию",
+              "linkToExternal": "",
+              "linkToExternalText": "Подробнее",
+              "offsetScrol": 144,
+              "paramsLinkTarget": "self",
+              "showLongCharacteristics": true,
+              "thresholdLength": 60
+            }
+          },
+          "webProductHeading-3385933-default-1": {
+            "title": "Капсулы для стирки белья SYNERGETIC UNIVERSAL Бескрайний океан 100 штук ЭКО",
+            "rowCount": 3,
+            "lexemes": {
+              "showMore": "ещё"
+            },
+            "params": {
+              "rowsCount": 3
+            }
+          },
+          "webAddToCart-8707205-default-1": {
+            "firstButton": {
+              "isInCart": false,
+              "toCart": {
+                "backgroundColor": "bgAccentPrimary",
+                "cornerRadius": "RADIUS_500",
+                "title": {
+                  "text": "В корзину",
+                  "textColor": "textLightKey",
+                  "textAlignment": "CENTER",
+                  "preset": "PRESET_CUSTOM",
+                  "typographyToken": "tsBodyControl500Medium",
+                  "testInfo": {
+                    "automatizationId": "pdp-add-to-cart-title"
+                  }
+                },
+                "action": {
+                  "behavior": "BEHAVIOR_TYPE_CUSTOM",
+                  "id": "addToCart",
+                  "params": {
+                    "selectedDeliverySchema": "131",
+                    "sku": "2054381065"
+                  }
+                },
+                "asyncFetchType": "SUBTITLE",
+                "buttonHoverColor": "bgActiveAccentPrimary",
+                "testInfo": {
+                  "automatizationId": "saleblock-add-to-cart-button-express"
+                }
+              },
+              "inCart": {
+                "backgroundColor": "bgPositivePrimary",
+                "cornerRadius": "RADIUS_500",
+                "title": {
+                  "text": "В корзине",
+                  "textColor": "textLightKey",
+                  "textAlignment": "CENTER",
+                  "preset": "PRESET_CUSTOM",
+                  "typographyToken": "tsBodyControl500Medium",
+                  "testInfo": {
+                    "automatizationId": "pdp-add-in-cart-title"
+                  }
+                },
+                "subtitle": {
+                  "text": "Перейти",
+                  "textColor": "textPrimaryOnDark",
+                  "textAlignment": "CENTER",
+                  "preset": "PRESET_CUSTOM",
+                  "typographyToken": "tsCompact400Small",
+                  "testInfo": {
+                    "automatizationId": "pdp-add-in-cart-subtitle"
+                  }
+                },
+                "action": {
+                  "behavior": "BEHAVIOR_TYPE_REDIRECT",
+                  "link": "/cart",
+                  "id": "toCheckout",
+                  "params": {
+                    "selectedDeliverySchema": "131",
+                    "sku": "2054381065"
+                  }
+                },
+                "asyncFetchType": "SUBTITLE",
+                "buttonHoverColor": "bgActivePositivePrimary",
+                "testInfo": {
+                  "automatizationId": "button-go-to-cart"
+                }
+              },
+              "additionalButton": {
+                "incrementButton": {
+                  "action": {
+                    "params": {
+                      "selectedDeliverySchema": "131",
+                      "sku": "2054381065"
+                    }
+                  }
+                },
+                "decrementButton": {
+                  "action": {
+                    "params": {
+                      "selectedDeliverySchema": "131",
+                      "sku": "2054381065"
+                    }
+                  }
+                },
+                "countPicker": {
+                  "size": "SIZE_600",
+                  "sizing": "SIZING_HUG",
+                  "styleType": "CUSTOM",
+                  "customStyle": {
+                    "backgroundColor": "bgSecondary"
+                  }
+                }
+              },
+              "sku": "2054381065",
+              "deliverySchema": "131",
+              "freeRest": 3,
+              "minAddToCartQuantity": 1,
+              "inCartQuantity": 0
+            },
+            "secondButton": {
+              "isInCart": false,
+              "toCart": {
+                "backgroundColor": "bgActionPrimary",
+                "cornerRadius": "RADIUS_500",
+                "title": {
+                  "text": "В корзину",
+                  "textColor": "textLightKey",
+                  "textAlignment": "CENTER",
+                  "preset": "PRESET_CUSTOM",
+                  "typographyToken": "tsBodyControl500Medium",
+                  "testInfo": {
+                    "automatizationId": "pdp-add-to-cart-title"
+                  }
+                },
+                "action": {
+                  "behavior": "BEHAVIOR_TYPE_CUSTOM",
+                  "id": "addToCart",
+                  "params": {
+                    "sku": "2054381065"
+                  }
+                },
+                "asyncFetchType": "SUBTITLE",
+                "buttonHoverColor": "bgActiveActionPrimary",
+                "testInfo": {
+                  "automatizationId": "saleblock-add-to-cart-button"
+                }
+              },
+              "inCart": {
+                "backgroundColor": "bgPositivePrimary",
+                "cornerRadius": "RADIUS_500",
+                "title": {
+                  "text": "В корзине",
+                  "textColor": "textLightKey",
+                  "textAlignment": "CENTER",
+                  "preset": "PRESET_CUSTOM",
+                  "typographyToken": "tsBodyControl500Medium",
+                  "testInfo": {
+                    "automatizationId": "pdp-add-in-cart-title"
+                  }
+                },
+                "subtitle": {
+                  "text": "Перейти",
+                  "textColor": "textPrimaryOnDark",
+                  "textAlignment": "CENTER",
+                  "preset": "PRESET_CUSTOM",
+                  "typographyToken": "tsCompact400Small",
+                  "testInfo": {
+                    "automatizationId": "pdp-add-in-cart-subtitle"
+                  }
+                },
+                "action": {
+                  "behavior": "BEHAVIOR_TYPE_REDIRECT",
+                  "link": "/cart",
+                  "id": "toCheckout",
+                  "params": {
+                    "sku": "2054381065"
+                  }
+                },
+                "asyncFetchType": "SUBTITLE",
+                "buttonHoverColor": "bgActivePositivePrimary",
+                "testInfo": {
+                  "automatizationId": "button-go-to-cart"
+                }
+              },
+              "additionalButton": {
+                "incrementButton": {
+                  "action": {
+                    "params": {
+                      "sku": "2054381065"
+                    }
+                  }
+                },
+                "decrementButton": {
+                  "action": {
+                    "params": {
+                      "sku": "2054381065"
+                    }
+                  }
+                },
+                "countPicker": {
+                  "size": "SIZE_600",
+                  "sizing": "SIZING_HUG",
+                  "styleType": "CUSTOM",
+                  "customStyle": {
+                    "backgroundColor": "bgSecondary"
+                  }
+                }
+              },
+              "sku": "2054381065",
+              "freeRest": 800,
+              "minAddToCartQuantity": 1,
+              "inCartQuantity": 0
+            },
+            "asyncAction": {
+              "behavior": "BEHAVIOR_TYPE_CUSTOM",
+              "link": "pdpGetButtonTexts",
+              "id": "asyncDatesRequest",
+              "params": {
+                "inCartPosition": "subtitle",
+                "pageType": "pdp",
+                "referer": "https://www.ozon.ru/product/moloko-parmalat-protein-s-kollagenom-1-l-2952307571/?abt_att=1&sh=xzqu8syAPw",
+                "toCartPosition": "subtitle"
+              }
+            },
+            "webData": {
+              "tooltipTextOutOfFreeRest": {
+                "text": "В наличии больше нет",
+                "textColor": "textPrimaryOnDark",
+                "typographyToken": "tsBody400Small"
+              }
+            }
+          },
+          "webPrice-3121879-default-1": {
+            "isAvailable": true,
+            "cardPrice": "1 134 ₽",
+            "price": "1 252 ₽",
+            "originalPrice": "3 300 ₽",
+            "showOriginalPrice": true,
+            "measurePerUnit": "за 1 шт",
+            "pricePerUnit": "12 ₽",
+            "link": "/modal/pdpListOfBanks",
+            "lexemes": {
+              "currency": "Валюта",
+              "includeVatTextMobile": "Цена с НДС",
+              "moreText": "Подробнее",
+              "notRefundVatText": "НДС не возмещается",
+              "withOzonCard": "С банками",
+              "withoutOzonCard": "С другими банками",
+              "withoutVatText": "без НДС",
+              "withoutVatTextCapitalize": "Без НДС",
+              "withoutVatTextMobile": "Цена без НДС"
+            },
+            "colorBlockRightContent": {
+              "images": [
+                {
+                  "image": "https://ir.ozone.ru/s3/payments-cdn/ozon-price-compact-new-ozon-light.png",
+                  "aspectRatio": "RATIO_1_1",
+                  "imageWidth": 23,
+                  "cdnSettings": {
+                    "size": 64
+                  },
+                  "fitType": "FIT_CENTER"
+                },
+                {
+                  "image": "https://ir.ozone.ru/s3/payments-cdn/ozon_other_sovkombank_dark.png",
+                  "aspectRatio": "RATIO_1_1",
+                  "imageWidth": 20,
+                  "cdnSettings": {
+                    "size": 64
+                  },
+                  "fitType": "FIT_CENTER"
+                },
+                {
+                  "image": "https://ir.ozone.ru/s3/payments-cdn/ozon_other_otp_light.png",
+                  "aspectRatio": "RATIO_1_1",
+                  "imageWidth": 20,
+                  "cdnSettings": {
+                    "size": 64
+                  },
+                  "fitType": "FIT_CENTER"
+                },
+                {
+                  "image": "https://ir.ozone.ru/s3/payments-cdn/ozon_other_crediteurope_black.png",
+                  "aspectRatio": "RATIO_1_1",
+                  "imageWidth": 20,
+                  "cdnSettings": {
+                    "size": 64
+                  },
+                  "fitType": "FIT_CENTER"
+                }
+              ]
+            },
+            "params": {
+              "ladderPriceHide": false,
+              "showPpu": true,
+              "withOzonAccount": "/modal/withOzonAccount",
+              "withOzonAccountLegal": "/modal/OzoneAccountForLegal",
+              "withoutOzonAccount": "/modal/withoutOzonAccount"
+            }
+          },
+          "addressBookBarWeb-7278510-default-1": {
+            "customCell": {
+              "actionMode": "common",
+              "cells": [
+                {
+                  "type": "text",
+                  "text": {
+                    "text": "Бакунинская ул., 60/2",
+                    "textStyle": "tsBody400Small",
+                    "textColor": "textAction"
+                  },
+                  "shrinkPosition": "left"
+                }
+              ],
+              "action": {
+                "behavior": "BEHAVIOR_TYPE_COMPOSER_NESTED_PAGE",
+                "link": "/modal/addressbook",
+                "id": "addressbook",
+                "params": {
+                  "closeAction": "{\"behavior\":\"BEHAVIOR_TYPE_REFRESH\"}",
+                  "closeButtonPosition": "outside"
+                }
+              }
+            },
+            "addressBookBarRedesign": true
+          }
+        }
+      }
+    },
+    {
+      "card": {
+        "tileImage": {
+          "items": [
+            {
+              "type": "image",
+              "image": {
+                "link": "https://ir.ozone.ru/s3/multimedia-1-y/13278195610.jpg",
+                "contentMode": "SCALE_ASPECT_FIT"
+              }
+            },
+            {
+              "type": "image",
+              "image": {
+                "link": "https://ir.ozone.ru/s3/multimedia-1-p/11364650737.jpg",
+                "contentMode": "SCALE_ASPECT_FIT"
+              }
+            },
+            {
+              "type": "image",
+              "image": {
+                "link": "https://ir.ozone.ru/s3/multimedia-1-3/11364650787.jpg",
+                "contentMode": "SCALE_ASPECT_FIT"
+              }
+            },
+            {
+              "type": "image",
+              "image": {
+                "link": "https://ir.ozone.ru/s3/multimedia-1-p/11364650845.jpg",
+                "contentMode": "SCALE_ASPECT_FIT"
+              }
+            },
+            {
+              "type": "image",
+              "image": {
+                "link": "https://ir.ozone.ru/s3/multimedia-1-0/11364650928.jpg",
+                "contentMode": "SCALE_ASPECT_FIT"
+              }
+            },
+            {
+              "type": "image",
+              "image": {
+                "link": "https://ir.ozone.ru/s3/multimedia-1-s/11364651064.jpg",
+                "contentMode": "SCALE_ASPECT_FIT"
+              }
+            }
+          ],
+          "leftBottomBadgeV2": {
+            "text": "+300 морковок",
+            "leftIcon": "ic_m_carrot_filled",
+            "size": "SIZE_500",
+            "styleType": "CUSTOM",
+            "common": {
+              "testInfo": {
+                "automatizationId": "badge-carrotsPayout"
+              }
+            },
+            "customBadgeStyle": {
+              "backgroundColor": {
+                "color": "bgMarketingPrimary"
+              },
+              "leftGraphicColor": "graphicWarningPrimary",
+              "textColor": "textLightKey"
+            }
+          }
+        },
+        "topRightButtons": [
+          {
+            "type": "favoriteProductMoleculeV2",
+            "favoriteProductMoleculeV2": {
+              "id": "1734793718",
+              "isFav": false,
+              "favLink": "favoriteBatchAddItems",
+              "unfavLink": "favoriteBatchDeleteItems",
+              "testInfo": {
+                "favoriteButton": {
+                  "automatizationId": "favorite-button"
+                },
+                "unFavoriteButton": {
+                  "automatizationId": "unfavorite-button"
+                }
+              }
+            }
+          }
+        ],
+        "brandLogo": null,
+        "sku": 1734793718,
+        "id": "1734793718",
+        "isAdult": false,
+        "mainState": [
+          {
+            "type": "priceV2",
+            "priceV2": {
+              "price": [
+                {
+                  "text": "1 279 ₽",
+                  "textStyle": "PRICE"
+                },
+                {
+                  "text": "1 769 ₽",
+                  "textStyle": "ORIGINAL_PRICE"
+                }
+              ],
+              "discount": "−27%",
+              "priceStyle": {
+                "styleType": "CARD_PRICE"
+              },
+              "preset": "SIZE_500"
+            }
+          },
+          {
+            "type": "labelListV2",
+            "labelListV2": {
+              "items": [
+                {
+                  "type": "icon",
+                  "icon": {
+                    "icon": {
+                      "icon": "ic_s_confirmed_filled_compact",
+                      "tintColor": "graphicPositivePrimary"
+                    },
+                    "leftPadding": -2
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": {
+                    "text": "BiMAX",
+                    "textColor": "textPrimary",
+                    "typographyToken": "tsBodyControl400Small",
+                    "leftPadding": 2
+                  }
+                }
+              ],
+              "verticalIndents": {
+                "top": 2,
+                "bottom": 2
+              },
+              "testInfo": {
+                "automatizationId": "tile-list-labels"
+              }
+            }
+          },
+          {
+            "type": "textDS",
+            "textDS": {
+              "text": "Капсулы для стирки BiMAX Color 100 штук",
+              "textColor": "textPrimary",
+              "maxLines": 2,
+              "preset": "PRESET_CUSTOM",
+              "typographyToken": "tsBody500Medium",
+              "testInfo": {
+                "automatizationId": "tile-name"
+              }
+            },
+            "id": "name"
+          },
+          {
+            "type": "labelListV2",
+            "labelListV2": {
+              "items": [
+                {
+                  "type": "icon",
+                  "icon": {
+                    "icon": {
+                      "icon": "ic_s_star_filled_compact",
+                      "tintColor": "graphicRating"
+                    },
+                    "leftPadding": -2
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": {
+                    "text": "4.9",
+                    "textColor": "textPremium",
+                    "leftPadding": 2
+                  }
+                },
+                {
+                  "type": "icon",
+                  "icon": {
+                    "icon": {
+                      "icon": "ic_s_dialog_filled_compact",
+                      "tintColor": "graphicTertiary"
+                    },
+                    "leftPadding": 4
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": {
+                    "text": "61 416 отзывов",
+                    "textColor": "textSecondary",
+                    "leftPadding": 2
+                  }
+                }
+              ],
+              "verticalIndents": {
+                "top": 2,
+                "bottom": 2
+              },
+              "testInfo": {
+                "automatizationId": "tile-list-rating"
+              }
+            }
+          }
+        ],
+        "multiButton": {
+          "expressButton": {
+            "type": "addToCart",
+            "addToCart": {
+              "skuId": "1734793718",
+              "actionButton": {
+                "common": {
+                  "action": {
+                    "behavior": "BEHAVIOR_TYPE_CUSTOM",
+                    "id": "addToCart",
+                    "params": {
+                      "id": "1734793718",
+                      "quantity": "1",
+                      "selectedDeliverySchema": "131"
+                    }
+                  },
+                  "testInfo": {
+                    "automatizationId": "freshAddToCart"
+                  }
+                },
+                "icon": "ic_s_grocery_cart_filled",
+                "title": "За 30 минут"
+              },
+              "quantityButton": {
+                "maxItems": 13,
+                "updateCartAction": {
+                  "id": "1734793718",
+                  "quantity": 1,
+                  "selectedDeliverySchema": 131
+                },
+                "isManualInputAllowed": true
+              },
+              "theme": {
+                "styleWrapper": {
+                  "style": "DEFAULT_FRESH"
+                }
+              },
+              "inCartQuantity": 0
+            }
+          }
+        },
+        "action": {
+          "behavior": "BEHAVIOR_TYPE_REDIRECT",
+          "link": "/product/kapsuly-dlya-stirki-bimax-color-100-shtuk-1734793718/",
+          "params": {
+            "target": "_blank"
+          }
+        }
+      },
+      "data": {
+        "widgetStates": {
+          "webAddToCart-8707205-default-1": {
+            "firstButton": {
+              "isInCart": false,
+              "toCart": {
+                "backgroundColor": "bgAccentPrimary",
+                "cornerRadius": "RADIUS_500",
+                "title": {
+                  "text": "В корзину",
+                  "textColor": "textLightKey",
+                  "textAlignment": "CENTER",
+                  "preset": "PRESET_CUSTOM",
+                  "typographyToken": "tsBodyControl500Medium",
+                  "testInfo": {
+                    "automatizationId": "pdp-add-to-cart-title"
+                  }
+                },
+                "action": {
+                  "behavior": "BEHAVIOR_TYPE_CUSTOM",
+                  "id": "addToCart",
+                  "params": {
+                    "selectedDeliverySchema": "131",
+                    "sku": "1734793718"
+                  }
+                },
+                "asyncFetchType": "SUBTITLE",
+                "buttonHoverColor": "bgActiveAccentPrimary",
+                "testInfo": {
+                  "automatizationId": "saleblock-add-to-cart-button-express"
+                }
+              },
+              "inCart": {
+                "backgroundColor": "bgPositivePrimary",
+                "cornerRadius": "RADIUS_500",
+                "title": {
+                  "text": "В корзине",
+                  "textColor": "textLightKey",
+                  "textAlignment": "CENTER",
+                  "preset": "PRESET_CUSTOM",
+                  "typographyToken": "tsBodyControl500Medium",
+                  "testInfo": {
+                    "automatizationId": "pdp-add-in-cart-title"
+                  }
+                },
+                "subtitle": {
+                  "text": "Перейти",
+                  "textColor": "textPrimaryOnDark",
+                  "textAlignment": "CENTER",
+                  "preset": "PRESET_CUSTOM",
+                  "typographyToken": "tsCompact400Small",
+                  "testInfo": {
+                    "automatizationId": "pdp-add-in-cart-subtitle"
+                  }
+                },
+                "action": {
+                  "behavior": "BEHAVIOR_TYPE_REDIRECT",
+                  "link": "/cart",
+                  "id": "toCheckout",
+                  "params": {
+                    "selectedDeliverySchema": "131",
+                    "sku": "1734793718"
+                  }
+                },
+                "asyncFetchType": "SUBTITLE",
+                "buttonHoverColor": "bgActivePositivePrimary",
+                "testInfo": {
+                  "automatizationId": "button-go-to-cart"
+                }
+              },
+              "additionalButton": {
+                "incrementButton": {
+                  "action": {
+                    "params": {
+                      "selectedDeliverySchema": "131",
+                      "sku": "1734793718"
+                    }
+                  }
+                },
+                "decrementButton": {
+                  "action": {
+                    "params": {
+                      "selectedDeliverySchema": "131",
+                      "sku": "1734793718"
+                    }
+                  }
+                },
+                "countPicker": {
+                  "size": "SIZE_600",
+                  "sizing": "SIZING_HUG",
+                  "styleType": "CUSTOM",
+                  "customStyle": {
+                    "backgroundColor": "bgSecondary"
+                  }
+                }
+              },
+              "sku": "1734793718",
+              "deliverySchema": "131",
+              "freeRest": 13,
+              "minAddToCartQuantity": 1,
+              "inCartQuantity": 0
+            },
+            "secondButton": {
+              "isInCart": false,
+              "toCart": {
+                "backgroundColor": "bgActionPrimary",
+                "cornerRadius": "RADIUS_500",
+                "title": {
+                  "text": "В корзину",
+                  "textColor": "textLightKey",
+                  "textAlignment": "CENTER",
+                  "preset": "PRESET_CUSTOM",
+                  "typographyToken": "tsBodyControl500Medium",
+                  "testInfo": {
+                    "automatizationId": "pdp-add-to-cart-title"
+                  }
+                },
+                "action": {
+                  "behavior": "BEHAVIOR_TYPE_CUSTOM",
+                  "id": "addToCart",
+                  "params": {
+                    "sku": "1734793718"
+                  }
+                },
+                "asyncFetchType": "SUBTITLE",
+                "buttonHoverColor": "bgActiveActionPrimary",
+                "testInfo": {
+                  "automatizationId": "saleblock-add-to-cart-button"
+                }
+              },
+              "inCart": {
+                "backgroundColor": "bgPositivePrimary",
+                "cornerRadius": "RADIUS_500",
+                "title": {
+                  "text": "В корзине",
+                  "textColor": "textLightKey",
+                  "textAlignment": "CENTER",
+                  "preset": "PRESET_CUSTOM",
+                  "typographyToken": "tsBodyControl500Medium",
+                  "testInfo": {
+                    "automatizationId": "pdp-add-in-cart-title"
+                  }
+                },
+                "subtitle": {
+                  "text": "Перейти",
+                  "textColor": "textPrimaryOnDark",
+                  "textAlignment": "CENTER",
+                  "preset": "PRESET_CUSTOM",
+                  "typographyToken": "tsCompact400Small",
+                  "testInfo": {
+                    "automatizationId": "pdp-add-in-cart-subtitle"
+                  }
+                },
+                "action": {
+                  "behavior": "BEHAVIOR_TYPE_REDIRECT",
+                  "link": "/cart",
+                  "id": "toCheckout",
+                  "params": {
+                    "sku": "1734793718"
+                  }
+                },
+                "asyncFetchType": "SUBTITLE",
+                "buttonHoverColor": "bgActivePositivePrimary",
+                "testInfo": {
+                  "automatizationId": "button-go-to-cart"
+                }
+              },
+              "additionalButton": {
+                "incrementButton": {
+                  "action": {
+                    "params": {
+                      "sku": "1734793718"
+                    }
+                  }
+                },
+                "decrementButton": {
+                  "action": {
+                    "params": {
+                      "sku": "1734793718"
+                    }
+                  }
+                },
+                "countPicker": {
+                  "size": "SIZE_600",
+                  "sizing": "SIZING_HUG",
+                  "styleType": "CUSTOM",
+                  "customStyle": {
+                    "backgroundColor": "bgSecondary"
+                  }
+                }
+              },
+              "sku": "1734793718",
+              "freeRest": 519,
+              "minAddToCartQuantity": 1,
+              "inCartQuantity": 0
+            },
+            "asyncAction": {
+              "behavior": "BEHAVIOR_TYPE_CUSTOM",
+              "link": "pdpGetButtonTexts",
+              "id": "asyncDatesRequest",
+              "params": {
+                "inCartPosition": "subtitle",
+                "pageType": "pdp",
+                "referer": "https://www.ozon.ru/product/moloko-parmalat-protein-s-kollagenom-1-l-2952307571/?abt_att=1&sh=xzqu8syAPw",
+                "toCartPosition": "subtitle"
+              }
+            },
+            "webData": {
+              "tooltipTextOutOfFreeRest": {
+                "text": "В наличии больше нет",
+                "textColor": "textPrimaryOnDark",
+                "typographyToken": "tsBody400Small"
+              }
+            }
+          },
+          "webAddToCart-13432895-default-1": {
+            "firstButton": {
+              "isInCart": false,
+              "toCart": {
+                "backgroundColor": "bgAccentPrimary",
+                "cornerRadius": "RADIUS_500",
+                "title": {
+                  "text": "В корзину",
+                  "textColor": "textLightKey",
+                  "textAlignment": "CENTER",
+                  "preset": "PRESET_CUSTOM",
+                  "typographyToken": "tsBodyControl500Medium",
+                  "testInfo": {
+                    "automatizationId": "pdp-add-to-cart-title"
+                  }
+                },
+                "action": {
+                  "behavior": "BEHAVIOR_TYPE_CUSTOM",
+                  "id": "addToCart",
+                  "params": {
+                    "selectedDeliverySchema": "131",
+                    "sku": "1734793718"
+                  }
+                },
+                "asyncFetchType": "SUBTITLE",
+                "buttonHoverColor": "bgActiveAccentPrimary",
+                "testInfo": {
+                  "automatizationId": "saleblock-add-to-cart-button-express"
+                }
+              },
+              "inCart": {
+                "backgroundColor": "bgPositivePrimary",
+                "cornerRadius": "RADIUS_500",
+                "title": {
+                  "text": "В корзине",
+                  "textColor": "textLightKey",
+                  "textAlignment": "CENTER",
+                  "preset": "PRESET_CUSTOM",
+                  "typographyToken": "tsBodyControl500Medium",
+                  "testInfo": {
+                    "automatizationId": "pdp-add-in-cart-title"
+                  }
+                },
+                "subtitle": {
+                  "text": "Перейти",
+                  "textColor": "textPrimaryOnDark",
+                  "textAlignment": "CENTER",
+                  "preset": "PRESET_CUSTOM",
+                  "typographyToken": "tsCompact400Small",
+                  "testInfo": {
+                    "automatizationId": "pdp-add-in-cart-subtitle"
+                  }
+                },
+                "action": {
+                  "behavior": "BEHAVIOR_TYPE_REDIRECT",
+                  "link": "/cart",
+                  "id": "toCheckout",
+                  "params": {
+                    "selectedDeliverySchema": "131",
+                    "sku": "1734793718"
+                  }
+                },
+                "asyncFetchType": "SUBTITLE",
+                "buttonHoverColor": "bgActivePositivePrimary",
+                "testInfo": {
+                  "automatizationId": "button-go-to-cart"
+                }
+              },
+              "additionalButton": {
+                "incrementButton": {
+                  "action": {
+                    "params": {
+                      "selectedDeliverySchema": "131",
+                      "sku": "1734793718"
+                    }
+                  }
+                },
+                "decrementButton": {
+                  "action": {
+                    "params": {
+                      "selectedDeliverySchema": "131",
+                      "sku": "1734793718"
+                    }
+                  }
+                },
+                "countPicker": {
+                  "size": "SIZE_600",
+                  "sizing": "SIZING_HUG",
+                  "styleType": "CUSTOM",
+                  "customStyle": {
+                    "backgroundColor": "bgSecondary"
+                  }
+                }
+              },
+              "sku": "1734793718",
+              "deliverySchema": "131",
+              "freeRest": 13,
+              "minAddToCartQuantity": 1,
+              "inCartQuantity": 0
+            },
+            "secondButton": {
+              "isInCart": false,
+              "toCart": {
+                "backgroundColor": "bgActionPrimary",
+                "cornerRadius": "RADIUS_500",
+                "title": {
+                  "text": "В корзину",
+                  "textColor": "textLightKey",
+                  "textAlignment": "CENTER",
+                  "preset": "PRESET_CUSTOM",
+                  "typographyToken": "tsBodyControl500Medium",
+                  "testInfo": {
+                    "automatizationId": "pdp-add-to-cart-title"
+                  }
+                },
+                "action": {
+                  "behavior": "BEHAVIOR_TYPE_CUSTOM",
+                  "id": "addToCart",
+                  "params": {
+                    "sku": "1734793718"
+                  }
+                },
+                "asyncFetchType": "SUBTITLE",
+                "buttonHoverColor": "bgActiveActionPrimary",
+                "testInfo": {
+                  "automatizationId": "saleblock-add-to-cart-button"
+                }
+              },
+              "inCart": {
+                "backgroundColor": "bgPositivePrimary",
+                "cornerRadius": "RADIUS_500",
+                "title": {
+                  "text": "В корзине",
+                  "textColor": "textLightKey",
+                  "textAlignment": "CENTER",
+                  "preset": "PRESET_CUSTOM",
+                  "typographyToken": "tsBodyControl500Medium",
+                  "testInfo": {
+                    "automatizationId": "pdp-add-in-cart-title"
+                  }
+                },
+                "subtitle": {
+                  "text": "Перейти",
+                  "textColor": "textPrimaryOnDark",
+                  "textAlignment": "CENTER",
+                  "preset": "PRESET_CUSTOM",
+                  "typographyToken": "tsCompact400Small",
+                  "testInfo": {
+                    "automatizationId": "pdp-add-in-cart-subtitle"
+                  }
+                },
+                "action": {
+                  "behavior": "BEHAVIOR_TYPE_REDIRECT",
+                  "link": "/cart",
+                  "id": "toCheckout",
+                  "params": {
+                    "sku": "1734793718"
+                  }
+                },
+                "asyncFetchType": "SUBTITLE",
+                "buttonHoverColor": "bgActivePositivePrimary",
+                "testInfo": {
+                  "automatizationId": "button-go-to-cart"
+                }
+              },
+              "additionalButton": {
+                "incrementButton": {
+                  "action": {
+                    "params": {
+                      "sku": "1734793718"
+                    }
+                  }
+                },
+                "decrementButton": {
+                  "action": {
+                    "params": {
+                      "sku": "1734793718"
+                    }
+                  }
+                },
+                "countPicker": {
+                  "size": "SIZE_600",
+                  "sizing": "SIZING_HUG",
+                  "styleType": "CUSTOM",
+                  "customStyle": {
+                    "backgroundColor": "bgSecondary"
+                  }
+                }
+              },
+              "sku": "1734793718",
+              "freeRest": 519,
+              "minAddToCartQuantity": 1,
+              "inCartQuantity": 0
+            },
+            "asyncAction": {
+              "behavior": "BEHAVIOR_TYPE_CUSTOM",
+              "link": "pdpGetButtonTexts",
+              "id": "asyncDatesRequest",
+              "params": {
+                "enableProductViewedExtended": "true",
+                "inCartPosition": "subtitle",
+                "pageType": "pdp",
+                "referer": "https://www.ozon.ru/product/moloko-parmalat-protein-s-kollagenom-1-l-2952307571/?abt_att=1&sh=xzqu8syAPw",
+                "toCartPosition": "subtitle"
+              }
+            },
+            "webData": {
+              "tooltipTextOutOfFreeRest": {
+                "text": "В наличии больше нет",
+                "textColor": "textPrimaryOnDark",
+                "typographyToken": "tsBody400Small"
+              }
+            }
+          },
+          "webShortCharacteristics-3385952-default-1": {
+            "titleRs": [
+              {
+                "type": "text",
+                "content": "О товаре",
+                "font": "tsHeadline500Medium",
+                "color": "textPrimary"
+              }
+            ],
+            "goTo": {
+              "text": "Перейти к описанию",
+              "styleType": "NEUTRAL_PRIMARY",
+              "common": {
+                "action": {
+                  "behavior": "BEHAVIOR_TYPE_SCROLL_TO_WIDGET",
+                  "link": "section-description",
+                  "params": {
+                    "offsetTop": "144"
+                  }
+                }
+              }
+            },
+            "characteristics": [
+              {
+                "id": "Type_0",
+                "title": {
+                  "textRs": [
+                    {
+                      "type": "text",
+                      "content": "Тип",
+                      "font": "tsBodyM",
+                      "color": "textSecondary"
+                    }
+                  ]
+                },
+                "values": [
+                  {
+                    "id": "Type_0",
+                    "text": "Капсулы для стирки",
+                    "textColor": "textPrimary",
+                    "textStyle": "tsBody400Small"
+                  }
+                ]
+              },
+              {
+                "id": "TasteNF_1",
+                "title": {
+                  "textRs": [
+                    {
+                      "type": "text",
+                      "content": "Аромат",
+                      "font": "tsBodyM",
+                      "color": "textSecondary"
+                    }
+                  ]
+                },
+                "values": [
+                  {
+                    "id": "TasteNF_0",
+                    "text": "Цветочный",
+                    "textColor": "textPrimary",
+                    "textStyle": "tsBody400Small",
+                    "href": "/category/kapsuly-i-tabletki-dlya-stirki-s-tsvetochnym-aromatom/",
+                    "isSingleLink": true
+                  }
+                ]
+              },
+              {
+                "id": "WashingAppointment_2",
+                "title": {
+                  "textRs": [
+                    {
+                      "type": "text",
+                      "content": "Назначение средства для стирки",
+                      "font": "tsBodyM",
+                      "color": "textSecondary"
+                    }
+                  ]
+                },
+                "values": [
+                  {
+                    "id": "WashingAppointment_0",
+                    "text": "Для цветных тканей, ",
+                    "textColor": "textPrimary",
+                    "textStyle": "tsBody400Small",
+                    "href": "/category/kapsuly-dlya-stirki-dlya-tsvetnogo/"
+                  },
+                  {
+                    "id": "WashingAppointment_1",
+                    "text": "Для черных и темных тканей, ",
+                    "textColor": "textPrimary",
+                    "textStyle": "tsBody400Small",
+                    "href": "/category/kapsuly-dlya-stirki-chernogo/"
+                  },
+                  {
+                    "id": "WashingAppointment_2",
+                    "text": "Для белых тканей",
+                    "textColor": "textPrimary",
+                    "textStyle": "tsBody400Small",
+                    "href": "/category/kapsuly-dlya-stirki-belogo/"
+                  }
+                ]
+              },
+              {
+                "id": "NumberCapsules_3",
+                "title": {
+                  "textRs": [
+                    {
+                      "type": "text",
+                      "content": "Общее количество капсул/таблеток",
+                      "font": "tsBodyM",
+                      "color": "textSecondary"
+                    }
+                  ]
+                },
+                "values": [
+                  {
+                    "id": "NumberCapsules_0",
+                    "text": "100",
+                    "textColor": "textPrimary",
+                    "textStyle": "tsBody400Small"
+                  }
+                ]
+              },
+              {
+                "id": "Features_4",
+                "title": {
+                  "textRs": [
+                    {
+                      "type": "text",
+                      "content": "Особенности применения",
+                      "font": "tsBodyM",
+                      "color": "textSecondary"
+                    }
+                  ]
+                },
+                "values": [
+                  {
+                    "id": "Features_0",
+                    "text": "Восстановление цвета, ",
+                    "textColor": "textPrimary",
+                    "textStyle": "tsBody400Small",
+                    "href": "/category/kapsuly-dlya-vosstanovleniya-tsveta-dlya-stirki/"
+                  },
+                  {
+                    "id": "Features_1",
+                    "text": "Эффективен в холодной воде, ",
+                    "textColor": "textPrimary",
+                    "textStyle": "tsBody400Small",
+                    "href": "/category/kapsuly-dlya-stirki-v-holodnoy-vode/"
+                  },
+                  {
+                    "id": "Features_2",
+                    "text": "Концентрат",
+                    "textColor": "textPrimary",
+                    "textStyle": "tsBody400Small",
+                    "href": "/category/kapsuly-i-tabletki-dlya-stirki-kontsentrat/"
+                  }
+                ]
+              }
+            ],
+            "params": {
+              "anchor": "",
+              "disablePaidBrand": false,
+              "isFreshColorsEnabled": true,
+              "isWidgetCharacteristicsOnPage": true,
+              "isWidgetDescriptionOnPage": true,
+              "limit": 5,
+              "linkToCharacteristics": "section-characteristics",
+              "linkToCharacteristicsButtonText": "Перейти к характеристикам",
+              "linkToDescription": "section-description",
+              "linkToDescriptionButtonText": "Перейти к описанию",
+              "linkToExternal": "",
+              "linkToExternalText": "Подробнее",
+              "offsetScrol": 144,
+              "paramsLinkTarget": "self",
+              "showLongCharacteristics": true,
+              "thresholdLength": 60
+            }
+          },
+          "webPrice-3121879-default-1": {
+            "isAvailable": true,
+            "cardPrice": "1 279 ₽",
+            "price": "1 319 ₽",
+            "originalPrice": "1 769 ₽",
+            "showOriginalPrice": true,
+            "measurePerUnit": "за 1 шт",
+            "pricePerUnit": "13 ₽",
+            "link": "/modal/pdpListOfBanks",
+            "lexemes": {
+              "currency": "Валюта",
+              "includeVatTextMobile": "Цена с НДС",
+              "moreText": "Подробнее",
+              "notRefundVatText": "НДС не возмещается",
+              "withOzonCard": "С банками",
+              "withoutOzonCard": "С другими банками",
+              "withoutVatText": "без НДС",
+              "withoutVatTextCapitalize": "Без НДС",
+              "withoutVatTextMobile": "Цена без НДС"
+            },
+            "colorBlockRightContent": {
+              "images": [
+                {
+                  "image": "https://ir.ozone.ru/s3/payments-cdn/ozon-price-compact-new-ozon-light.png",
+                  "aspectRatio": "RATIO_1_1",
+                  "imageWidth": 23,
+                  "cdnSettings": {
+                    "size": 64
+                  },
+                  "fitType": "FIT_CENTER"
+                },
+                {
+                  "image": "https://ir.ozone.ru/s3/payments-cdn/ozon_other_sovkombank_dark.png",
+                  "aspectRatio": "RATIO_1_1",
+                  "imageWidth": 20,
+                  "cdnSettings": {
+                    "size": 64
+                  },
+                  "fitType": "FIT_CENTER"
+                },
+                {
+                  "image": "https://ir.ozone.ru/s3/payments-cdn/ozon_other_otp_light.png",
+                  "aspectRatio": "RATIO_1_1",
+                  "imageWidth": 20,
+                  "cdnSettings": {
+                    "size": 64
+                  },
+                  "fitType": "FIT_CENTER"
+                },
+                {
+                  "image": "https://ir.ozone.ru/s3/payments-cdn/ozon_other_crediteurope_black.png",
+                  "aspectRatio": "RATIO_1_1",
+                  "imageWidth": 20,
+                  "cdnSettings": {
+                    "size": 64
+                  },
+                  "fitType": "FIT_CENTER"
+                }
+              ]
+            },
+            "params": {
+              "ladderPriceHide": false,
+              "showPpu": true,
+              "withOzonAccount": "/modal/withOzonAccount",
+              "withOzonAccountLegal": "/modal/OzoneAccountForLegal",
+              "withoutOzonAccount": "/modal/withoutOzonAccount"
+            }
+          },
+          "webProductHeading-3385933-default-1": {
+            "title": "Капсулы для стирки BiMAX Color 100 штук",
+            "rowCount": 3,
+            "lexemes": {
+              "showMore": "ещё"
+            },
+            "params": {
+              "rowsCount": 3
+            }
+          },
+          "addressBookBarWeb-7278510-default-1": {
+            "customCell": {
+              "actionMode": "common",
+              "cells": [
+                {
+                  "type": "text",
+                  "text": {
+                    "text": "Бакунинская ул., 60/2",
+                    "textStyle": "tsBody400Small",
+                    "textColor": "textAction"
+                  },
+                  "shrinkPosition": "left"
+                }
+              ],
+              "action": {
+                "behavior": "BEHAVIOR_TYPE_COMPOSER_NESTED_PAGE",
+                "link": "/modal/addressbook",
+                "id": "addressbook",
+                "params": {
+                  "closeAction": "{\"behavior\":\"BEHAVIOR_TYPE_REFRESH\"}",
+                  "closeButtonPosition": "outside"
+                }
+              }
+            },
+            "addressBookBarRedesign": true
+          }
+        }
+      }
+    }
+  ]
+}

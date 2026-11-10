@@ -1,0 +1,22 @@
+{
+  "workers": 7,
+  "interval_min_seconds": 15,
+  "interval_max_seconds": 15,
+  "http_error_steps_seconds": [],
+  "automatic_decrease_after_http_error": false,
+  "fixed_request_interval_seconds": 15,
+  "protection_cooldown_separate": false,
+  "captcha_manual": true,
+  "main_launcher": "08_continue_all.cmd",
+  "chrome_launcher": "01_open_old_chrome.cmd",
+  "chrome_proxy": null,
+  "status_launcher": "12_status.cmd",
+  "requested_addresses": 197,
+  "offline_tests_passed": 344,
+  "live_full_runtime_verified": false,
+  "collection_started_by_install": false,
+  "on_403_interval_seconds": 15,
+  "on_429_interval_seconds": 15,
+  "fixed_http_error_cooldown_seconds": 15,
+  "server_retry_after_preserved": true
+}

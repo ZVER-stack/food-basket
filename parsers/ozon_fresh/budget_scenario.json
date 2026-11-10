@@ -1,0 +1,18 @@
+{
+  "zones_total": 201,
+  "zones_with_house": 197,
+  "excluded_no_house": [
+    "8711aa601ffffff",
+    "8711aa60effffff",
+    "8711aa605ffffff",
+    "8711aa62affffff"
+  ],
+  "budget_seconds": 7200,
+  "scenario_only_not_a_benchmark": true,
+  "assumed_unique_warehouses": 20,
+  "assumed_catalog_pages_per_warehouse": 150,
+  "minimum_request_seconds_excluding_latency": 3584.7,
+  "remaining_for_latency_and_export_seconds": 3615.3,
+  "requests_per_second_max": 0.9523809523809523,
+  "note": "Two location/context requests per zone; one post-crawl confirmation per warehouse. Reuse requires verified warehouse offer scope. Actual elapsed time requires a live 3-5-zone pilot."
+}

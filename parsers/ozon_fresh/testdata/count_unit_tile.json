@@ -1,0 +1,283 @@
+{
+  "synthetic": false,
+  "source": "Minimized anonymous public Fresh category response2026-10-18; title states20sticks. Tracking fields removed.",
+  "card": {
+    "mainState": [
+      {
+        "type": "priceV2",
+        "priceV2": {
+          "price": [
+            {
+              "text": "587 ₽",
+              "textStyle": "PRICE"
+            },
+            {
+              "text": "659 ₽",
+              "textStyle": "ORIGINAL_PRICE"
+            }
+          ],
+          "discount": "−10%",
+          "priceStyle": {
+            "styleType": "SALE_PRICE",
+            "gradient": {
+              "startColor": "#F1117E",
+              "endColor": "#F1117E"
+            }
+          },
+          "preset": "SIZE_500"
+        }
+      },
+      {
+        "type": "textDS",
+        "textDS": {
+          "text": "2 836 ед осталось",
+          "textColor": "textAccent",
+          "maxLines": 1,
+          "preset": "PRESET_CUSTOM",
+          "typographyToken": "tsBodyControl400Small",
+          "topPadding": "PADDING_100",
+          "bottomPadding": "PADDING_100",
+          "testInfo": {
+            "automatizationId": "tile-blackFridayStockbar"
+          }
+        }
+      },
+      {
+        "type": "labelListV2",
+        "labelListV2": {
+          "items": [
+            {
+              "type": "icon",
+              "icon": {
+                "icon": {
+                  "icon": "ic_s_confirmed_filled_compact",
+                  "tintColor": "graphicPositivePrimary"
+                },
+                "leftPadding": -2
+              }
+            },
+            {
+              "type": "text",
+              "text": {
+                "text": "Monarch",
+                "textColor": "textPrimary",
+                "typographyToken": "tsBodyControl400Small",
+                "leftPadding": 2
+              }
+            }
+          ],
+          "verticalIndents": {
+            "top": 2,
+            "bottom": 2
+          },
+          "testInfo": {
+            "automatizationId": "tile-list-labels"
+          }
+        }
+      },
+      {
+        "type": "textDS",
+        "textDS": {
+          "text": "Напиток кофейный растворимый MONARCH Капучино со вкусом дубайского шоколада 20 стиков",
+          "textColor": "textPrimary",
+          "maxLines": 2,
+          "preset": "PRESET_CUSTOM",
+          "typographyToken": "tsBody500Medium",
+          "testInfo": {
+            "automatizationId": "tile-name"
+          }
+        },
+        "id": "name"
+      },
+      {
+        "type": "labelListV2",
+        "labelListV2": {
+          "items": [
+            {
+              "type": "icon",
+              "icon": {
+                "icon": {
+                  "icon": "ic_s_star_filled_compact",
+                  "tintColor": "graphicRating"
+                },
+                "leftPadding": -2
+              }
+            },
+            {
+              "type": "text",
+              "text": {
+                "text": "4.9",
+                "textColor": "textPremium",
+                "leftPadding": 2
+              }
+            },
+            {
+              "type": "icon",
+              "icon": {
+                "icon": {
+                  "icon": "ic_s_dialog_filled_compact",
+                  "tintColor": "graphicTertiary"
+                },
+                "leftPadding": 4
+              }
+            },
+            {
+              "type": "text",
+              "text": {
+                "text": "141 245 отзывов",
+                "textColor": "textSecondary",
+                "leftPadding": 2
+              }
+            }
+          ],
+          "verticalIndents": {
+            "top": 2,
+            "bottom": 2
+          },
+          "testInfo": {
+            "automatizationId": "tile-list-rating"
+          }
+        }
+      }
+    ],
+    "isAdult": false,
+    "sku": 3927006263,
+    "action": {
+      "behavior": "BEHAVIOR_TYPE_REDIRECT",
+      "link": "/product/napitok-kofeynyy-rastvorimyy-monarch-kapuchino-so-vkusom-dubayskogo-shokolada-20-stikov-3927006263/",
+      "params": {
+        "target": "_blank"
+      }
+    },
+    "id": "3927006263",
+    "brandLogo": null,
+    "multiButton": {
+      "expressButton": {
+        "type": "addToCart",
+        "addToCart": {
+          "skuId": "3927006263",
+          "actionButton": {
+            "common": {
+              "action": {
+                "behavior": "BEHAVIOR_TYPE_CUSTOM",
+                "id": "addToCart",
+                "params": {
+                  "id": "3927006263",
+                  "quantity": "1",
+                  "selectedDeliverySchema": "131"
+                }
+              },
+              "testInfo": {
+                "automatizationId": "freshAddToCart"
+              }
+            },
+            "icon": "ic_s_grocery_cart_filled",
+            "title": "За час"
+          },
+          "quantityButton": {
+            "maxItems": 28,
+            "updateCartAction": {
+              "id": "3927006263",
+              "quantity": 1,
+              "selectedDeliverySchema": 131
+            },
+            "isManualInputAllowed": true
+          },
+          "theme": {
+            "styleWrapper": {
+              "style": "DEFAULT_FRESH"
+            }
+          },
+          "inCartQuantity": 0,
+          "extendMap": {
+            "advert": "AE8EC9vDZoqfCQ24NMJMeMFMm2L_TFjsq3tC31IfG7bBTIfbinCe2OAl0jCYTZ_VHF1XFzoQL9ZEjH6pmMgGflukqxY55gcnkkag5ZZ-sPBK5IJ7xhj2q8iFGi-8io5HPOv8Ekg5Fi7xAXE9T8dMt-aFPJTOpxfnYk_mO72IzG4EDRssM82qEgGGYJWZJoFObNTYM2V0X8Haqhi0cOR_9bOT7qtoLi8plYXwAEbCxfafnoPo-1L_3epycKa_Ejt0m6O_6AIEdn2dfBMCE28MAbybFNI1clvBf1L7l7BIldrvugR1UrxDJdjrU0dBwpMgLjkqnXMqda5aQujIcJVwUpX3oD51KZ_Wdv1bjSQ9OC4EsNvDpnq9YU8x4w5Do3Zu0fR4EG-AVUiPiFstKdCi18y_8kMAqAt520E04p1m5UNSOiuOYTlCceJd31xRVdDLetLHfNB6FlM5eEJA_4c4N9_lJ-05RgehwNvc7wS2nsZCRiiudHt3hi4dYmnKDErljbqiIj0yxyDtsU6toECY_K_4F5A0SGin0-yZfVWdbw28",
+            "qtyDiscountNotify": "true"
+          }
+        }
+      }
+    },
+    "tileImage": {
+      "items": [
+        {
+          "type": "image",
+          "image": {
+            "link": "https://ir.ozone.ru/s3/multimedia-1-i/20034479394.jpg",
+            "contentMode": "SCALE_ASPECT_FIT"
+          }
+        },
+        {
+          "type": "image",
+          "image": {
+            "link": "https://ir.ozone.ru/s3/multimedia-1-h/20034479573.jpg",
+            "contentMode": "SCALE_ASPECT_FIT"
+          }
+        },
+        {
+          "type": "image",
+          "image": {
+            "link": "https://ir.ozone.ru/s3/multimedia-1-q/20034479798.jpg",
+            "contentMode": "SCALE_ASPECT_FIT"
+          }
+        },
+        {
+          "type": "image",
+          "image": {
+            "link": "https://ir.ozone.ru/s3/multimedia-1-r/20034480015.jpg",
+            "contentMode": "SCALE_ASPECT_FIT"
+          }
+        },
+        {
+          "type": "image",
+          "image": {
+            "link": "https://ir.ozone.ru/s3/multimedia-1-n/14912280599.jpg",
+            "contentMode": "SCALE_ASPECT_FIT"
+          }
+        },
+        {
+          "type": "image",
+          "image": {
+            "link": "https://ir.ozone.ru/s3/multimedia-1-1/14912280577.jpg",
+            "contentMode": "SCALE_ASPECT_FIT"
+          }
+        }
+      ],
+      "leftBottomBadgeV2": {
+        "text": "Распродажа",
+        "leftIcon": "ic_s_hot_filled_compact",
+        "size": "SIZE_500",
+        "styleType": "CUSTOM",
+        "common": {
+          "testInfo": {
+            "automatizationId": "badge-marketingSuperHigh"
+          }
+        },
+        "customBadgeStyle": {
+          "backgroundColor": {
+            "color": "#f1117eff"
+          },
+          "leftGraphicColor": "#ffffffff",
+          "textColor": "#ffffffff"
+        }
+      }
+    },
+    "topRightButtons": [
+      {
+        "type": "favoriteProductMoleculeV2",
+        "favoriteProductMoleculeV2": {
+          "id": "3927006263",
+          "isFav": false,
+          "favLink": "favoriteBatchAddItems",
+          "unfavLink": "favoriteBatchDeleteItems",
+          "testInfo": {
+            "favoriteButton": {
+              "automatizationId": "favorite-button"
+            },
+            "unFavoriteButton": {
+              "automatizationId": "unfavorite-button"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

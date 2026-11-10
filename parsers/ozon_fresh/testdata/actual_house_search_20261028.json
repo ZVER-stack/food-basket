@@ -1,0 +1,1770 @@
+{
+  "source": "Actual public house-selection responses captured 2026-10-28 after the disabled confirm button; reduced to address, coordinate and action contracts. Tracking identifiers and unrelated widgets omitted.",
+  "synthetic": false,
+  "zone": {
+    "h3_index": "8711aa715ffffff",
+    "address": "Москва, Волоколамское шоссе, 13",
+    "address_lat": "55.80779",
+    "address_lon": "37.495776"
+  },
+  "initial": {
+    "widgetStates": {
+      "addressEditMap-3411203-default-1": {
+        "centerPin": {
+          "coordinates": {
+            "latitude": 55.755814,
+            "longitude": 37.617635
+          },
+          "icon": "ozon#redOzonL",
+          "link": "/modal/fresh?azimuth=0.000000000000&lat=55.7558140&long=37.6176350&miniapp=supermarket&nfr=t&pid=4&pv=4&tab=c",
+          "fixedToMapCenter": true,
+          "isAvailable": true
+        },
+        "viewport": {
+          "leftBottom": {
+            "latitude": 55.49133,
+            "longitude": 37.326051
+          },
+          "rightTop": {
+            "latitude": 55.957565,
+            "longitude": 37.96779
+          }
+        },
+        "geolocationOnInit": true,
+        "linkTplDragCenter": "/modal/fresh?azimuth=0.000000000000&glr=t&lat=__lat__&long=__lng__&miniapp=supermarket&nfr=t&pid=4&pv=4&tab=c",
+        "showCenterPin": true,
+        "icons": {
+          "location": {
+            "icon": "https://ir.ozone.ru/graphics/ozon/checkout/map/location.svg"
+          },
+          "geolocation": {}
+        },
+        "userLocationMarker": {
+          "icon": "ozon#geoPerson",
+          "iconTintColor": "bgAccentPrimary",
+          "iconWidth": 24,
+          "iconHeight": 24,
+          "tooltip": {
+            "text": "Вы здесь",
+            "backgroundColor": "bgAccentPrimary",
+            "textColor": "bgLightKey",
+            "timing": "3000",
+            "type": "userlocation"
+          },
+          "zPriority": 1000
+        },
+        "isNavbarHidden": true,
+        "metaInfo": {
+          "debounceDelay": 1,
+          "url": "/modal/fresh?miniapp=supermarket"
+        },
+        "navbarTitle": "Выберите адрес доставки",
+        "useMapSdk": true,
+        "locationUid": "0c5b2444-70a0-4932-980c-b4dc0d3f02b5",
+        "webGeolocationZoomLevel": 16,
+        "firstZoomAction": {
+          "behavior": "BEHAVIOR_TYPE_COMPOSER_ACTION",
+          "link": "/v2/firstZoom?azimuth=0.000000000000&miniapp=supermarket&msid=52052139-705e-418b-9bd7-86eacaa9d6f5&nfr=t&pv=4"
+        },
+        "mode": "modal",
+        "replaceUrl": true,
+        "webSuggestZoomLevel": 17,
+        "deliveryTypeMap": "courier",
+        "mainAddressLocationUid": "0c5b2444-70a0-4932-980c-b4dc0d3f02b5",
+        "markerBundle": {
+          "type": "mapObjectCollection",
+          "mapObjectCollection": {
+            "mapObjects": []
+          }
+        },
+        "newCourierMarker": true,
+        "actionBaseLink": "/modal/fresh?azimuth=0.000000000000&miniapp=supermarket&nfr=t&pid=10&place=curtain&pp={id}&ppex=t&pv=4&tab=c",
+        "mergedPinsActionBaseLink": "/modal/fresh?azimuth=0.000000000000&miniapp=supermarket&nfr=t&pid=3&pp={id}&pv=4&tab=c"
+      },
+      "addressEditForm-3411198-default-1": {
+        "rowSize": 12,
+        "rows": [
+          {
+            "blocks": [
+              {
+                "elements": [
+                  {
+                    "type": "header",
+                    "text": "Выберите адрес доставки"
+                  },
+                  {
+                    "type": "textMedium",
+                    "text": "Укажите на карте или воспользуйтесь поиском",
+                    "textColor": "textSecondary"
+                  }
+                ],
+                "name": "address",
+                "rows": [
+                  {
+                    "fields": [
+                      {
+                        "name": "addressTail",
+                        "label": "Адрес",
+                        "fieldSize": 12,
+                        "isEnabled": true,
+                        "fieldType": "FIELD_TYPE_SEARCH_YANDEX",
+                        "errorColor": "textNegative",
+                        "searchOptions": {
+                          "link": "validateCourierAddressV2?area_id=2&azimuth=0.000000000000&miniapp=supermarket&nfr=t&pv=4&status=FORM_TYPE_SHORT&tab=c&q={q}",
+                          "threshold": 1,
+                          "showCurrent": true,
+                          "states": {
+                            "empty": {
+                              "annotations": []
+                            },
+                            "unavailableAddress": {
+                              "annotations": [
+                                {
+                                  "type": "annotationNew",
+                                  "annotationNew": {
+                                    "body": {
+                                      "text": "Мы не доставляем заказы по этому адресу. Выберите другой адрес или укажите на карте.",
+                                      "color": "textSecondary"
+                                    },
+                                    "icon": {
+                                      "image": "ic_m_info"
+                                    },
+                                    "header": {}
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          "boundingBox": {
+                            "leftBottom": {
+                              "latitude": 55.49133,
+                              "longitude": 37.326051
+                            },
+                            "rightTop": {
+                              "latitude": 55.957565,
+                              "longitude": 37.96779
+                            }
+                          },
+                          "action": {
+                            "behavior": "BEHAVIOR_TYPE_COMPOSER_NESTED_PAGE",
+                            "link": "validateCourierAddressV2?area_id=2&azimuth=0.000000000000&miniapp=supermarket&nfr=t&pv=4&status=FORM_TYPE_SHORT&tab=c&q={q}"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "fields": [
+                      {
+                        "fieldSize": 12,
+                        "isEnabled": true,
+                        "fieldType": "FIELD_TYPE_ATOM",
+                        "elements": [
+                          {
+                            "type": "smallBorderlessButtonWithIcon",
+                            "text": "Определить местоположение",
+                            "action": {
+                              "behavior": "BEHAVIOR_TYPE_CUSTOM",
+                              "id": "geolocation"
+                            },
+                            "icon": "ic_m_find_geo"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "blockSize": 12
+              }
+            ]
+          }
+        ],
+        "type": "FORM_TYPE_SHORT",
+        "useMapSdk": true,
+        "addressWithoutCountry": true,
+        "deliveryTypeMap": "courier",
+        "locationUid": "0c5b2444-70a0-4932-980c-b4dc0d3f02b5",
+        "isFresh": true
+      }
+    },
+    "location": {
+      "current": {
+        "geoCoordinate": {
+          "latitude": 55.8768,
+          "longitude": 37.437428
+        }
+      }
+    }
+  },
+  "house": {
+    "widgetStates": {
+      "addressEditMap-3411203-default-1": {
+        "centerPin": {
+          "coordinates": {
+            "latitude": 55.80779,
+            "longitude": 37.495776
+          },
+          "icon": "ozon#redOzonL",
+          "link": "/modal/fresh?azimuth=0.000000000000&lat=55.8077900&long=37.4957760&miniapp=supermarket&nfr=t&pid=4&pv=4&tab=c",
+          "metaInformation": "<span><b>Москва</b></span><br />",
+          "fixedToMapCenter": true,
+          "isAvailable": true
+        },
+        "viewport": {
+          "leftBottom": {
+            "latitude": 55.805820803804195,
+            "longitude": 37.49227217674191
+          },
+          "rightTop": {
+            "latitude": 55.80975909658475,
+            "longitude": 37.49928017776411
+          }
+        },
+        "linkTplDragCenter": "/modal/fresh?azimuth=0.000000000000&lat=__lat__&long=__lng__&miniapp=supermarket&nfr=t&pid=4&pv=4&tab=c",
+        "showCenterPin": true,
+        "icons": {
+          "location": {
+            "icon": "https://ir.ozone.ru/graphics/ozon/checkout/map/location.svg"
+          },
+          "geolocation": {}
+        },
+        "userLocationMarker": {
+          "icon": "ozon#geoPerson",
+          "iconTintColor": "bgAccentPrimary",
+          "iconWidth": 24,
+          "iconHeight": 24,
+          "tooltip": {
+            "text": "Вы здесь",
+            "backgroundColor": "bgAccentPrimary",
+            "textColor": "bgLightKey",
+            "timing": "3000",
+            "type": "userlocation"
+          },
+          "zPriority": 1000
+        },
+        "isNavbarHidden": true,
+        "metaInfo": {
+          "debounceDelay": 1,
+          "url": "/modal/fresh?azimuth=0.000000000000&glr=t&lat=55.80779&long=37.495776&miniapp=supermarket&nfr=t&pid=4&pv=4&tab=c"
+        },
+        "navbarTitle": "Выберите адрес доставки",
+        "useMapSdk": true,
+        "locationUid": "0c5b2444-70a0-4932-980c-b4dc0d3f02b5",
+        "webGeolocationZoomLevel": 16,
+        "mode": "modal",
+        "replaceUrl": true,
+        "webSuggestZoomLevel": 17,
+        "deliveryTypeMap": "courier",
+        "mainAddressLocationUid": "0c5b2444-70a0-4932-980c-b4dc0d3f02b5",
+        "markerBundle": {
+          "type": "mapObjectCollection",
+          "mapObjectCollection": {
+            "mapObjects": []
+          }
+        },
+        "newCourierMarker": true,
+        "actionBaseLink": "/modal/fresh?azimuth=0.000000000000&miniapp=supermarket&nfr=t&pid=10&place=curtain&pp={id}&ppex=t&pv=4&tab=c",
+        "mergedPinsActionBaseLink": "/modal/fresh?azimuth=0.000000000000&miniapp=supermarket&nfr=t&pid=3&pp={id}&pv=4&tab=c"
+      },
+      "addressEditConfirmButton-3411200-default-1": {
+        "buttonsWeb": [
+          {
+            "text": "Привезти сюда",
+            "theme": "disabled",
+            "size": "xl",
+            "action": {
+              "behavior": "BEHAVIOR_TYPE_COMPOSER_NESTED_PAGE"
+            },
+            "fill": true,
+            "testInfo": {
+              "automatizationId": "address-edit-confirm-button"
+            },
+            "disabled": true,
+            "withoutAnimation": true
+          }
+        ]
+      },
+      "addressEditForm-3411198-default-1": {
+        "rowSize": 12,
+        "rows": [
+          {
+            "blocks": [
+              {
+                "elements": [
+                  {
+                    "type": "header",
+                    "text": "Выберите адрес доставки"
+                  },
+                  {
+                    "type": "textMedium",
+                    "text": "Укажите на карте или воспользуйтесь поиском",
+                    "textColor": "textSecondary"
+                  }
+                ],
+                "name": "address",
+                "rows": [
+                  {
+                    "fields": [
+                      {
+                        "name": "addressTail",
+                        "label": "Адрес",
+                        "text": "Москва",
+                        "value": "Москва",
+                        "fieldSize": 12,
+                        "isEnabled": true,
+                        "fieldType": "FIELD_TYPE_SEARCH_YANDEX",
+                        "errorColor": "textNegative",
+                        "searchOptions": {
+                          "link": "validateCourierAddressV2?area_id=2&azimuth=0.000000000000&lat=55.8077900&long=37.4957760&miniapp=supermarket&nfr=t&pv=4&status=FORM_TYPE_SHORT&tab=c&q={q}",
+                          "threshold": 1,
+                          "showCurrent": true,
+                          "states": {
+                            "empty": {
+                              "annotations": []
+                            },
+                            "unavailableAddress": {
+                              "annotations": [
+                                {
+                                  "type": "annotationNew",
+                                  "annotationNew": {
+                                    "body": {
+                                      "text": "Мы не доставляем заказы по этому адресу. Выберите другой адрес или укажите на карте.",
+                                      "color": "textSecondary"
+                                    },
+                                    "icon": {
+                                      "image": "ic_m_info"
+                                    },
+                                    "header": {}
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          "boundingBox": {
+                            "leftBottom": {
+                              "latitude": 55.805820803804195,
+                              "longitude": 37.49227217674191
+                            },
+                            "rightTop": {
+                              "latitude": 55.80975909658475,
+                              "longitude": 37.49928017776411
+                            }
+                          },
+                          "action": {
+                            "behavior": "BEHAVIOR_TYPE_COMPOSER_NESTED_PAGE",
+                            "link": "validateCourierAddressV2?area_id=2&azimuth=0.000000000000&lat=55.8077900&long=37.4957760&miniapp=supermarket&nfr=t&pv=4&status=FORM_TYPE_SHORT&tab=c&q={q}"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "fields": [
+                      {
+                        "fieldSize": 12,
+                        "isEnabled": true,
+                        "fieldType": "FIELD_TYPE_ATOM",
+                        "elements": [
+                          {
+                            "type": "textAtom",
+                            "text": "Укажите номер дома",
+                            "textColor": "textNegative"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "fields": [
+                      {
+                        "fieldSize": 12,
+                        "isEnabled": true,
+                        "fieldType": "FIELD_TYPE_ATOM",
+                        "elements": [
+                          {
+                            "type": "smallBorderlessButtonWithIcon",
+                            "text": "Определить местоположение",
+                            "action": {
+                              "behavior": "BEHAVIOR_TYPE_CUSTOM",
+                              "id": "geolocation"
+                            },
+                            "icon": "ic_m_find_geo"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "blockSize": 12
+              }
+            ]
+          }
+        ],
+        "type": "FORM_TYPE_SHORT",
+        "useMapSdk": true,
+        "addressWithoutCountry": true,
+        "deliveryTypeMap": "courier",
+        "locationUid": "0c5b2444-70a0-4932-980c-b4dc0d3f02b5",
+        "isFresh": true
+      }
+    },
+    "location": {
+      "current": {
+        "geoCoordinate": {
+          "latitude": 55.8768,
+          "longitude": 37.437428
+        }
+      }
+    }
+  },
+  "suggestions": {
+    "source": "maps_vector_fallback_misspell_faiss",
+    "suggestions": [
+      {
+        "address": {
+          "fullText": "город Москва, Волоколамское шоссе, 13",
+          "isoAlpha2CountryCode": "RU",
+          "geometry": {
+            "point": {
+              "lat": 55.80778,
+              "lon": 37.496586
+            },
+            "viewPort": {
+              "leftLowerCorner": {
+                "lat": 55.80566,
+                "lon": 37.491889
+              },
+              "rightUpperCorner": {
+                "lat": 55.80992,
+                "lon": 37.499661
+              }
+            }
+          },
+          "components": {
+            "city": {
+              "name": "Москва"
+            },
+            "street": {
+              "name": "Волоколамское шоссе"
+            },
+            "house": {
+              "number": "13"
+            }
+          }
+        },
+        "emptyGeometry": false,
+        "trustCoord": true
+      },
+      {
+        "address": {
+          "fullText": "город Москва, Волоколамское шоссе, 71/13 корпус 1",
+          "isoAlpha2CountryCode": "RU",
+          "geometry": {
+            "point": {
+              "lat": 55.815371,
+              "lon": 37.426101
+            },
+            "viewPort": {
+              "leftLowerCorner": {
+                "lat": 55.813334,
+                "lon": 37.421933
+              },
+              "rightUpperCorner": {
+                "lat": 55.817909,
+                "lon": 37.430682
+              }
+            }
+          },
+          "components": {
+            "city": {
+              "name": "Москва"
+            },
+            "street": {
+              "name": "Волоколамское шоссе"
+            },
+            "house": {
+              "number": "71/13 корпус 1"
+            }
+          }
+        },
+        "emptyGeometry": false,
+        "trustCoord": true
+      },
+      {
+        "address": {
+          "fullText": "Москва, город Москва, Волоколамское шоссе, 13",
+          "isoAlpha2CountryCode": "RU",
+          "geometry": {
+            "point": {
+              "lat": 55.807434,
+              "lon": 37.496435
+            },
+            "viewPort": {
+              "leftLowerCorner": {
+                "lat": 55.806435,
+                "lon": 37.495435
+              },
+              "rightUpperCorner": {
+                "lat": 55.808434,
+                "lon": 37.497435
+              }
+            }
+          },
+          "components": {
+            "city": {
+              "name": "Москва"
+            },
+            "street": {
+              "name": "Волоколамское шоссе"
+            },
+            "house": {
+              "number": "13"
+            }
+          }
+        },
+        "emptyGeometry": false,
+        "trustCoord": true
+      },
+      {
+        "address": {
+          "fullText": "город Москва, Волоколамское шоссе, 13/1",
+          "isoAlpha2CountryCode": "RU",
+          "geometry": {
+            "point": {
+              "lat": 55.808113,
+              "lon": 37.497164
+            },
+            "viewPort": {
+              "leftLowerCorner": {
+                "lat": 55.806432,
+                "lon": 37.494186
+              },
+              "rightUpperCorner": {
+                "lat": 55.809795,
+                "lon": 37.500142
+              }
+            }
+          },
+          "components": {
+            "city": {
+              "name": "Москва"
+            },
+            "street": {
+              "name": "Волоколамское шоссе"
+            },
+            "house": {
+              "number": "13/1"
+            }
+          }
+        },
+        "emptyGeometry": false,
+        "trustCoord": true
+      },
+      {
+        "address": {
+          "fullText": "город Москва, Волоколамское шоссе, 132",
+          "isoAlpha2CountryCode": "RU",
+          "geometry": {
+            "point": {
+              "lat": 55.832321,
+              "lon": 37.400554
+            },
+            "viewPort": {
+              "leftLowerCorner": {
+                "lat": 55.830586,
+                "lon": 37.397473
+              },
+              "rightUpperCorner": {
+                "lat": 55.834057,
+                "lon": 37.403634
+              }
+            }
+          },
+          "components": {
+            "city": {
+              "name": "Москва"
+            },
+            "street": {
+              "name": "Волоколамское шоссе"
+            },
+            "house": {
+              "number": "132"
+            }
+          }
+        },
+        "emptyGeometry": false,
+        "trustCoord": true
+      },
+      {
+        "address": {
+          "fullText": "город Москва, Волоколамское шоссе, 84 строение 13",
+          "isoAlpha2CountryCode": "RU",
+          "geometry": {
+            "point": {
+              "lat": 55.820636,
+              "lon": 37.45597
+            },
+            "viewPort": {
+              "leftLowerCorner": {
+                "lat": 55.818847,
+                "lon": 37.452854
+              },
+              "rightUpperCorner": {
+                "lat": 55.822424,
+                "lon": 37.459085
+              }
+            }
+          },
+          "components": {
+            "city": {
+              "name": "Москва"
+            },
+            "street": {
+              "name": "Волоколамское шоссе"
+            },
+            "house": {
+              "number": "84 строение 13"
+            }
+          }
+        },
+        "emptyGeometry": false,
+        "trustCoord": true
+      },
+      {
+        "address": {
+          "fullText": "город Москва, Волоколамское шоссе, 90 строение 13",
+          "isoAlpha2CountryCode": "RU",
+          "geometry": {
+            "point": {
+              "lat": 55.826402,
+              "lon": 37.440204
+            },
+            "viewPort": {
+              "leftLowerCorner": {
+                "lat": 55.824751,
+                "lon": 37.437273
+              },
+              "rightUpperCorner": {
+                "lat": 55.828052,
+                "lon": 37.443136
+              }
+            }
+          },
+          "components": {
+            "city": {
+              "name": "Москва"
+            },
+            "street": {
+              "name": "Волоколамское шоссе"
+            },
+            "house": {
+              "number": "90 строение 13"
+            }
+          }
+        },
+        "emptyGeometry": false,
+        "trustCoord": true
+      },
+      {
+        "address": {
+          "fullText": "город Москва, Волоколамское шоссе, 146 строение 13",
+          "isoAlpha2CountryCode": "RU",
+          "geometry": {
+            "point": {
+              "lat": 55.827005,
+              "lon": 37.364741
+            },
+            "viewPort": {
+              "leftLowerCorner": {
+                "lat": 55.825276,
+                "lon": 37.36167
+              },
+              "rightUpperCorner": {
+                "lat": 55.828734,
+                "lon": 37.367812
+              }
+            }
+          },
+          "components": {
+            "city": {
+              "name": "Москва"
+            },
+            "street": {
+              "name": "Волоколамское шоссе"
+            },
+            "house": {
+              "number": "146 строение 13"
+            }
+          }
+        },
+        "emptyGeometry": false,
+        "trustCoord": true
+      },
+      {
+        "address": {
+          "fullText": "город Москва, Волоколамское шоссе, 81 корпус 2 строение 13",
+          "isoAlpha2CountryCode": "RU",
+          "geometry": {
+            "point": {
+              "lat": 55.824266,
+              "lon": 37.411772
+            },
+            "viewPort": {
+              "leftLowerCorner": {
+                "lat": 55.822557,
+                "lon": 37.408746
+              },
+              "rightUpperCorner": {
+                "lat": 55.825975,
+                "lon": 37.414797
+              }
+            }
+          },
+          "components": {
+            "city": {
+              "name": "Москва"
+            },
+            "street": {
+              "name": "Волоколамское шоссе"
+            },
+            "house": {
+              "number": "81 корпус 2 строение 13"
+            }
+          }
+        },
+        "emptyGeometry": false,
+        "trustCoord": true
+      },
+      {
+        "address": {
+          "fullText": "город Москва, Волоколамское шоссе, 71/13 корпус 2",
+          "isoAlpha2CountryCode": "RU",
+          "geometry": {
+            "point": {
+              "lat": 55.814294,
+              "lon": 37.424724
+            },
+            "viewPort": {
+              "leftLowerCorner": {
+                "lat": 55.812568,
+                "lon": 37.421117
+              },
+              "rightUpperCorner": {
+                "lat": 55.816805,
+                "lon": 37.427785
+              }
+            }
+          },
+          "components": {
+            "city": {
+              "name": "Москва"
+            },
+            "street": {
+              "name": "Волоколамское шоссе"
+            },
+            "house": {
+              "number": "71/13 корпус 2"
+            }
+          }
+        },
+        "emptyGeometry": false,
+        "trustCoord": true
+      }
+    ],
+    "sourceQuery": "Москва, Волоколамское шоссе, 13",
+    "cacheType": "none",
+    "widgetStates": {}
+  },
+  "validation": {
+    "data": {
+      "isExact": true,
+      "isAvailable": true,
+      "action": {
+        "behavior": "BEHAVIOR_TYPE_COMPOSER_NESTED_PAGE",
+        "link": "/modal/fresh?available=t&azimuth=0.000000000000&lat=55.8077810&long=37.4965860&miniapp=supermarket&nfr=t&pid=3&pv=4&searchString=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C+%D0%92%D0%BE%D0%BB%D0%BE%D0%BA%D0%BE%D0%BB%D0%B0%D0%BC%D1%81%D0%BA%D0%BE%D0%B5+%D1%88%D0%BE%D1%81%D1%81%D0%B5%2C+13&sie=t&suggest=t&suggestValue=%D0%B3%D0%BE%D1%80%D0%BE%D0%B4+%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C+%D0%92%D0%BE%D0%BB%D0%BE%D0%BA%D0%BE%D0%BB%D0%B0%D0%BC%D1%81%D0%BA%D0%BE%D0%B5+%D1%88%D0%BE%D1%81%D1%81%D0%B5%2C+13&tab=c"
+      }
+    },
+    "widgetStates": {}
+  },
+  "selected": {
+    "widgetStates": {
+      "addressEditMap-3411203-default-1": {
+        "centerPin": {
+          "coordinates": {
+            "latitude": 55.807781,
+            "longitude": 37.496586
+          },
+          "icon": "ozon#redOzonL",
+          "link": "/modal/fresh?azimuth=0.785347580649&lat=55.8077810&long=37.4965860&miniapp=supermarket&nfr=t&pid=4&pv=4&pxlw=653.193038&tab=c",
+          "metaInformation": "<span><b>Волоколамское шоссе, 13</b></span><br />",
+          "fixedToMapCenter": true,
+          "isAvailable": true
+        },
+        "viewport": {
+          "leftBottom": {
+            "latitude": 55.805820803804195,
+            "longitude": 37.49227217674191
+          },
+          "rightTop": {
+            "latitude": 55.80975909658475,
+            "longitude": 37.49928017776411
+          }
+        },
+        "linkTplDragCenter": "/modal/fresh?azimuth=0.785347580649&lat=__lat__&long=__lng__&miniapp=supermarket&nfr=t&pid=4&pv=4&pxlw=653.193038&tab=c",
+        "showCenterPin": true,
+        "icons": {
+          "location": {
+            "icon": "https://ir.ozone.ru/graphics/ozon/checkout/map/location.svg"
+          },
+          "geolocation": {}
+        },
+        "userLocationMarker": {
+          "icon": "ozon#geoPerson",
+          "iconTintColor": "bgAccentPrimary",
+          "iconWidth": 24,
+          "iconHeight": 24,
+          "tooltip": {
+            "text": "Вы здесь",
+            "backgroundColor": "bgAccentPrimary",
+            "textColor": "bgLightKey",
+            "timing": "3000",
+            "type": "userlocation"
+          },
+          "zPriority": 1000
+        },
+        "isNavbarHidden": true,
+        "metaInfo": {
+          "debounceDelay": 1,
+          "url": "/modal/fresh?available=t&azimuth=0.000000000000&lat=55.8077810&long=37.4965860&miniapp=supermarket&nfr=t&pid=3&pv=4&searchString=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C+%D0%92%D0%BE%D0%BB%D0%BE%D0%BA%D0%BE%D0%BB%D0%B0%D0%BC%D1%81%D0%BA%D0%BE%D0%B5+%D1%88%D0%BE%D1%81%D1%81%D0%B5%2C+13&sie=t&suggest=t&suggestValue=%D0%B3%D0%BE%D1%80%D0%BE%D0%B4+%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C+%D0%92%D0%BE%D0%BB%D0%BE%D0%BA%D0%BE%D0%BB%D0%B0%D0%BC%D1%81%D0%BA%D0%BE%D0%B5+%D1%88%D0%BE%D1%81%D1%81%D0%B5%2C+13&tab=c"
+        },
+        "navbarTitle": "Выберите адрес доставки",
+        "useMapSdk": true,
+        "locationUid": "0c5b2444-70a0-4932-980c-b4dc0d3f02b5",
+        "webGeolocationZoomLevel": 16,
+        "mode": "modal",
+        "replaceUrl": true,
+        "webSuggestZoomLevel": 17,
+        "deliveryTypeMap": "courier",
+        "mainAddressLocationUid": "0c5b2444-70a0-4932-980c-b4dc0d3f02b5",
+        "markerBundle": {
+          "type": "mapObjectCollection",
+          "mapObjectCollection": {
+            "mapObjects": []
+          }
+        },
+        "newCourierMarker": true,
+        "actionBaseLink": "/modal/fresh?azimuth=0.785347580649&miniapp=supermarket&nfr=t&pid=10&place=curtain&pp={id}&ppex=t&pv=4&pxlw=653.193038&tab=c",
+        "mergedPinsActionBaseLink": "/modal/fresh?azimuth=0.785347580649&miniapp=supermarket&nfr=t&pid=3&pp={id}&pv=4&pxlw=653.193038&tab=c"
+      },
+      "addressEditConfirmButton-3411200-default-1": {
+        "buttonsWeb": [
+          {
+            "text": "Привезти сюда",
+            "theme": "fresh",
+            "size": "xl",
+            "action": {
+              "behavior": "BEHAVIOR_TYPE_COMPOSER_NESTED_PAGE",
+              "link": "/modal/fresh?azimuth=0.785347580649&dt=1&lat=55.8077810&long=37.4965860&miniapp=supermarket&nfr=t&pid=5&pv=4&pxlw=653.193038&tab=c"
+            },
+            "fill": true,
+            "testInfo": {
+              "automatizationId": "address-edit-confirm-button"
+            },
+            "withoutAnimation": true
+          }
+        ]
+      },
+      "addressEditForm-3411198-default-1": {
+        "rowSize": 12,
+        "rows": [
+          {
+            "blocks": [
+              {
+                "elements": [
+                  {
+                    "type": "header",
+                    "text": "Выберите адрес доставки"
+                  },
+                  {
+                    "type": "textMedium",
+                    "text": "Укажите на карте или воспользуйтесь поиском",
+                    "textColor": "textSecondary"
+                  }
+                ],
+                "name": "address",
+                "rows": [
+                  {
+                    "fields": [
+                      {
+                        "name": "addressTail",
+                        "label": "Адрес",
+                        "text": "Москва, Волоколамское ш., 13",
+                        "value": "Москва, Волоколамское ш., 13",
+                        "fieldSize": 12,
+                        "isEnabled": true,
+                        "fieldType": "FIELD_TYPE_SEARCH_YANDEX",
+                        "errorColor": "textNegative",
+                        "searchOptions": {
+                          "link": "validateCourierAddressV2?area_id=2&azimuth=0.785347580649&lat=55.8077810&long=37.4965860&miniapp=supermarket&nfr=t&pv=4&pxlw=653.193038&status=FORM_TYPE_SHORT&tab=c&q={q}",
+                          "threshold": 1,
+                          "showCurrent": true,
+                          "states": {
+                            "empty": {
+                              "annotations": []
+                            },
+                            "unavailableAddress": {
+                              "annotations": [
+                                {
+                                  "type": "annotationNew",
+                                  "annotationNew": {
+                                    "body": {
+                                      "text": "Мы не доставляем заказы по этому адресу. Выберите другой адрес или укажите на карте.",
+                                      "color": "textSecondary"
+                                    },
+                                    "icon": {
+                                      "image": "ic_m_info"
+                                    },
+                                    "header": {}
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          "boundingBox": {
+                            "leftBottom": {
+                              "latitude": 55.805820803804195,
+                              "longitude": 37.49227217674191
+                            },
+                            "rightTop": {
+                              "latitude": 55.80975909658475,
+                              "longitude": 37.49928017776411
+                            }
+                          },
+                          "action": {
+                            "behavior": "BEHAVIOR_TYPE_COMPOSER_NESTED_PAGE",
+                            "link": "validateCourierAddressV2?area_id=2&azimuth=0.785347580649&lat=55.8077810&long=37.4965860&miniapp=supermarket&nfr=t&pv=4&pxlw=653.193038&status=FORM_TYPE_SHORT&tab=c&q={q}"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "fields": [
+                      {
+                        "fieldSize": 12,
+                        "isEnabled": true,
+                        "fieldType": "FIELD_TYPE_ATOM",
+                        "elements": [
+                          {
+                            "type": "smallBorderlessButtonWithIcon",
+                            "text": "Определить местоположение",
+                            "action": {
+                              "behavior": "BEHAVIOR_TYPE_CUSTOM",
+                              "id": "geolocation"
+                            },
+                            "icon": "ic_m_find_geo"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "blockSize": 12
+              }
+            ]
+          }
+        ],
+        "type": "FORM_TYPE_SHORT",
+        "useMapSdk": true,
+        "addressWithoutCountry": true,
+        "deliveryTypeMap": "courier",
+        "locationUid": "0c5b2444-70a0-4932-980c-b4dc0d3f02b5",
+        "isFresh": true
+      }
+    },
+    "location": {
+      "current": {
+        "geoCoordinate": {
+          "latitude": 55.8768,
+          "longitude": 37.437428
+        }
+      }
+    }
+  },
+  "deliver": {
+    "widgetStates": {
+      "addressEditMap-3411203-default-1": {
+        "centerPin": {
+          "coordinates": {
+            "latitude": 55.807781,
+            "longitude": 37.496586
+          },
+          "icon": "ozon#redOzonL",
+          "link": "/modal/fresh?azimuth=0.785347580649&lat=55.8077810&long=37.4965860&miniapp=supermarket&nfr=t&pid=4&pv=4&pxlw=653.193038&tab=c",
+          "metaInformation": "<span><b>Волоколамское шоссе, 13</b></span><br />",
+          "fixedToMapCenter": true,
+          "isAvailable": true
+        },
+        "viewport": {
+          "leftBottom": {
+            "latitude": 55.805820803804195,
+            "longitude": 37.49227217674191
+          },
+          "rightTop": {
+            "latitude": 55.80975909658475,
+            "longitude": 37.49928017776411
+          }
+        },
+        "linkTplDragCenter": "/modal/fresh?azimuth=0.785347580649&lat=__lat__&long=__lng__&miniapp=supermarket&nfr=t&pid=4&pv=4&pxlw=653.193038&tab=c",
+        "showCenterPin": true,
+        "icons": {
+          "location": {
+            "icon": "https://ir.ozone.ru/graphics/ozon/checkout/map/location.svg"
+          },
+          "geolocation": {}
+        },
+        "userLocationMarker": {
+          "icon": "ozon#geoPerson",
+          "iconTintColor": "bgAccentPrimary",
+          "iconWidth": 24,
+          "iconHeight": 24,
+          "tooltip": {
+            "text": "Вы здесь",
+            "backgroundColor": "bgAccentPrimary",
+            "textColor": "bgLightKey",
+            "timing": "3000",
+            "type": "userlocation"
+          },
+          "zPriority": 1000
+        },
+        "isNavbarHidden": true,
+        "metaInfo": {
+          "debounceDelay": 1,
+          "url": "/modal/fresh?azimuth=0.785347580649&dt=1&lat=55.8077810&long=37.4965860&miniapp=supermarket&nfr=t&pid=5&pv=4&pxlw=653.193038&tab=c"
+        },
+        "navbarTitle": "Выберите адрес доставки",
+        "useMapSdk": true,
+        "locationUid": "0c5b2444-70a0-4932-980c-b4dc0d3f02b5",
+        "webGeolocationZoomLevel": 16,
+        "mode": "modal",
+        "replaceUrl": true,
+        "webSuggestZoomLevel": 17,
+        "deliveryTypeMap": "courier",
+        "mainAddressLocationUid": "0c5b2444-70a0-4932-980c-b4dc0d3f02b5",
+        "markerBundle": {
+          "type": "mapObjectCollection",
+          "mapObjectCollection": {
+            "mapObjects": []
+          }
+        },
+        "newCourierMarker": true,
+        "actionBaseLink": "/modal/fresh?azimuth=0.785347580649&miniapp=supermarket&nfr=t&pid=10&place=curtain&pp={id}&ppex=t&pv=4&pxlw=653.193038&tab=c",
+        "mergedPinsActionBaseLink": "/modal/fresh?azimuth=0.785347580649&miniapp=supermarket&nfr=t&pid=3&pp={id}&pv=4&pxlw=653.193038&tab=c"
+      },
+      "addressEditConfirmButton-3411200-default-1": {
+        "buttonsWeb": [
+          {
+            "text": "Сохранить адрес",
+            "theme": "fresh",
+            "size": "xl",
+            "action": {
+              "behavior": "BEHAVIOR_TYPE_COMPOSER_NESTED_PAGE",
+              "link": "/modal/fresh?azimuth=0.785347580649&dt=1&lat=55.8077810&long=37.4965860&miniapp=supermarket&nfr=t&pid=7&pv=4&pxlw=653.193038&tab=c"
+            },
+            "fill": true,
+            "testInfo": {
+              "automatizationId": "address-edit-confirm-button"
+            },
+            "withoutAnimation": true
+          }
+        ]
+      },
+      "addressEditForm-3411198-default-1": {
+        "rowSize": 12,
+        "rows": [
+          {
+            "blocks": [
+              {
+                "elements": [
+                  {
+                    "type": "header",
+                    "text": "Уточните адрес доставки",
+                    "actions": [
+                      {
+                        "type": "close",
+                        "action": {
+                          "behavior": "BEHAVIOR_TYPE_COMPOSER_NESTED_PAGE",
+                          "link": "/modal/fresh?azimuth=0.785347580649&lat=55.8077810&long=37.4965860&miniapp=supermarket&nfr=t&pid=3&pv=4&pxlw=653.193038&tab=c",
+                          "id": "close"
+                        },
+                        "icon": "https://ir.ozone.ru/graphics/ozon/checkout/map/cross.svg"
+                      }
+                    ]
+                  }
+                ],
+                "name": "address",
+                "rows": [
+                  {
+                    "fields": [
+                      {
+                        "name": "addressLabel",
+                        "fieldSize": 12,
+                        "isEnabled": true,
+                        "fieldType": "FIELD_TYPE_CHIPS_WITH_FIELD",
+                        "errorColor": "textNegative",
+                        "chipsWithField": {
+                          "chipsWeb": [
+                            {
+                              "title": "Дом",
+                              "icon": "ic_s_home_filled",
+                              "size": "SIZE_400",
+                              "preset": "PRESET_NEUTRAL_SECONDARY"
+                            },
+                            {
+                              "title": "Работа",
+                              "icon": "ic_s_legal_entity_filled",
+                              "size": "SIZE_400",
+                              "preset": "PRESET_NEUTRAL_SECONDARY"
+                            },
+                            {
+                              "title": "Своё название",
+                              "icon": "ic_s_bookmark_filled",
+                              "size": "SIZE_400",
+                              "preset": "PRESET_NEUTRAL_SECONDARY",
+                              "withTextField": true
+                            }
+                          ],
+                          "chipsMobile": [
+                            {
+                              "tagButton": {
+                                "size": "SIZE_600",
+                                "icon": "ic_s_home_filled",
+                                "text": "Дом"
+                              }
+                            },
+                            {
+                              "tagButton": {
+                                "size": "SIZE_600",
+                                "icon": "ic_s_legal_entity_filled",
+                                "text": "Работа"
+                              }
+                            },
+                            {
+                              "hasTextField": true,
+                              "tagButton": {
+                                "size": "SIZE_600",
+                                "icon": "ic_s_bookmark_filled",
+                                "text": "Своё название"
+                              }
+                            }
+                          ],
+                          "textField": {
+                            "placeholder": "Название адреса"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "fields": [
+                      {
+                        "name": "addressTail",
+                        "label": "Адрес",
+                        "text": "Москва, Волоколамское ш., 13",
+                        "value": "Москва, Волоколамское ш., 13",
+                        "fieldSize": 12,
+                        "isEnabled": true,
+                        "fieldType": "FIELD_TYPE_SEARCH_YANDEX",
+                        "errorColor": "textNegative",
+                        "searchOptions": {
+                          "link": "validateCourierAddressV2?area_id=2&azimuth=0.785347580649&fff=t&lat=55.8077810&long=37.4965860&miniapp=supermarket&nfr=t&pv=4&pxlw=653.193038&status=FORM_TYPE_FULL&tab=c&q={q}",
+                          "threshold": 1,
+                          "showCurrent": true,
+                          "states": {
+                            "empty": {
+                              "annotations": []
+                            },
+                            "unavailableAddress": {
+                              "annotations": [
+                                {
+                                  "type": "annotationNew",
+                                  "annotationNew": {
+                                    "body": {
+                                      "text": "Мы не доставляем заказы по этому адресу. Выберите другой адрес или укажите на карте.",
+                                      "color": "textSecondary"
+                                    },
+                                    "icon": {
+                                      "image": "ic_m_info"
+                                    },
+                                    "header": {}
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          "boundingBox": {
+                            "leftBottom": {
+                              "latitude": 55.805820803804195,
+                              "longitude": 37.49227217674191
+                            },
+                            "rightTop": {
+                              "latitude": 55.80975909658475,
+                              "longitude": 37.49928017776411
+                            }
+                          },
+                          "action": {
+                            "behavior": "BEHAVIOR_TYPE_COMPOSER_NESTED_PAGE",
+                            "link": "validateCourierAddressV2?area_id=2&azimuth=0.785347580649&fff=t&lat=55.8077810&long=37.4965860&miniapp=supermarket&nfr=t&pv=4&pxlw=653.193038&status=FORM_TYPE_FULL&tab=c&q={q}"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "fields": [
+                      {
+                        "name": "apartment",
+                        "label": "Квартира",
+                        "fieldSize": 6,
+                        "isEnabled": true,
+                        "fieldType": "FIELD_TYPE_TEXT",
+                        "errorColor": "textNegative",
+                        "textOptions": {
+                          "inputType": "default",
+                          "isMultiline": false
+                        }
+                      },
+                      {
+                        "name": "entrance",
+                        "label": "Подъезд",
+                        "fieldSize": 6,
+                        "isEnabled": true,
+                        "fieldType": "FIELD_TYPE_TEXT",
+                        "errorColor": "textNegative",
+                        "textOptions": {
+                          "inputType": "default",
+                          "isMultiline": false
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "fields": [
+                      {
+                        "name": "floor",
+                        "label": "Этаж",
+                        "fieldSize": 6,
+                        "isEnabled": true,
+                        "fieldType": "FIELD_TYPE_TEXT",
+                        "errorColor": "textNegative",
+                        "textOptions": {
+                          "inputType": "default",
+                          "isMultiline": false
+                        }
+                      },
+                      {
+                        "name": "intercom",
+                        "label": "Домофон",
+                        "fieldSize": 6,
+                        "isEnabled": true,
+                        "fieldType": "FIELD_TYPE_TEXT",
+                        "errorColor": "textNegative",
+                        "textOptions": {
+                          "inputType": "default",
+                          "isMultiline": false
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "fields": [
+                      {
+                        "name": "comment",
+                        "label": "Комментарий курьеру",
+                        "fieldSize": 12,
+                        "isEnabled": true,
+                        "fieldType": "FIELD_TYPE_TEXT",
+                        "errorColor": "textNegative",
+                        "textOptions": {
+                          "inputType": "default",
+                          "isMultiline": false
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "blockSize": 12
+              }
+            ]
+          },
+          {
+            "blocks": [
+              {
+                "elements": [
+                  {
+                    "type": "header",
+                    "text": "Данные получателя"
+                  }
+                ],
+                "name": "receiver",
+                "rows": [
+                  {
+                    "fields": [
+                      {
+                        "name": "receiverName",
+                        "label": "Имя и фамилия",
+                        "fieldSize": 6,
+                        "isEnabled": true,
+                        "fieldType": "FIELD_TYPE_TEXT",
+                        "errorColor": "textNegative",
+                        "textOptions": {
+                          "inputType": "default",
+                          "isMultiline": false
+                        }
+                      },
+                      {
+                        "name": "receiverPhone",
+                        "label": "Телефон",
+                        "fieldSize": 6,
+                        "isEnabled": true,
+                        "fieldType": "FIELD_TYPE_TEXT",
+                        "errorColor": "textNegative",
+                        "textOptions": {
+                          "inputType": "phone",
+                          "isMultiline": false
+                        },
+                        "isEmptyValid": true
+                      }
+                    ]
+                  }
+                ],
+                "blockSize": 12
+              }
+            ]
+          }
+        ],
+        "type": "FORM_TYPE_FULL",
+        "useMapSdk": true,
+        "addressWithoutCountry": true,
+        "deliveryTypeMap": "courier",
+        "locationUid": "0c5b2444-70a0-4932-980c-b4dc0d3f02b5",
+        "isFresh": true
+      }
+    },
+    "location": {
+      "current": {
+        "geoCoordinate": {
+          "latitude": 55.8768,
+          "longitude": 37.437428
+        }
+      }
+    }
+  },
+  "save": {
+    "widgetStates": {
+      "addressEditMap-3411203-default-1": {
+        "centerPin": {
+          "coordinates": {
+            "latitude": 55.807781,
+            "longitude": 37.496586
+          },
+          "icon": "ozon#redOzonL",
+          "link": "/modal/fresh?azimuth=0.785347580649&lat=55.8077810&long=37.4965860&miniapp=supermarket&nfr=t&pid=4&pv=4&pxlw=653.193038&tab=c",
+          "metaInformation": "<span><b>Волоколамское шоссе, 13</b></span><br />",
+          "fixedToMapCenter": true,
+          "isAvailable": true
+        },
+        "viewport": {
+          "leftBottom": {
+            "latitude": 55.805820803804195,
+            "longitude": 37.49227217674191
+          },
+          "rightTop": {
+            "latitude": 55.80975909658475,
+            "longitude": 37.49928017776411
+          }
+        },
+        "linkTplDragCenter": "/modal/fresh?azimuth=0.785347580649&lat=__lat__&long=__lng__&miniapp=supermarket&nfr=t&pid=4&pv=4&pxlw=653.193038&tab=c",
+        "showCenterPin": true,
+        "icons": {
+          "location": {
+            "icon": "https://ir.ozone.ru/graphics/ozon/checkout/map/location.svg"
+          },
+          "geolocation": {}
+        },
+        "userLocationMarker": {
+          "icon": "ozon#geoPerson",
+          "iconTintColor": "bgAccentPrimary",
+          "iconWidth": 24,
+          "iconHeight": 24,
+          "tooltip": {
+            "text": "Вы здесь",
+            "backgroundColor": "bgAccentPrimary",
+            "textColor": "bgLightKey",
+            "timing": "3000",
+            "type": "userlocation"
+          },
+          "zPriority": 1000
+        },
+        "isNavbarHidden": true,
+        "metaInfo": {
+          "debounceDelay": 1,
+          "url": "/modal/fresh?azimuth=0.785347580649&dt=1&lat=55.8077810&long=37.4965860&miniapp=supermarket&nfr=t&pid=7&pv=4&pxlw=653.193038&tab=c"
+        },
+        "navbarTitle": "Выберите адрес доставки",
+        "useMapSdk": true,
+        "locationUid": "0c5b2444-70a0-4932-980c-b4dc0d3f02b5",
+        "webGeolocationZoomLevel": 16,
+        "mode": "modal",
+        "replaceUrl": true,
+        "webSuggestZoomLevel": 17,
+        "deliveryTypeMap": "courier",
+        "mainAddressLocationUid": "0c5b2444-70a0-4932-980c-b4dc0d3f02b5",
+        "markerBundle": {
+          "type": "mapObjectCollection",
+          "mapObjectCollection": {
+            "mapObjects": []
+          }
+        },
+        "newCourierMarker": true,
+        "actionBaseLink": "/modal/fresh?azimuth=0.785347580649&miniapp=supermarket&nfr=t&pid=10&place=curtain&pp={id}&ppex=t&pv=4&pxlw=653.193038&tab=c",
+        "mergedPinsActionBaseLink": "/modal/fresh?azimuth=0.785347580649&miniapp=supermarket&nfr=t&pid=3&pp={id}&pv=4&pxlw=653.193038&tab=c"
+      },
+      "addressEditConfirmButton-3411200-default-1": {
+        "buttonsWeb": [
+          {
+            "text": "Сохранить адрес",
+            "theme": "fresh",
+            "size": "xl",
+            "action": {
+              "behavior": "BEHAVIOR_TYPE_COMPOSER_NESTED_PAGE",
+              "link": "/modal/fresh?azimuth=0.785347580649&dt=1&lat=55.8077810&long=37.4965860&miniapp=supermarket&nfr=t&pid=7&pv=4&pxlw=653.193038&tab=c"
+            },
+            "fill": true,
+            "testInfo": {
+              "automatizationId": "address-edit-confirm-button"
+            },
+            "withoutAnimation": true
+          }
+        ]
+      },
+      "addressEditForm-3411198-default-1": {
+        "rowSize": 12,
+        "rows": [
+          {
+            "blocks": [
+              {
+                "elements": [
+                  {
+                    "type": "header",
+                    "text": "Уточните адрес доставки",
+                    "actions": [
+                      {
+                        "type": "close",
+                        "action": {
+                          "behavior": "BEHAVIOR_TYPE_COMPOSER_NESTED_PAGE",
+                          "link": "/modal/fresh?azimuth=0.785347580649&lat=55.8077810&long=37.4965860&miniapp=supermarket&nfr=t&pid=3&pv=4&pxlw=653.193038&tab=c",
+                          "id": "close"
+                        },
+                        "icon": "https://ir.ozone.ru/graphics/ozon/checkout/map/cross.svg"
+                      }
+                    ]
+                  }
+                ],
+                "name": "address",
+                "rows": [
+                  {
+                    "fields": [
+                      {
+                        "name": "addressLabel",
+                        "fieldSize": 12,
+                        "isEnabled": true,
+                        "fieldType": "FIELD_TYPE_CHIPS_WITH_FIELD",
+                        "errorColor": "textNegative",
+                        "chipsWithField": {
+                          "chipsWeb": [
+                            {
+                              "title": "Дом",
+                              "icon": "ic_s_home_filled",
+                              "size": "SIZE_400",
+                              "preset": "PRESET_NEUTRAL_SECONDARY"
+                            },
+                            {
+                              "title": "Работа",
+                              "icon": "ic_s_legal_entity_filled",
+                              "size": "SIZE_400",
+                              "preset": "PRESET_NEUTRAL_SECONDARY"
+                            },
+                            {
+                              "title": "Своё название",
+                              "icon": "ic_s_bookmark_filled",
+                              "size": "SIZE_400",
+                              "preset": "PRESET_NEUTRAL_SECONDARY",
+                              "withTextField": true
+                            }
+                          ],
+                          "chipsMobile": [
+                            {
+                              "tagButton": {
+                                "size": "SIZE_600",
+                                "icon": "ic_s_home_filled",
+                                "text": "Дом"
+                              }
+                            },
+                            {
+                              "tagButton": {
+                                "size": "SIZE_600",
+                                "icon": "ic_s_legal_entity_filled",
+                                "text": "Работа"
+                              }
+                            },
+                            {
+                              "hasTextField": true,
+                              "tagButton": {
+                                "size": "SIZE_600",
+                                "icon": "ic_s_bookmark_filled",
+                                "text": "Своё название"
+                              }
+                            }
+                          ],
+                          "textField": {
+                            "placeholder": "Название адреса"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "fields": [
+                      {
+                        "name": "addressTail",
+                        "label": "Адрес",
+                        "text": "Москва, Волоколамское ш., 13",
+                        "value": "Москва, Волоколамское ш., 13",
+                        "fieldSize": 12,
+                        "isEnabled": true,
+                        "fieldType": "FIELD_TYPE_SEARCH_YANDEX",
+                        "errorColor": "textNegative",
+                        "searchOptions": {
+                          "link": "validateCourierAddressV2?area_id=2&azimuth=0.785347580649&fff=t&lat=55.8077810&long=37.4965860&miniapp=supermarket&nfr=t&pv=4&pxlw=653.193038&status=FORM_TYPE_FULL&tab=c&q={q}",
+                          "threshold": 1,
+                          "showCurrent": true,
+                          "states": {
+                            "empty": {
+                              "annotations": []
+                            },
+                            "unavailableAddress": {
+                              "annotations": [
+                                {
+                                  "type": "annotationNew",
+                                  "annotationNew": {
+                                    "body": {
+                                      "text": "Мы не доставляем заказы по этому адресу. Выберите другой адрес или укажите на карте.",
+                                      "color": "textSecondary"
+                                    },
+                                    "icon": {
+                                      "image": "ic_m_info"
+                                    },
+                                    "header": {}
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          "boundingBox": {
+                            "leftBottom": {
+                              "latitude": 55.805820803804195,
+                              "longitude": 37.49227217674191
+                            },
+                            "rightTop": {
+                              "latitude": 55.80975909658475,
+                              "longitude": 37.49928017776411
+                            }
+                          },
+                          "action": {
+                            "behavior": "BEHAVIOR_TYPE_COMPOSER_NESTED_PAGE",
+                            "link": "validateCourierAddressV2?area_id=2&azimuth=0.785347580649&fff=t&lat=55.8077810&long=37.4965860&miniapp=supermarket&nfr=t&pv=4&pxlw=653.193038&status=FORM_TYPE_FULL&tab=c&q={q}"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "fields": [
+                      {
+                        "name": "apartment",
+                        "label": "Квартира",
+                        "fieldSize": 6,
+                        "isEnabled": true,
+                        "fieldType": "FIELD_TYPE_TEXT",
+                        "errorColor": "textNegative",
+                        "textOptions": {
+                          "inputType": "default",
+                          "isMultiline": false
+                        }
+                      },
+                      {
+                        "name": "entrance",
+                        "label": "Подъезд",
+                        "fieldSize": 6,
+                        "isEnabled": true,
+                        "fieldType": "FIELD_TYPE_TEXT",
+                        "errorColor": "textNegative",
+                        "textOptions": {
+                          "inputType": "default",
+                          "isMultiline": false
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "fields": [
+                      {
+                        "name": "floor",
+                        "label": "Этаж",
+                        "fieldSize": 6,
+                        "isEnabled": true,
+                        "fieldType": "FIELD_TYPE_TEXT",
+                        "errorColor": "textNegative",
+                        "textOptions": {
+                          "inputType": "default",
+                          "isMultiline": false
+                        }
+                      },
+                      {
+                        "name": "intercom",
+                        "label": "Домофон",
+                        "fieldSize": 6,
+                        "isEnabled": true,
+                        "fieldType": "FIELD_TYPE_TEXT",
+                        "errorColor": "textNegative",
+                        "textOptions": {
+                          "inputType": "default",
+                          "isMultiline": false
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "fields": [
+                      {
+                        "name": "comment",
+                        "label": "Комментарий курьеру",
+                        "fieldSize": 12,
+                        "isEnabled": true,
+                        "fieldType": "FIELD_TYPE_TEXT",
+                        "errorColor": "textNegative",
+                        "textOptions": {
+                          "inputType": "default",
+                          "isMultiline": false
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "blockSize": 12
+              }
+            ]
+          },
+          {
+            "blocks": [
+              {
+                "elements": [
+                  {
+                    "type": "header",
+                    "text": "Данные получателя"
+                  }
+                ],
+                "name": "receiver",
+                "rows": [
+                  {
+                    "fields": [
+                      {
+                        "name": "receiverName",
+                        "label": "Имя и фамилия",
+                        "fieldSize": 6,
+                        "isEnabled": true,
+                        "fieldType": "FIELD_TYPE_TEXT",
+                        "errorColor": "textNegative",
+                        "textOptions": {
+                          "inputType": "default",
+                          "isMultiline": false
+                        }
+                      },
+                      {
+                        "name": "receiverPhone",
+                        "label": "Телефон",
+                        "fieldSize": 6,
+                        "isEnabled": true,
+                        "fieldType": "FIELD_TYPE_TEXT",
+                        "errorColor": "textNegative",
+                        "textOptions": {
+                          "inputType": "phone",
+                          "isMultiline": false
+                        },
+                        "isEmptyValid": true
+                      }
+                    ]
+                  }
+                ],
+                "blockSize": 12
+              }
+            ]
+          }
+        ],
+        "type": "FORM_TYPE_FULL",
+        "useMapSdk": true,
+        "addressWithoutCountry": true,
+        "deliveryTypeMap": "courier",
+        "locationUid": "0c5b2444-70a0-4932-980c-b4dc0d3f02b5",
+        "isFresh": true
+      }
+    },
+    "location": {
+      "current": {
+        "geoCoordinate": {
+          "latitude": 55.8768,
+          "longitude": 37.437428
+        }
+      }
+    }
+  },
+  "root": {
+    "widgetStates": {
+      "addressBookBarWeb-7278510-default-1": {
+        "customCell": {
+          "actionMode": "common",
+          "cells": [
+            {
+              "type": "text",
+              "text": {
+                "text": "Волоколамское ш., 13",
+                "textStyle": "tsBody400Small",
+                "textColor": "textAction"
+              },
+              "shrinkPosition": "left"
+            }
+          ],
+          "action": {
+            "behavior": "BEHAVIOR_TYPE_COMPOSER_NESTED_PAGE",
+            "link": "/modal/addressbook?miniapp=supermarket&set_sm=1",
+            "id": "addressbook",
+            "params": {
+              "closeAction": "{\"behavior\":\"BEHAVIOR_TYPE_REFRESH\"}",
+              "closeButtonPosition": "outside"
+            }
+          }
+        },
+        "addressBookBarRedesign": true
+      }
+    },
+    "location": {
+      "current": {
+        "geoCoordinate": {
+          "latitude": 55.80778,
+          "longitude": 37.496586
+        }
+      }
+    }
+  }
+}
