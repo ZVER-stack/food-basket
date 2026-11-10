@@ -6,9 +6,9 @@ dist/
 build/
 *.egg-info/
 output/
-data/yandex_lavka_catalog/
-data/yandex_lavka_city/
-data/yandex_lavka_hexagons/*.tmp
+parsers/yandex_lavka/data/yandex_lavka_catalog/
+parsers/yandex_lavka/data/yandex_lavka_city/
+parsers/yandex_lavka/data/yandex_lavka_hexagons/*.tmp
 *.log
 *.pid
 *.sqlite3
