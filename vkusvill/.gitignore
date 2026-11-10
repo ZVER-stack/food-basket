@@ -1,0 +1,9 @@
+# результаты парсинга и кэш — большие, в git не кладём
+vkusvill_*_khramova.csv
+test_*.csv
+details_cache.jsonl
+# окружение и IDE
+.venv/
+.idea/
+__pycache__/
+.DS_Store
