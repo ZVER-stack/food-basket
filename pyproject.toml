@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "yandex-lavka-basket-parser"
+version = "0.1.0"
+description = "Guest basket calculator for the Yandex Lavka web app"
+requires-python = ">=3.10"
+dependencies = []
+
+[tool.setuptools.packages.find]
+include = ["yandex_lavka*"]

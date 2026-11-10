@@ -1,0 +1,132 @@
+{
+  "zones_in_input": 201,
+  "storefronts": [
+    "regular",
+    "supermarket"
+  ],
+  "requested_zone_storefront_pairs": 402,
+  "supported_zone_storefront_pairs": 378,
+  "checked_rows": 402,
+  "status_counts": {
+    "ok": 378,
+    "unsupported": 24
+  },
+  "zone_coverage": {
+    "all_storefronts": 178,
+    "no_storefronts": 1,
+    "only_regular": 14,
+    "only_supermarket": 8
+  },
+  "unique_depots_by_storefront": {
+    "regular": 145,
+    "supermarket": 12
+  },
+  "unique_depot_storefront_pairs": 157,
+  "unique_complete_depot_profiles": 144,
+  "catalog_runs_after_deduplication": 157,
+  "catalog_run_reduction_percent": 60.95,
+  "catalog_run_reduction_from_supported_percent": 58.47,
+  "largest_depot_groups": [
+    {
+      "storefront": "supermarket",
+      "depot_id": "2024052301",
+      "zones": 23
+    },
+    {
+      "storefront": "supermarket",
+      "depot_id": "2025033103",
+      "zones": 22
+    },
+    {
+      "storefront": "supermarket",
+      "depot_id": "2024111303",
+      "zones": 21
+    },
+    {
+      "storefront": "supermarket",
+      "depot_id": "2024120501",
+      "zones": 20
+    },
+    {
+      "storefront": "supermarket",
+      "depot_id": "2025042504",
+      "zones": 20
+    },
+    {
+      "storefront": "supermarket",
+      "depot_id": "2025031804",
+      "zones": 16
+    },
+    {
+      "storefront": "supermarket",
+      "depot_id": "2025043003",
+      "zones": 15
+    },
+    {
+      "storefront": "supermarket",
+      "depot_id": "2024062801",
+      "zones": 14
+    },
+    {
+      "storefront": "supermarket",
+      "depot_id": "2024122703",
+      "zones": 12
+    },
+    {
+      "storefront": "supermarket",
+      "depot_id": "708894",
+      "zones": 8
+    },
+    {
+      "storefront": "supermarket",
+      "depot_id": "2024062103",
+      "zones": 8
+    },
+    {
+      "storefront": "supermarket",
+      "depot_id": "2025080603",
+      "zones": 7
+    },
+    {
+      "storefront": "regular",
+      "depot_id": "2023102403",
+      "zones": 4
+    },
+    {
+      "storefront": "regular",
+      "depot_id": "2023082203",
+      "zones": 3
+    },
+    {
+      "storefront": "regular",
+      "depot_id": "2024121802",
+      "zones": 3
+    },
+    {
+      "storefront": "regular",
+      "depot_id": "2023092002",
+      "zones": 3
+    },
+    {
+      "storefront": "regular",
+      "depot_id": "2023080802",
+      "zones": 2
+    },
+    {
+      "storefront": "regular",
+      "depot_id": "704564",
+      "zones": 2
+    },
+    {
+      "storefront": "regular",
+      "depot_id": "198908",
+      "zones": 2
+    },
+    {
+      "storefront": "regular",
+      "depot_id": "2025092301",
+      "zones": 2
+    }
+  ],
+  "generated_at": "2026-10-17 15:40:48"
+}
