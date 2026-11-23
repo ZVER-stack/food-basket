@@ -1,10 +1,9 @@
 import asyncio
 import json
-import re
 import httpx
 
 from foodai.models import number
-from foodai.services.units import normalize_quantity
+from foodai.services.local_input import prepare_items
 
 
 class LLMError(Exception):
@@ -63,14 +62,9 @@ class MockLLM:
                 if milk:
                     req = dict(milk, query='молоко безлактозное', required_terms=['безлактоз'])
                     return call('set_requirements', {'items': [req], 'replace_all': False})
-            items = []
-            for index, part in enumerate(re.split(r'[,;\n]+', text)):
-                match = re.fullmatch(r'\s*(.+?)\s+(\d+(?:[.,]\d+)?)\s*(кг|г|мл|л|шт\.?)\s*', part)
-                if not match:
-                    return {'role': 'assistant', 'content': 'Укажите продукт и количество, например: молоко 1 л, яйца 10 шт.'}
-                qty, unit = normalize_quantity(match[2], match[3].rstrip('.'))
-                items.append({'id': f'item_{index}', 'query': match[1], 'quantity': str(qty),
-                              'unit': unit, 'required_terms': [], 'exclude_terms': [], 'exclude_brands': []})
+            items, prompt, pending = prepare_items(text, state.get('pending_requirements'))
+            if prompt:
+                return {'role': 'assistant', 'content': prompt, 'pending_requirements': pending}
             return call('set_requirements', {'items': items, 'replace_all': True})
         result = json.loads(tool_results[-1]['content'])
         name = tool_results[-1]['name']

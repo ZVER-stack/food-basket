@@ -14,9 +14,9 @@ def navigation():
     return ReplyKeyboardMarkup(keyboard=rows, resize_keyboard=True)
 
 
-def zone_keyboard():
+def zone_keyboard(addresses=None):
     return InlineKeyboardMarkup(inline_keyboard=[[
-        InlineKeyboardButton(text=f'{zid} · {name}', callback_data='zone:' + zid)]
+        InlineKeyboardButton(text=addresses.zone_label(zid) if addresses else name, callback_data='zone:' + zid)]
         for zid, name in zip(ZONE_IDS, ZONE_NAMES)])
 
 
@@ -29,7 +29,7 @@ def make_router(application):
         for start in range(0, len(result.text), 3800):
             await message.answer(result.text[start:start + 3800], reply_markup=navigation())
         if not application.storage.get(user_id).get('zone_id'):
-            await message.answer('Доступные зоны проекта', reply_markup=zone_keyboard())
+            await message.answer('Выберите адрес дома для расчёта корзины', reply_markup=zone_keyboard(application.addresses))
 
     @router.callback_query(F.data.startswith('zone:'))
     async def choose_zone(callback: CallbackQuery):

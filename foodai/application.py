@@ -4,7 +4,7 @@ from foodai.models import AgentResult
 
 MODES = {'basket': '🛒 Где купить дешевле?', 'meal_plan': '🥗 Составить рацион',
          'cook': '🍳 Что приготовить?', 'savings': '💰 Сэкономить на покупках'}
-PROMPTS = {'basket': 'Отправь список покупок с количеством. Например: молоко 1 л, яйца 10 шт., гречка 900 г',
+PROMPTS = {'basket': 'Напишите, что хотите купить. Например: «Купи молоко и яйца». Если количества не хватает, я уточню.',
            'meal_plan': 'Напиши цель по КБЖУ, число дней и бюджет.',
            'cook': 'Напиши, что есть дома, сколько порций нужно и сколько времени есть на готовку.',
            'savings': 'Пришли свою корзину и напиши, что заменять нельзя.'}
@@ -20,27 +20,31 @@ class Application:
             state = self.storage.get(user_id)
             text = (text or '').strip()
             if text == '/help':
-                return AgentResult('Выберите адрес или одну из 10 зон, затем раздел меню. '
+                return AgentResult('Выберите адрес дома кнопкой или отправьте адрес либо геопозицию, затем раздел меню. '
                     'Для корзины укажите продукты и количества. /menu — главное меню. '
-                    'Цены берутся из сохранённых выгрузок. В тестовом режиме цены искусственные.', 'ok')
+                    'Цены берутся из сохранённых данных. Стоимость доставки не включена.', 'ok')
             if text in ('Изменить адрес', '/address'):
                 state = {'mode': 'WAIT_ADDRESS', 'zone_id': None, 'history': []}
                 self.storage.save(user_id, state)
-                return AgentResult('Пришли адрес или геопозицию либо выбери одну из 10 зон.', 'need_clarification')
+                return AgentResult('Выберите адрес дома кнопкой ниже или пришлите адрес либо геопозицию.', 'need_clarification')
             if text in ('/start', '/menu', 'Главное меню', 'Назад'):
                 state['mode'] = 'MAIN_MENU' if state.get('zone_id') else 'WAIT_ADDRESS'
                 self.storage.save(user_id, state)
-                return AgentResult('Выбери раздел.' if state.get('zone_id') else
-                                   'Пришли адрес или геопозицию либо выбери одну из 10 зон.', 'ok')
+                address = self.addresses.zone_info(state['zone_id']) if state.get('zone_id') else {}
+                return AgentResult(('📍 ' + (address['catalog_address'] or address['zone_name']) + '\nВыберите раздел.')
+                                   if address else 'Выберите адрес дома кнопкой ниже или пришлите адрес либо геопозицию.', 'ok')
             if not state.get('zone_id'):
                 resolved = self.addresses.resolve_address(address=text, **(location or {}))
                 if resolved['status'] != 'resolved':
-                    return AgentResult('Адрес не сопоставлен с доступным каталогом. '
-                                       'Выберите одну из зон для проверки по её опорному адресу.', 'need_clarification')
+                    return AgentResult('Пока не удалось определить этот дом. Выберите адрес кнопкой ниже '
+                                       'или отправьте геопозицию.', 'need_clarification')
                 state.update(mode='MAIN_MENU', zone_id=resolved['zone_id'], address_source=resolved['source'],
                              address_value=location or text)
                 self.storage.save(user_id, state)
-                return AgentResult('Выбрана зона ' + resolved['zone_id'] + '. ' + resolved['notice'] + '\nВыбери раздел.', 'ok')
+                label = resolved['catalog_address'] or resolved['zone_name']
+                notice = ('\nПо геопозиции выбрана зона «' + resolved['zone_name'] +
+                          '». Расчёт будет для указанного дома.') if resolved['source'] == 'administrative_polygon' else ''
+                return AgentResult('📍 Адрес для расчёта: ' + label + notice + '\nВыберите раздел.', 'ok')
             modes = {label: mode for mode, label in MODES.items()}
             if text in modes:
                 state['mode'] = modes[text]
@@ -55,6 +59,7 @@ class Application:
             if not text or len(text) > 4000:
                 return AgentResult('Напиши текстовый запрос до 4 000 символов.', 'need_clarification')
             context = {'zone_id': state['zone_id'], 'basket_state': state.get('basket_state', {}),
+                       **self.addresses.zone_info(state['zone_id']),
                        'history': state.get('history', []), 'last_result': state.get('last_result', {}),
                        'agent_state': state.get('agent_states', {}).get(mode, {}),
                        'catalog': self.addresses.catalog,

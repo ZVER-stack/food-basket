@@ -1,7 +1,8 @@
 """Student 1. The model selects tools and SKUs; Python verifies and prices them."""
 import json
 from foodai.models import AgentResult, jsonable
-from foodai.services.llm import LLMError
+from foodai.presentation import money, package_size, price_dates, store_name
+from foodai.services.llm import LLMError, MockLLM
 from foodai.services.pricing import calculate_basket, compare_stores
 from foodai.services.units import normalize_quantity
 
@@ -82,6 +83,7 @@ class BasketAgent:
             if len(values) > 15:
                 raise ValueError('Не более 15 позиций в одном запросе')
             state['requirements'] = list(values.values())
+            state.pop('pending_requirements', None)
             state.pop('baskets', None)
             state.pop('comparison', None)
             found.clear()
@@ -153,6 +155,8 @@ class BasketAgent:
                          'requirements': state.get('requirements', []),
                          'recent_user_requests': [entry['user'] for entry in context.get('history', [])[-4:]],
                          'previous_winner': context.get('last_result', {}).get('comparison', {}).get('winner')}
+        if isinstance(self.llm, MockLLM):
+            model_context['pending_requirements'] = state.get('pending_requirements', [])
         messages = [{'role': 'system', 'content': SYSTEM},
                     {'role': 'system', 'content': json.dumps(model_context, ensure_ascii=False)},
                     {'role': 'user', 'content': user_text}]
@@ -162,8 +166,10 @@ class BasketAgent:
                 response = await self.llm.complete(messages, TOOLS)
                 calls = response.get('tool_calls') or []
                 if not calls:
+                    if isinstance(self.llm, MockLLM) and 'pending_requirements' in response:
+                        state['pending_requirements'] = response['pending_requirements']
                     if state.get('comparison'):
-                        return self.render(state, trace)
+                        return self.render(state, trace, context)
                     return AgentResult(response.get('content') or 'Уточните продукт, количество и ограничения.',
                                        'need_clarification', {'tool_trace': trace})
                 if len(trace) + len(calls) > self.max_tools:
@@ -191,26 +197,29 @@ class BasketAgent:
             return AgentResult('Модель вернула неподдерживаемый формат ответа. Попробуйте ещё раз.',
                                'error', {'tool_trace': trace})
 
-    def render(self, state, trace):
+    def render(self, state, trace, context=None):
         comparison = state['comparison']
+        context = context or {}
         title = 'ТЕСТОВЫЕ цены и товары. Офлайн-демонстрация.\n' if self.catalog.demo else ''
-        lines = [title + 'Зона: ' + state['zone_id']]
-        if comparison['winner']:
-            lines.append('Наиболее дешёвая полная корзина среди найденных вариантов: ' + comparison['winner'])
-        else:
-            lines.append('Полной корзины не найдено. Самый дешёвый сервис определить нельзя.')
-        for basket in comparison['full'] + comparison['partial']:
-            label = 'полная' if basket['complete'] else 'неполная'
-            lines.append(f"\n{basket['storefront_id']} — {basket['total']} ₽ ({label})")
-            for row in basket['lines']:
-                lines.append(f"{' + '.join(row['queries'])} → {row['name']} [SKU {row['sku']}]\n"
-                             f"  {row['package_qty']} {row['package_unit']} × {row['packages']} уп. "
-                             f"× {row['package_price']} ₽ = {row['subtotal']} ₽; выгрузка {row['captured_at']}")
+        address = context.get('catalog_address') or context.get('zone_name') or 'Выбранный адрес'
+        lines = [title + '📍 ' + address]
+        baskets = comparison['full'] + comparison['partial']
+        if comparison['winner'] and len(baskets) > 1:
+            winner = next(b for b in baskets if b['storefront_id'] == comparison['winner'])
+            lines.append('Выгоднее среди найденных вариантов: ' + store_name(winner['storefront_id'], winner['service']))
+        elif not comparison['winner']:
+            lines.append('Все товары в одном магазине найти не удалось.')
+        for basket in baskets:
+            label = 'Корзина' if basket['complete'] else 'Найденные товары'
+            lines.append(f"\n🛒 {label} в {store_name(basket['storefront_id'], basket['service'])} — {money(basket['total'])}")
+            for index, row in enumerate(basket['lines'], 1):
+                lines.append(f"\n{index}. {row['name']}\n"
+                             f"{row['packages']} уп. по {package_size(row['package_qty'], row['package_unit'])} "
+                             f"× {money(row['package_price'])} = {money(row['subtotal'])}")
             if basket['missing']:
                 lines.append('Не найдено: ' + ', '.join(basket['missing']))
-            if basket['catalog_status'] == 'collected_with_gaps':
-                lines.append('Исходный каталог собран с пропусками.')
-        lines.append('\nПо сохранённым выгрузкам, без доставки. Цены и наличие могут измениться.')
+        dates = price_dates(baskets)
+        lines.append('\n' + dates + ' Стоимость доставки не включена.')
         structured = {'comparison': comparison, 'requirements': state['requirements'],
                       'zone_id': state['zone_id'], 'tool_trace': trace, 'demo': self.catalog.demo}
         return AgentResult('\n'.join(lines), 'ok' if comparison['winner'] else 'partial', structured)

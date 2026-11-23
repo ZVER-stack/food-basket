@@ -1,11 +1,24 @@
 """Replaceable address adapter. Only the supplied ten zone IDs are accepted."""
 import csv
 import json
+import re
 from pathlib import Path
-from foodai.services.catalog import ZONE_IDS, words
+from foodai.services.catalog import ZONE_IDS
 
 ZONE_NAMES = ['Центр', 'Северо-восток', 'Восток', 'Юго-восток', 'Юг — восточная часть',
               'Юг — западная часть', 'Юго-запад', 'Запад', 'Северо-запад', 'Север']
+
+
+def address_key(text):
+    text = text.casefold().replace('ё', 'е')
+    text = re.sub(r'\b(?:корпус|корп\.?|к\.?)\s*(?=\d)', ' корпус ', text)
+    text = re.sub(r'\b(?:строение|стр\.?)\s*(?=\d)', ' строение ', text)
+    text = re.sub(r'\b(?:г\.?|город)\s*(?=москва\b)', ' ', text)
+    text = re.sub(r'\b(?:москва|улица|ул)\b\.?', ' ', text)
+    text = re.sub(r'\b(?:дом|д\.?)\s*(?=\d)', ' ', text)
+    text = re.sub(r'\bпр-т\b', 'проспект', text)
+    # Keep slash house numbers distinct from separate numbers and building suffixes.
+    return tuple(re.findall(r'[а-яa-z]+|\d+(?:/\d+)?', text))
 
 
 def in_ring(x, y, ring):
@@ -27,6 +40,15 @@ class AddressService:
                 raise ValueError('Адресный файл должен содержать десять зон проекта')
         self.geo = json.loads(Path(geojson_path).read_text(encoding='utf-8-sig')) if geojson_path else None
 
+    def zone_info(self, zone):
+        row = self.addresses.get(zone, {})
+        return {'zone_name': row.get('zone_name') or dict(zip(ZONE_IDS, ZONE_NAMES)).get(zone, 'Выбранная зона'),
+                'catalog_address': row.get('address', '')}
+
+    def zone_label(self, zone):
+        info = self.zone_info(zone)
+        return info['catalog_address'] or info['zone_name']
+
     def resolve_address(self, address=None, lat=None, lon=None):
         source, zone = '', None
         if address:
@@ -34,8 +56,8 @@ class AddressService:
             if literal in ZONE_IDS:
                 zone, source = literal, 'selected_zone'
             else:
-                normalized = words(literal)
-                hits = [key for key, row in self.addresses.items() if words(row['address']) == normalized]
+                normalized = address_key(literal)
+                hits = [key for key, row in self.addresses.items() if address_key(row['address']) == normalized]
                 if len(hits) == 1:
                     zone, source = hits[0], 'verified_address_dictionary'
         elif lat is not None and lon is not None and self.geo:
@@ -51,6 +73,7 @@ class AddressService:
         if zone not in ZONE_IDS or not self.catalog.storefronts(zone):
             return {'status': 'unsupported', 'zone_id': None, 'storefronts': []}
         return {'status': 'resolved', 'zone_id': zone, 'source': source,
+                **self.zone_info(zone),
                 'storefronts': self.catalog.storefronts(zone),
                 'coverage_basis': 'representative_address_snapshot',
                 'notice': 'Каталог снят по опорному адресу зоны. Доставка по другому дому не подтверждена.'}
