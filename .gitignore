@@ -16,3 +16,14 @@ parsers/yandex_lavka/data/yandex_lavka_hexagons/*.tmp
 *.sqlite3-wal
 .env
 .env.*
+
+# FoodAI local state and credentials
+.env
+.env.*
+!.env.example
+.venv/
+data/
+.pytest_cache/
+__pycache__/
+*.pyc
+*.sqlite*

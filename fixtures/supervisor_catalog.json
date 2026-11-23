@@ -1,0 +1,82 @@
+{
+  "README": "Искусственные тестовые цены; никогда не выдавать за цены магазинов.",
+  "address": {
+    "label": "TEST_ZONE",
+    "resolved_storefronts": [
+      "A_01",
+      "B_01",
+      "C_01"
+    ]
+  },
+  "products": [
+    {
+      "sku": "A_MILK",
+      "service": "A",
+      "storefront_id": "A_01",
+      "zone_id": "TEST_ZONE",
+      "name": "Молоко 930 мл",
+      "package_qty": 930,
+      "package_unit": "ml",
+      "price_rub": 90,
+      "available": true,
+      "captured_at": "2026-11-01"
+    },
+    {
+      "sku": "A_EGGS",
+      "service": "A",
+      "storefront_id": "A_01",
+      "zone_id": "TEST_ZONE",
+      "name": "Яйца 10 шт",
+      "package_qty": 10,
+      "package_unit": "pcs",
+      "price_rub": 120,
+      "available": true,
+      "captured_at": "2026-11-01"
+    },
+    {
+      "sku": "B_MILK",
+      "service": "B",
+      "storefront_id": "B_01",
+      "zone_id": "TEST_ZONE",
+      "name": "Молоко 1 л",
+      "package_qty": 1000,
+      "package_unit": "ml",
+      "price_rub": 110,
+      "available": true,
+      "captured_at": "2026-11-02"
+    },
+    {
+      "sku": "B_EGGS",
+      "service": "B",
+      "storefront_id": "B_01",
+      "zone_id": "TEST_ZONE",
+      "name": "Яйца 10 шт",
+      "package_qty": 10,
+      "package_unit": "pcs",
+      "price_rub": 130,
+      "available": true,
+      "captured_at": "2026-11-02"
+    },
+    {
+      "sku": "C_MILK",
+      "service": "C",
+      "storefront_id": "C_01",
+      "zone_id": "TEST_ZONE",
+      "name": "Молоко 1 л",
+      "package_qty": 1000,
+      "package_unit": "ml",
+      "price_rub": 80,
+      "available": true,
+      "captured_at": "2026-11-02"
+    }
+  ],
+  "test_case": {
+    "query": "молоко 1 л, яйца 10 шт",
+    "expected": {
+      "A": 300,
+      "B": 240,
+      "C": "incomplete",
+      "winner": "B"
+    }
+  }
+}

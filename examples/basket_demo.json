@@ -1,0 +1,597 @@
+{
+  "mode": "mock",
+  "prices": "synthetic",
+  "dialogs": [
+    {
+      "user": "молоко 1 л, яйца 10 шт",
+      "text": "ТЕСТОВЫЕ цены и товары. Офлайн-демонстрация.\nЗона: msk_center\nНаиболее дешёвая полная корзина среди найденных вариантов: samokat:msk_center\n\nsamokat:msk_center — 240 ₽ (полная)\nмолоко → Молоко 1 л [SKU samokat_milk]\n  1000 ml × 1 уп. × 110 ₽ = 110 ₽; выгрузка 2026-11-01\nяйца → Яйца 10 шт [SKU samokat_eggs]\n  10 pcs × 1 уп. × 130 ₽ = 130 ₽; выгрузка 2026-11-01\n\nozon_fresh:msk_center — 255 ₽ (полная)\nмолоко → Молоко 1 л [SKU ozon_fresh_milk]\n  1000 ml × 1 уп. × 115 ₽ = 115 ₽; выгрузка 2026-11-01\nяйца → Яйца 10 шт [SKU ozon_fresh_eggs]\n  10 pcs × 1 уп. × 140 ₽ = 140 ₽; выгрузка 2026-11-01\n\nlavka_small:msk_center — 300 ₽ (полная)\nмолоко → Молоко 930 мл [SKU lavka_small_milk]\n  930 ml × 2 уп. × 90 ₽ = 180 ₽; выгрузка 2026-11-01\nяйца → Яйца 10 шт [SKU lavka_small_eggs]\n  10 pcs × 1 уп. × 120 ₽ = 120 ₽; выгрузка 2026-11-01\n\nlavka_big:msk_center — 200 ₽ (неполная)\nмолоко → Молоко 930 мл [SKU lavka_big_milk]\n  930 ml × 2 уп. × 100 ₽ = 200 ₽; выгрузка 2026-11-01\nНе найдено: яйца\n\nvkusvill:msk_center — 80 ₽ (неполная)\nмолоко → Молоко 1 л [SKU vkusvill_milk]\n  1000 ml × 1 уп. × 80 ₽ = 80 ₽; выгрузка 2026-11-01\nНе найдено: яйца\n\nПо сохранённым выгрузкам, без доставки. Цены и наличие могут измениться.",
+      "status": "ok",
+      "tools": [
+        {
+          "name": "set_requirements",
+          "arguments": {
+            "items": [
+              {
+                "id": "item_0",
+                "query": "молоко",
+                "quantity": "1000",
+                "unit": "ml",
+                "required_terms": [],
+                "exclude_terms": [],
+                "exclude_brands": []
+              },
+              {
+                "id": "item_1",
+                "query": "яйца",
+                "quantity": "10",
+                "unit": "pcs",
+                "required_terms": [],
+                "exclude_terms": [],
+                "exclude_brands": []
+              }
+            ],
+            "replace_all": true
+          },
+          "result": {
+            "recorded_in_full_local_trace": true
+          }
+        },
+        {
+          "name": "search_products",
+          "arguments": {
+            "queries": [
+              {
+                "requirement_id": "item_0",
+                "query": "молоко"
+              },
+              {
+                "requirement_id": "item_1",
+                "query": "яйца"
+              }
+            ],
+            "limit": 5
+          },
+          "result": {
+            "recorded_in_full_local_trace": true
+          }
+        },
+        {
+          "name": "calculate_basket",
+          "arguments": {
+            "baskets": [
+              {
+                "storefront_id": "lavka_big:msk_center",
+                "items": [
+                  {
+                    "requirement_id": "item_0",
+                    "sku": "lavka_big_milk"
+                  }
+                ]
+              },
+              {
+                "storefront_id": "lavka_small:msk_center",
+                "items": [
+                  {
+                    "requirement_id": "item_0",
+                    "sku": "lavka_small_milk"
+                  },
+                  {
+                    "requirement_id": "item_1",
+                    "sku": "lavka_small_eggs"
+                  }
+                ]
+              },
+              {
+                "storefront_id": "ozon_fresh:msk_center",
+                "items": [
+                  {
+                    "requirement_id": "item_0",
+                    "sku": "ozon_fresh_milk"
+                  },
+                  {
+                    "requirement_id": "item_1",
+                    "sku": "ozon_fresh_eggs"
+                  }
+                ]
+              },
+              {
+                "storefront_id": "samokat:msk_center",
+                "items": [
+                  {
+                    "requirement_id": "item_0",
+                    "sku": "samokat_milk"
+                  },
+                  {
+                    "requirement_id": "item_1",
+                    "sku": "samokat_eggs"
+                  }
+                ]
+              },
+              {
+                "storefront_id": "vkusvill:msk_center",
+                "items": [
+                  {
+                    "requirement_id": "item_0",
+                    "sku": "vkusvill_milk"
+                  }
+                ]
+              }
+            ]
+          },
+          "result": {
+            "recorded_in_full_local_trace": true
+          }
+        },
+        {
+          "name": "compare_stores",
+          "arguments": {},
+          "result": {
+            "full": [
+              {
+                "storefront_id": "samokat:msk_center",
+                "service": "samokat",
+                "complete": true,
+                "total": "240",
+                "lines": [
+                  {
+                    "queries": [
+                      "молоко"
+                    ],
+                    "sku": "samokat_milk",
+                    "name": "Молоко 1 л",
+                    "package_qty": "1000",
+                    "package_unit": "ml",
+                    "packages": 1,
+                    "package_price": "110",
+                    "subtotal": "110",
+                    "captured_at": "2026-11-01",
+                    "product_url": ""
+                  },
+                  {
+                    "queries": [
+                      "яйца"
+                    ],
+                    "sku": "samokat_eggs",
+                    "name": "Яйца 10 шт",
+                    "package_qty": "10",
+                    "package_unit": "pcs",
+                    "packages": 1,
+                    "package_price": "130",
+                    "subtotal": "130",
+                    "captured_at": "2026-11-01",
+                    "product_url": ""
+                  }
+                ],
+                "missing": [],
+                "catalog_status": "demo"
+              },
+              {
+                "storefront_id": "ozon_fresh:msk_center",
+                "service": "ozon_fresh",
+                "complete": true,
+                "total": "255",
+                "lines": [
+                  {
+                    "queries": [
+                      "молоко"
+                    ],
+                    "sku": "ozon_fresh_milk",
+                    "name": "Молоко 1 л",
+                    "package_qty": "1000",
+                    "package_unit": "ml",
+                    "packages": 1,
+                    "package_price": "115",
+                    "subtotal": "115",
+                    "captured_at": "2026-11-01",
+                    "product_url": ""
+                  },
+                  {
+                    "queries": [
+                      "яйца"
+                    ],
+                    "sku": "ozon_fresh_eggs",
+                    "name": "Яйца 10 шт",
+                    "package_qty": "10",
+                    "package_unit": "pcs",
+                    "packages": 1,
+                    "package_price": "140",
+                    "subtotal": "140",
+                    "captured_at": "2026-11-01",
+                    "product_url": ""
+                  }
+                ],
+                "missing": [],
+                "catalog_status": "demo"
+              },
+              {
+                "storefront_id": "lavka_small:msk_center",
+                "service": "lavka",
+                "complete": true,
+                "total": "300",
+                "lines": [
+                  {
+                    "queries": [
+                      "молоко"
+                    ],
+                    "sku": "lavka_small_milk",
+                    "name": "Молоко 930 мл",
+                    "package_qty": "930",
+                    "package_unit": "ml",
+                    "packages": 2,
+                    "package_price": "90",
+                    "subtotal": "180",
+                    "captured_at": "2026-11-01",
+                    "product_url": ""
+                  },
+                  {
+                    "queries": [
+                      "яйца"
+                    ],
+                    "sku": "lavka_small_eggs",
+                    "name": "Яйца 10 шт",
+                    "package_qty": "10",
+                    "package_unit": "pcs",
+                    "packages": 1,
+                    "package_price": "120",
+                    "subtotal": "120",
+                    "captured_at": "2026-11-01",
+                    "product_url": ""
+                  }
+                ],
+                "missing": [],
+                "catalog_status": "demo"
+              }
+            ],
+            "partial": [
+              {
+                "storefront_id": "lavka_big:msk_center",
+                "service": "lavka",
+                "complete": false,
+                "total": "200",
+                "lines": [
+                  {
+                    "queries": [
+                      "молоко"
+                    ],
+                    "sku": "lavka_big_milk",
+                    "name": "Молоко 930 мл",
+                    "package_qty": "930",
+                    "package_unit": "ml",
+                    "packages": 2,
+                    "package_price": "100",
+                    "subtotal": "200",
+                    "captured_at": "2026-11-01",
+                    "product_url": ""
+                  }
+                ],
+                "missing": [
+                  "яйца"
+                ],
+                "catalog_status": "demo"
+              },
+              {
+                "storefront_id": "vkusvill:msk_center",
+                "service": "vkusvill",
+                "complete": false,
+                "total": "80",
+                "lines": [
+                  {
+                    "queries": [
+                      "молоко"
+                    ],
+                    "sku": "vkusvill_milk",
+                    "name": "Молоко 1 л",
+                    "package_qty": "1000",
+                    "package_unit": "ml",
+                    "packages": 1,
+                    "package_price": "80",
+                    "subtotal": "80",
+                    "captured_at": "2026-11-01",
+                    "product_url": ""
+                  }
+                ],
+                "missing": [
+                  "яйца"
+                ],
+                "catalog_status": "demo"
+              }
+            ],
+            "winner": "samokat:msk_center"
+          }
+        }
+      ]
+    },
+    {
+      "user": "Замени молоко на безлактозное",
+      "text": "ТЕСТОВЫЕ цены и товары. Офлайн-демонстрация.\nЗона: msk_center\nНаиболее дешёвая полная корзина среди найденных вариантов: lavka_small:msk_center\n\nlavka_small:msk_center — 320 ₽ (полная)\nмолоко безлактозное → Молоко безлактозное 1 л [SKU lavka_small_lactosefree]\n  1000 ml × 1 уп. × 200 ₽ = 200 ₽; выгрузка 2026-11-01\nяйца → Яйца 10 шт [SKU lavka_small_eggs]\n  10 pcs × 1 уп. × 120 ₽ = 120 ₽; выгрузка 2026-11-01\n\nsamokat:msk_center — 330 ₽ (полная)\nмолоко безлактозное → Молоко безлактозное 1 л [SKU samokat_lactosefree]\n  1000 ml × 1 уп. × 200 ₽ = 200 ₽; выгрузка 2026-11-01\nяйца → Яйца 10 шт [SKU samokat_eggs]\n  10 pcs × 1 уп. × 130 ₽ = 130 ₽; выгрузка 2026-11-01\n\nozon_fresh:msk_center — 340 ₽ (полная)\nмолоко безлактозное → Молоко безлактозное 1 л [SKU ozon_fresh_lactosefree]\n  1000 ml × 1 уп. × 200 ₽ = 200 ₽; выгрузка 2026-11-01\nяйца → Яйца 10 шт [SKU ozon_fresh_eggs]\n  10 pcs × 1 уп. × 140 ₽ = 140 ₽; выгрузка 2026-11-01\n\nlavka_big:msk_center — 200 ₽ (неполная)\nмолоко безлактозное → Молоко безлактозное 1 л [SKU lavka_big_lactosefree]\n  1000 ml × 1 уп. × 200 ₽ = 200 ₽; выгрузка 2026-11-01\nНе найдено: яйца\n\nvkusvill:msk_center — 200 ₽ (неполная)\nмолоко безлактозное → Молоко безлактозное 1 л [SKU vkusvill_lactosefree]\n  1000 ml × 1 уп. × 200 ₽ = 200 ₽; выгрузка 2026-11-01\nНе найдено: яйца\n\nПо сохранённым выгрузкам, без доставки. Цены и наличие могут измениться.",
+      "status": "ok",
+      "tools": [
+        {
+          "name": "set_requirements",
+          "arguments": {
+            "items": [
+              {
+                "id": "item_0",
+                "query": "молоко безлактозное",
+                "quantity": "1000",
+                "unit": "ml",
+                "required_terms": [
+                  "безлактоз"
+                ],
+                "exclude_terms": [],
+                "exclude_brands": []
+              }
+            ],
+            "replace_all": false
+          },
+          "result": {
+            "recorded_in_full_local_trace": true
+          }
+        },
+        {
+          "name": "search_products",
+          "arguments": {
+            "queries": [
+              {
+                "requirement_id": "item_0",
+                "query": "молоко безлактозное"
+              },
+              {
+                "requirement_id": "item_1",
+                "query": "яйца"
+              }
+            ],
+            "limit": 5
+          },
+          "result": {
+            "recorded_in_full_local_trace": true
+          }
+        },
+        {
+          "name": "calculate_basket",
+          "arguments": {
+            "baskets": [
+              {
+                "storefront_id": "lavka_big:msk_center",
+                "items": [
+                  {
+                    "requirement_id": "item_0",
+                    "sku": "lavka_big_lactosefree"
+                  }
+                ]
+              },
+              {
+                "storefront_id": "lavka_small:msk_center",
+                "items": [
+                  {
+                    "requirement_id": "item_0",
+                    "sku": "lavka_small_lactosefree"
+                  },
+                  {
+                    "requirement_id": "item_1",
+                    "sku": "lavka_small_eggs"
+                  }
+                ]
+              },
+              {
+                "storefront_id": "ozon_fresh:msk_center",
+                "items": [
+                  {
+                    "requirement_id": "item_0",
+                    "sku": "ozon_fresh_lactosefree"
+                  },
+                  {
+                    "requirement_id": "item_1",
+                    "sku": "ozon_fresh_eggs"
+                  }
+                ]
+              },
+              {
+                "storefront_id": "samokat:msk_center",
+                "items": [
+                  {
+                    "requirement_id": "item_0",
+                    "sku": "samokat_lactosefree"
+                  },
+                  {
+                    "requirement_id": "item_1",
+                    "sku": "samokat_eggs"
+                  }
+                ]
+              },
+              {
+                "storefront_id": "vkusvill:msk_center",
+                "items": [
+                  {
+                    "requirement_id": "item_0",
+                    "sku": "vkusvill_lactosefree"
+                  }
+                ]
+              }
+            ]
+          },
+          "result": {
+            "recorded_in_full_local_trace": true
+          }
+        },
+        {
+          "name": "compare_stores",
+          "arguments": {},
+          "result": {
+            "full": [
+              {
+                "storefront_id": "lavka_small:msk_center",
+                "service": "lavka",
+                "complete": true,
+                "total": "320",
+                "lines": [
+                  {
+                    "queries": [
+                      "молоко безлактозное"
+                    ],
+                    "sku": "lavka_small_lactosefree",
+                    "name": "Молоко безлактозное 1 л",
+                    "package_qty": "1000",
+                    "package_unit": "ml",
+                    "packages": 1,
+                    "package_price": "200",
+                    "subtotal": "200",
+                    "captured_at": "2026-11-01",
+                    "product_url": ""
+                  },
+                  {
+                    "queries": [
+                      "яйца"
+                    ],
+                    "sku": "lavka_small_eggs",
+                    "name": "Яйца 10 шт",
+                    "package_qty": "10",
+                    "package_unit": "pcs",
+                    "packages": 1,
+                    "package_price": "120",
+                    "subtotal": "120",
+                    "captured_at": "2026-11-01",
+                    "product_url": ""
+                  }
+                ],
+                "missing": [],
+                "catalog_status": "demo"
+              },
+              {
+                "storefront_id": "samokat:msk_center",
+                "service": "samokat",
+                "complete": true,
+                "total": "330",
+                "lines": [
+                  {
+                    "queries": [
+                      "молоко безлактозное"
+                    ],
+                    "sku": "samokat_lactosefree",
+                    "name": "Молоко безлактозное 1 л",
+                    "package_qty": "1000",
+                    "package_unit": "ml",
+                    "packages": 1,
+                    "package_price": "200",
+                    "subtotal": "200",
+                    "captured_at": "2026-11-01",
+                    "product_url": ""
+                  },
+                  {
+                    "queries": [
+                      "яйца"
+                    ],
+                    "sku": "samokat_eggs",
+                    "name": "Яйца 10 шт",
+                    "package_qty": "10",
+                    "package_unit": "pcs",
+                    "packages": 1,
+                    "package_price": "130",
+                    "subtotal": "130",
+                    "captured_at": "2026-11-01",
+                    "product_url": ""
+                  }
+                ],
+                "missing": [],
+                "catalog_status": "demo"
+              },
+              {
+                "storefront_id": "ozon_fresh:msk_center",
+                "service": "ozon_fresh",
+                "complete": true,
+                "total": "340",
+                "lines": [
+                  {
+                    "queries": [
+                      "молоко безлактозное"
+                    ],
+                    "sku": "ozon_fresh_lactosefree",
+                    "name": "Молоко безлактозное 1 л",
+                    "package_qty": "1000",
+                    "package_unit": "ml",
+                    "packages": 1,
+                    "package_price": "200",
+                    "subtotal": "200",
+                    "captured_at": "2026-11-01",
+                    "product_url": ""
+                  },
+                  {
+                    "queries": [
+                      "яйца"
+                    ],
+                    "sku": "ozon_fresh_eggs",
+                    "name": "Яйца 10 шт",
+                    "package_qty": "10",
+                    "package_unit": "pcs",
+                    "packages": 1,
+                    "package_price": "140",
+                    "subtotal": "140",
+                    "captured_at": "2026-11-01",
+                    "product_url": ""
+                  }
+                ],
+                "missing": [],
+                "catalog_status": "demo"
+              }
+            ],
+            "partial": [
+              {
+                "storefront_id": "lavka_big:msk_center",
+                "service": "lavka",
+                "complete": false,
+                "total": "200",
+                "lines": [
+                  {
+                    "queries": [
+                      "молоко безлактозное"
+                    ],
+                    "sku": "lavka_big_lactosefree",
+                    "name": "Молоко безлактозное 1 л",
+                    "package_qty": "1000",
+                    "package_unit": "ml",
+                    "packages": 1,
+                    "package_price": "200",
+                    "subtotal": "200",
+                    "captured_at": "2026-11-01",
+                    "product_url": ""
+                  }
+                ],
+                "missing": [
+                  "яйца"
+                ],
+                "catalog_status": "demo"
+              },
+              {
+                "storefront_id": "vkusvill:msk_center",
+                "service": "vkusvill",
+                "complete": false,
+                "total": "200",
+                "lines": [
+                  {
+                    "queries": [
+                      "молоко безлактозное"
+                    ],
+                    "sku": "vkusvill_lactosefree",
+                    "name": "Молоко безлактозное 1 л",
+                    "package_qty": "1000",
+                    "package_unit": "ml",
+                    "packages": 1,
+                    "package_price": "200",
+                    "subtotal": "200",
+                    "captured_at": "2026-11-01",
+                    "product_url": ""
+                  }
+                ],
+                "missing": [
+                  "яйца"
+                ],
+                "catalog_status": "demo"
+              }
+            ],
+            "winner": "lavka_small:msk_center"
+          }
+        }
+      ]
+    }
+  ]
+}
