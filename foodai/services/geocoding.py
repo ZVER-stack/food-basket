@@ -23,13 +23,14 @@ class PhotonGeocoder:
         query = re.split(r'\b(?:кв(?:артира)?|подъезд|этаж|домофон)\b', address, flags=re.I)[0].strip(' ,.')
         if len(query) > 220 or not re.search(r'\d', query):
             return []
-        if 'москв' not in query.casefold():
+        if not re.search(r'\bмосква\b', query, flags=re.I):
             query = 'Москва, ' + query
-        key = query.casefold().replace('ё', 'е')
+        query = re.sub(r'(?<=\d)\s*(?:корпус|корп\.?|к)\s*(?=\d)', ' к', query, flags=re.I)
+        key = 'v2:' + query.casefold().replace('ё', 'е')
         async with self.lock:
             with closing(sqlite3.connect(self.path)) as db, db:
                 row = db.execute('SELECT result FROM geocoding WHERE query=?', (key,)).fetchone()
-            if row:
+            if row and json.loads(row[0]):
                 return json.loads(row[0])
             await asyncio.sleep(max(0, 1 - (time.monotonic() - self.last_request)))
             self.last_request = time.monotonic()
@@ -59,6 +60,7 @@ class PhotonGeocoder:
                 if sorted(address_key(query)) != sorted(address_key(canonical)):
                     continue
                 results.append({'address': canonical, 'lon': point[0], 'lat': point[1]})
-            with closing(sqlite3.connect(self.path)) as db, db:
-                db.execute('INSERT OR REPLACE INTO geocoding VALUES (?,?)', (key, json.dumps(results, ensure_ascii=False)))
+            if results:
+                with closing(sqlite3.connect(self.path)) as db, db:
+                    db.execute('INSERT OR REPLACE INTO geocoding VALUES (?,?)', (key, json.dumps(results, ensure_ascii=False)))
             return results

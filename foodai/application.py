@@ -39,6 +39,8 @@ class Application:
                 if resolved['status'] != 'resolved':
                     return AgentResult('Сервис определения адреса временно недоступен. Попробуйте позже или отправьте геопозицию.'
                                        if resolved['status'] == 'unavailable' else
+                                       'Не нашёл точный дом в адресном справочнике. Отправьте геопозицию дома — по ней определю зону.'
+                                       if resolved['status'] == 'not_found' else
                                        'Не удалось однозначно определить дом в одной из 10 зон. Укажите улицу, дом и корпус либо отправьте геопозицию.', 'need_clarification')
                 state.update(mode='MAIN_MENU', zone_id=resolved['zone_id'], address_source=resolved['source'],
                              address_value=location or text,

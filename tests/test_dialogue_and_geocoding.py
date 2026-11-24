@@ -79,6 +79,23 @@ async def test_geocoder_validates_exact_house_and_caches_requests(tmp_path):
     assert '55' not in requests[0].url.params['q']
 
 
+async def test_moskvorechye_is_not_mistaken_for_moscow_and_corpus_is_normalized(tmp_path):
+    requests = []
+    def response(request):
+        requests.append(request)
+        return httpx.Response(200, json={'features': [
+            {'properties': {'street': 'улица Москворечье', 'housenumber': '2 к3'}, 'geometry': {'coordinates': [37.6, 55.7]}},
+            {'properties': {'street': 'улица Москворечье', 'housenumber': '2 к2'}, 'geometry': {'coordinates': [37.61, 55.71]}}]})
+    real = httpx.AsyncClient
+    with patch('foodai.services.geocoding.httpx.AsyncClient', side_effect=lambda **kw: real(**kw, transport=httpx.MockTransport(response))):
+        geocoder = PhotonGeocoder(tmp_path / 'geo.sqlite')
+        result = await geocoder.lookup('Москворечье 2к2')
+        again = await geocoder.lookup('Москва, Москворечье 2 корпус 2')
+    assert requests[0].url.params['q'] == 'Москва, Москворечье 2 к2'
+    assert len(requests) == 1 and result == again
+    assert result == [{'address': 'Москва, улица Москворечье, 2 к2', 'lon': 37.61, 'lat': 55.71}]
+
+
 async def test_house_coordinates_select_polygon_and_ambiguous_address_is_not_guessed(catalog):
     geocoder = AsyncMock()
     service = AddressService(catalog, geocoder=geocoder)

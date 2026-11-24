@@ -58,6 +58,8 @@ class AddressService:
         matches = await self.geocoder.lookup(address)
         if matches is None:
             return {'status': 'unavailable', 'zone_id': None}
+        if not matches:
+            return {'status': 'not_found', 'zone_id': None}
         resolved = []
         for match in matches:
             zone = self.resolve_address(lat=match['lat'], lon=match['lon'])
