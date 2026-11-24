@@ -74,6 +74,8 @@ class Application:
                 result = await agent.run(text, context) if hasattr(agent, 'run') else await agent(text, context)
                 if isinstance(result, dict):
                     result = AgentResult(**result)
+                if '_usage' in context:
+                    result.structured['usage'] = context['_usage']
             except Exception:
                 # Do not send stack traces, addresses, tokens or API bodies to Telegram.
                 return AgentResult('Не удалось выполнить запрос. Попробуйте ещё раз или вернитесь в меню.', 'error')

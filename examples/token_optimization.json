@@ -1,0 +1,28 @@
+{
+  "baseline_commit": "3e5eddbc4409df5e098fba89d6b2f2fb05c7c46a",
+  "measurement": "UTF-8 bytes of serialized messages + tools; not provider tokens; no network calls",
+  "scenarios": [
+    {
+      "query": "молоко 1 л, яйца 10 шт",
+      "before": {
+        "calls": 3,
+        "request_bytes": 16930
+      },
+      "after": {
+        "calls": 1,
+        "request_bytes": 4897
+      }
+    },
+    {
+      "query": "молоко 1 л, яйца 10 шт, гречка 1 кг",
+      "before": {
+        "calls": 3,
+        "request_bytes": 19221
+      },
+      "after": {
+        "calls": 1,
+        "request_bytes": 5854
+      }
+    }
+  ]
+}

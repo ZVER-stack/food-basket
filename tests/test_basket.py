@@ -118,15 +118,14 @@ async def test_ready_basket_finishes_without_extra_model_calls_or_quantity_chang
     llm = AsyncMock()
     llm.complete.side_effect = [
         call('set_requirements', {'items': [need], 'replace_all': True}),
-        call('search_products', {'queries': [{'requirement_id': 'milk', 'query': 'молоко'}]}),
         call('set_requirements', {'items': [need | {'quantity': '800'}], 'replace_all': True}),
         call('calculate_basket', {'baskets': [{'storefront_id': 'samokat:msk_center',
              'items': [{'requirement_id': 'milk', 'sku': 'samokat_milk'}]}]})]
-    result = await BasketAgent(catalog, llm, max_tools=4).run('молоко 1 л', {'zone_id': 'msk_center'})
+    result = await BasketAgent(catalog, llm, max_tools=4).run('Найди подходящее молоко 1 л', {'zone_id': 'msk_center'})
     assert result.status == 'ok'
     assert result.structured['requirements'][0]['quantity'] == '1000'
     assert 'error' in result.structured['tool_trace'][2]['result']
-    assert llm.complete.call_count == 4
+    assert llm.complete.call_count == 3
     offered = llm.complete.call_args_list[-1].args[1]
     assert [tool['function']['name'] for tool in offered] == ['calculate_basket']
 

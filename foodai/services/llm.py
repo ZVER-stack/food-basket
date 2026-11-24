@@ -5,15 +5,19 @@ import httpx
 
 from foodai.models import number
 from foodai.services.local_input import prepare_items
+from foodai.services.usage import record_usage
 
 
 class LLMError(Exception):
-    pass
+    def __init__(self, message, http_calls=0):
+        super().__init__(message)
+        self.http_calls = http_calls
 
 
 class GroqLLM:
-    def __init__(self, api_key, model, base_url):
+    def __init__(self, api_key, model, base_url, usage_path=None):
         self.api_key, self.model, self.base_url = api_key, model, base_url.rstrip('/')
+        self.usage_path = usage_path
 
     @staticmethod
     def strict_schema(schema):
@@ -91,6 +95,7 @@ class GroqLLM:
                         payload.update(self.structured_payload(messages, tools))
                     response = await client.post(self.base_url + '/chat/completions',
                         headers={'Authorization': 'Bearer ' + self.api_key}, json=payload)
+                    usage = record_usage(self.usage_path, response, self.model, structured)
                     if response.status_code == 429:
                         try:
                             rate_error = response.json().get('error', {}).get('message', '')
@@ -124,7 +129,14 @@ class GroqLLM:
                                            'Попробуйте разделить список покупок на части.')
                         raise LLMError(f'API модели недоступен (HTTP {response.status_code}). Попробуйте позже.')
                     message = response.json()['choices'][0]['message']
-                    return self.decode_action(message, tools, 'structured_' + str(len(messages))) if structured else message
+                    message = self.decode_action(message, tools, 'structured_' + str(len(messages))) if structured else message
+                    message['_usage'] = usage
+                    message['_http_calls'] = attempt + 1
+                    message['_unmetered_http_calls'] = attempt if usage is not None else attempt + 1
+                    return message
+                except LLMError as exc:
+                    exc.http_calls = attempt + 1
+                    raise
                 except (httpx.TimeoutException, httpx.TransportError):
                     if attempt == 2:
                         raise LLMError('Модель не ответила после трёх попыток.') from None
@@ -144,6 +156,23 @@ class MockLLM:
             return {'role': 'assistant', 'content': None, 'tool_calls': [
                 {'id': f'call_{len(tool_results)}', 'type': 'function',
                  'function': {'name': name, 'arguments': json.dumps(args, ensure_ascii=False)}}]}
+        if state.get('phase') == 'selection':
+            from decimal import ROUND_CEILING
+            baskets = {store: [] for store in state['storefronts']}
+            needs = {r['id']: r for r in state['requirements']}
+            for key, stores in state['candidates'].items():
+                for store, rows in stores.items():
+                    products = [dict(zip(state['fields'], row)) for row in rows]
+                    if not products:
+                        continue
+                    req = needs[key]
+                    def cost(p):
+                        packs = number(req['quantity']) if req['unit'] == 'pack' else (
+                            number(req['quantity']) / number(p['package_qty'])).to_integral_value(rounding=ROUND_CEILING)
+                        return packs * number(p['price_rub'])
+                    best = min(products, key=cost)
+                    baskets[store].append({'requirement_id': key, 'sku': best['sku']})
+            return call('calculate_basket', {'baskets': [{'storefront_id': store, 'items': items} for store, items in baskets.items()]})
         if not tool_results:
             text = messages[user_index]['content'].lower().replace('ё', 'е')
             old = state.get('requirements', [])
