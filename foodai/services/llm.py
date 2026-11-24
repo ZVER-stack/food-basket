@@ -1,5 +1,6 @@
 import asyncio
 import json
+import re
 import httpx
 
 from foodai.models import number
@@ -23,8 +24,18 @@ class GroqLLM:
                     response = await client.post(self.base_url + '/chat/completions',
                         headers={'Authorization': 'Bearer ' + self.api_key},
                         json={'model': self.model, 'messages': messages, 'tools': tools,
-                              'tool_choice': 'auto', 'parallel_tool_calls': False,
-                              'temperature': 0.1, 'max_completion_tokens': 1536})
+                              'tool_choice': ({'type': 'function', 'function': {'name': tools[0]['function']['name']}}
+                                              if len(tools) == 1 else 'required' if tools else 'auto'),
+                              'parallel_tool_calls': False,
+                              'temperature': 0.1, 'max_completion_tokens': 1536,
+                              **({'reasoning_effort': 'low'} if self.model.startswith('openai/gpt-oss') else {})})
+                    if response.status_code == 429:
+                        try:
+                            rate_error = response.json().get('error', {}).get('message', '')
+                        except (ValueError, AttributeError):
+                            rate_error = ''
+                        if 'tokens per day' in rate_error.casefold() or 'requests per day' in rate_error.casefold():
+                            raise LLMError('Достигнут дневной лимит сервиса ИИ. Повторные попытки сейчас не помогут; попробуйте позже. Сохранённая корзина не потеряна.')
                     if response.status_code in (429, 500, 502, 503, 504) and attempt < 2:
                         try:
                             pause = min(60, max(1, float(response.headers.get('retry-after', attempt + 1))))
@@ -33,6 +44,12 @@ class GroqLLM:
                         await asyncio.sleep(pause)
                         continue
                     if response.status_code != 200:
+                        try:
+                            detail = response.json().get('error', {})
+                            self.last_error = {'status': response.status_code, 'code': detail.get('code'),
+                                'message': re.sub(r'gsk_[\w-]+|org_[\w-]+', '[REDACTED]', detail.get('message', ''))[:500]}
+                        except (ValueError, AttributeError):
+                            self.last_error = {'status': response.status_code}
                         if response.status_code == 413:
                             raise LLMError('Запрос оказался слишком большим для модели. '
                                            'Попробуйте разделить список покупок на части.')

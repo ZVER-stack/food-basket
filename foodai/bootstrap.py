@@ -4,6 +4,9 @@ from foodai.services.address import AddressService
 from foodai.services.catalog import Catalog
 from foodai.services.llm import GroqLLM, MockLLM
 from foodai.storage import Storage
+from foodai.services.geocoding import PhotonGeocoder
+from pathlib import Path
+import os
 
 
 def build(settings):
@@ -11,5 +14,7 @@ def build(settings):
     llm = MockLLM() if settings.llm_mode == 'mock' else GroqLLM(
         settings.groq_api_key, settings.model_name, settings.groq_base_url)
     return Application(Storage(settings.database_path),
-        AddressService(catalog, settings.zones_path, settings.geojson_path),
+        AddressService(catalog, settings.zones_path, settings.geojson_path,
+                       PhotonGeocoder(Path(settings.database_path).with_name('geocoding.sqlite'),
+                                      os.getenv('GEOCODER_URL', 'https://photon.komoot.io/api/'))),
         {'basket': BasketAgent(catalog, llm, settings.max_tools)})

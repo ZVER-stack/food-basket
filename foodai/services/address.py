@@ -11,6 +11,7 @@ ZONE_NAMES = ['Центр', 'Северо-восток', 'Восток', 'Юго
 
 def address_key(text):
     text = text.casefold().replace('ё', 'е')
+    text = re.sub(r'(?<=\d)к(?=\d)', ' корпус ', text)
     text = re.sub(r'\b(?:корпус|корп\.?|к\.?)\s*(?=\d)', ' корпус ', text)
     text = re.sub(r'\b(?:строение|стр\.?)\s*(?=\d)', ' строение ', text)
     text = re.sub(r'\b(?:г\.?|город)\s*(?=москва\b)', ' ', text)
@@ -30,8 +31,9 @@ def in_ring(x, y, ring):
 
 
 class AddressService:
-    def __init__(self, catalog, zones_path='', geojson_path=''):
+    def __init__(self, catalog, zones_path='', geojson_path='', geocoder=None):
         self.catalog = catalog
+        self.geocoder = geocoder
         self.addresses = {}
         if zones_path:
             with Path(zones_path).open(encoding='utf-8-sig', newline='') as stream:
@@ -48,6 +50,23 @@ class AddressService:
     def zone_label(self, zone):
         info = self.zone_info(zone)
         return info['catalog_address'] or info['zone_name']
+
+    async def resolve_user_address(self, address=None, lat=None, lon=None):
+        result = self.resolve_address(address, lat, lon)
+        if result['status'] == 'resolved' or not address or not self.geocoder:
+            return result
+        matches = await self.geocoder.lookup(address)
+        if matches is None:
+            return {'status': 'unavailable', 'zone_id': None}
+        resolved = []
+        for match in matches:
+            zone = self.resolve_address(lat=match['lat'], lon=match['lon'])
+            if zone['status'] == 'resolved':
+                resolved.append(zone | {'user_address': match['address'], 'source': 'geocoded_address'})
+        unique = {(r['zone_id'], r['user_address']): r for r in resolved}
+        if len(unique) == 1:
+            return next(iter(unique.values()))
+        return {'status': 'ambiguous' if unique else 'unsupported', 'zone_id': None}
 
     def resolve_address(self, address=None, lat=None, lon=None):
         source, zone = '', None

@@ -20,31 +20,34 @@ class Application:
             state = self.storage.get(user_id)
             text = (text or '').strip()
             if text == '/help':
-                return AgentResult('Выберите адрес дома кнопкой или отправьте адрес либо геопозицию, затем раздел меню. '
+                return AgentResult('Отправьте свой адрес в Москве (улица и дом) либо геопозицию, затем выберите раздел. '
                     'Для корзины укажите продукты и количества. /menu — главное меню. '
-                    'Цены берутся из сохранённых данных. Стоимость доставки не включена.', 'ok')
+                    'Цены берутся из каталога зоны, доставка уточняется в магазине. '
+                    'Адреса определяются через Photon, © OpenStreetMap contributors.', 'ok')
             if text in ('Изменить адрес', '/address'):
                 state = {'mode': 'WAIT_ADDRESS', 'zone_id': None, 'history': []}
                 self.storage.save(user_id, state)
-                return AgentResult('Выберите адрес дома кнопкой ниже или пришлите адрес либо геопозицию.', 'need_clarification')
+                return AgentResult('Напишите свой адрес в Москве: улицу и номер дома. Можно отправить геопозицию.', 'need_clarification')
             if text in ('/start', '/menu', 'Главное меню', 'Назад'):
                 state['mode'] = 'MAIN_MENU' if state.get('zone_id') else 'WAIT_ADDRESS'
                 self.storage.save(user_id, state)
                 address = self.addresses.zone_info(state['zone_id']) if state.get('zone_id') else {}
-                return AgentResult(('📍 ' + (address['catalog_address'] or address['zone_name']) + '\nВыберите раздел.')
-                                   if address else 'Выберите адрес дома кнопкой ниже или пришлите адрес либо геопозицию.', 'ok')
+                return AgentResult(('📍 ' + (state.get('address_display') or address['catalog_address'] or address['zone_name']) + '\nВыберите раздел.')
+                                   if address else 'Напишите свой адрес в Москве: улицу и номер дома. Можно отправить геопозицию.', 'ok')
             if not state.get('zone_id'):
-                resolved = self.addresses.resolve_address(address=text, **(location or {}))
+                resolved = await self.addresses.resolve_user_address(address=text, **(location or {}))
                 if resolved['status'] != 'resolved':
-                    return AgentResult('Пока не удалось определить этот дом. Выберите адрес кнопкой ниже '
-                                       'или отправьте геопозицию.', 'need_clarification')
+                    return AgentResult('Сервис определения адреса временно недоступен. Попробуйте позже или отправьте геопозицию.'
+                                       if resolved['status'] == 'unavailable' else
+                                       'Не удалось однозначно определить дом в одной из 10 зон. Укажите улицу, дом и корпус либо отправьте геопозицию.', 'need_clarification')
                 state.update(mode='MAIN_MENU', zone_id=resolved['zone_id'], address_source=resolved['source'],
-                             address_value=location or text)
+                             address_value=location or text,
+                             address_display=resolved.get('user_address') or
+                             ('Геопозиция · ' + resolved['zone_name'] if location else resolved['catalog_address']))
                 self.storage.save(user_id, state)
-                label = resolved['catalog_address'] or resolved['zone_name']
-                notice = ('\nПо геопозиции выбрана зона «' + resolved['zone_name'] +
-                          '». Расчёт будет для указанного дома.') if resolved['source'] == 'administrative_polygon' else ''
-                return AgentResult('📍 Адрес для расчёта: ' + label + notice + '\nВыберите раздел.', 'ok')
+                label = state['address_display'] or resolved['zone_name']
+                return AgentResult('📍 ' + label + '\nЗона: ' + resolved['zone_name'] +
+                                   '\nВыберите раздел.\nАдресные данные: © OpenStreetMap contributors.', 'ok')
             modes = {label: mode for mode, label in MODES.items()}
             if text in modes:
                 state['mode'] = modes[text]
@@ -60,6 +63,7 @@ class Application:
                 return AgentResult('Напиши текстовый запрос до 4 000 символов.', 'need_clarification')
             context = {'zone_id': state['zone_id'], 'basket_state': state.get('basket_state', {}),
                        **self.addresses.zone_info(state['zone_id']),
+                       'user_address': state.get('address_display', ''),
                        'history': state.get('history', []), 'last_result': state.get('last_result', {}),
                        'agent_state': state.get('agent_states', {}).get(mode, {}),
                        'catalog': self.addresses.catalog,
@@ -73,7 +77,7 @@ class Application:
                 return AgentResult('Не удалось выполнить запрос. Попробуйте ещё раз или вернитесь в меню.', 'error')
             state['basket_state'] = context.get('basket_state', {})
             state.setdefault('agent_states', {})[mode] = context.get('agent_state', {})
-            state['history'] = (state.get('history', []) + [{'user': text, 'status': result.status}])[-6:]
+            state['history'] = (state.get('history', []) + [{'user': text, 'assistant': result.text, 'status': result.status}])[-6:]
             structured = {k: v for k, v in result.structured.items() if k != 'tool_trace'}
             state['last_result'] = structured
             self.storage.save(user_id, state)

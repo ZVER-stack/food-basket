@@ -17,15 +17,16 @@ def calculate_basket(requirements, selections, storefront_id, catalog, zone_id):
     missing, grouped = [], defaultdict(list)
     for key, req in needs.items():
         product = catalog.get_product_details(selected.get(key), storefront_id, zone_id)
-        if not product or product['available'] is not True or product['package_unit'] != req['unit']:
+        if not product or product['available'] is not True or (req['unit'] != 'pack' and product['package_unit'] != req['unit']):
             missing.append(req['query'])
             continue
         grouped[product['sku']].append((req, product))
     lines, total = [], number(0)
     for sku, values in grouped.items():
         product = values[0][1]
-        quantity = sum((number(req['quantity']) for req, _ in values), number(0))
-        packs = int((quantity / number(product['package_qty'])).to_integral_value(rounding=ROUND_CEILING))
+        packs_requested = sum((number(req['quantity']) for req, _ in values if req['unit'] == 'pack'), number(0))
+        quantity = sum((number(req['quantity']) for req, _ in values if req['unit'] != 'pack'), number(0))
+        packs = int(packs_requested + (quantity / number(product['package_qty'])).to_integral_value(rounding=ROUND_CEILING))
         subtotal = packs * number(product['price_rub'])
         total += subtotal
         lines.append({'queries': [r['query'] for r, _ in values], 'sku': sku,

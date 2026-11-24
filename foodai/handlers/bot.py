@@ -28,8 +28,6 @@ def make_router(application):
         # Plain text avoids interpreting model and catalog strings as Telegram HTML.
         for start in range(0, len(result.text), 3800):
             await message.answer(result.text[start:start + 3800], reply_markup=navigation())
-        if not application.storage.get(user_id).get('zone_id'):
-            await message.answer('Выберите адрес дома для расчёта корзины', reply_markup=zone_keyboard(application.addresses))
 
     @router.callback_query(F.data.startswith('zone:'))
     async def choose_zone(callback: CallbackQuery):
