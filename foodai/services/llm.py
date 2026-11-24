@@ -24,10 +24,10 @@ class GroqLLM:
                         headers={'Authorization': 'Bearer ' + self.api_key},
                         json={'model': self.model, 'messages': messages, 'tools': tools,
                               'tool_choice': 'auto', 'parallel_tool_calls': False,
-                              'temperature': 0.1, 'max_completion_tokens': 3000})
+                              'temperature': 0.1, 'max_completion_tokens': 1536})
                     if response.status_code in (429, 500, 502, 503, 504) and attempt < 2:
                         try:
-                            pause = min(5, max(1, float(response.headers.get('retry-after', attempt + 1))))
+                            pause = min(60, max(1, float(response.headers.get('retry-after', attempt + 1))))
                         except ValueError:
                             pause = attempt + 1
                         await asyncio.sleep(pause)

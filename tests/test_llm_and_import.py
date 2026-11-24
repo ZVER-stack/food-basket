@@ -22,18 +22,20 @@ def test_import_keeps_verified_price_and_skips_inferred():
 
 async def test_groq_uses_local_tools_and_retries_without_secret_leak(monkeypatch):
     requests = []
+    waits = []
     def handle(request):
         requests.append(request)
         if len(requests) == 1:
-            return httpx.Response(429, headers={'Retry-After': '0'})
+            return httpx.Response(429, headers={'Retry-After': '12'})
         return httpx.Response(200, json={'choices': [{'message': {'role': 'assistant', 'content': 'Уточните количество'}}]})
     real_client = httpx.AsyncClient
     async def no_wait(seconds):
-        pass
+        waits.append(seconds)
     monkeypatch.setattr('foodai.services.llm.asyncio.sleep', no_wait)
     with patch('foodai.services.llm.httpx.AsyncClient', side_effect=lambda **kw: real_client(
             transport=httpx.MockTransport(handle), **kw)):
         response = await GroqLLM('secret', 'openai/gpt-oss-120b', 'https://api.groq.com/openai/v1').complete(
             [{'role': 'user', 'content': 'Привет'}], [])
     assert len(requests) == 2 and response['content']
+    assert waits == [12]
     assert json.loads(requests[-1].content)['parallel_tool_calls'] is False
