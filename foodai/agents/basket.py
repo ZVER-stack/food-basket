@@ -18,12 +18,19 @@ SYSTEM = '''Ты агент продуктовой корзины FoodAI. Отв
 Уточни неопределённое количество или единицу. Не превращай g в ml, не придумывай массу одной штуки.
 Сначала задай требования set_requirements. При уточнении меняй только нужные позиции по прежним id,
 остальные сохраняй. Пользовательский бренд, запреты, безлактозность и сырое/готовое обязательны.
+Если пользователь перечислил полный список продуктов с количествами, используй replace_all=true:
+такой список заменяет прошлые требования и не оставляет в корзине старых дубликатов.
 Вызови search_products для всех позиций, изучи кандидатов. Можно переформулировать запрос.
+Передавай все позиции в одном search_products, а все витрины в одном calculate_basket.
+Данные кандидатов уже содержат фасовку, цену и характеристики: не вызывай get_product_details
+для каждого товара без необходимости. Количество в требованиях — сколько попросил человек:
+«кило гречки» всегда 1000 g. Никогда не меняй его под фасовку и не разбивай позицию
+на дополнительные требования по размерам упаковок. Число упаковок считает калькулятор.
 Сам выбери подходящие SKU по смыслу и фасовке; сырое филе не заменяй копчёной курицей.
-Посчитай отдельную корзину для каждой витрины calculate_basket, затем compare_stores.
+Посчитай корзины calculate_basket. Приложение само сравнит их и покажет проверенный результат.
 Лавка и Большая Лавка — разные витрины. Не выдумывай цену. Уточнения выводи без числового расчёта.
 Для аллергий не обещай безопасность состава. Для отсутствующих данных честно укажи проблему.
-До восьми вызовов инструментов за запрос. Не запрашивай полный каталог.
+Не повторяй одинаковые действия. Не запрашивай полный каталог.
 '''
 
 
@@ -62,6 +69,18 @@ TOOLS = [
 class BasketAgent:
     def __init__(self, catalog, llm, max_tools=8):
         self.catalog, self.llm, self.max_tools = catalog, llm, min(8, max(1, max_tools))
+
+    def available_tools(self, trace):
+        successful = {step['tool'] for step in trace if 'error' not in step['result']}
+        if 'set_requirements' not in successful:
+            names = {'set_requirements'}
+        elif 'search_products' not in successful:
+            names = {'search_products'}
+        else:
+            names = {'search_products', 'get_product_details', 'calculate_basket'}
+            if len(trace) == self.max_tools - 1:
+                names = {'calculate_basket'}
+        return [definition for definition in TOOLS if definition['function']['name'] in names]
 
     def _execute(self, name, args, state, zone, found):
         requirements = state.get('requirements', [])
@@ -169,7 +188,8 @@ class BasketAgent:
         trace, found = [], {}
         try:
             for _ in range(self.max_tools + 1):
-                response = await self.llm.complete(messages, TOOLS)
+                available_tools = self.available_tools(trace)
+                response = await self.llm.complete(messages, available_tools)
                 calls = response.get('tool_calls') or []
                 if not calls:
                     if isinstance(self.llm, MockLLM) and 'pending_requirements' in response:
@@ -179,7 +199,7 @@ class BasketAgent:
                     return AgentResult(response.get('content') or 'Уточните продукт, количество и ограничения.',
                                        'need_clarification', {'tool_trace': trace})
                 if len(trace) + len(calls) > self.max_tools:
-                    return AgentResult('Достигнут лимит поиска. Уточните список или сократите его.', 'partial',
+                    return AgentResult('Не удалось завершить подбор корзины. Попробуйте повторить запрос.', 'partial',
                                        {'tool_trace': trace, 'requirements': state.get('requirements', [])})
                 messages.append({k: response[k] for k in ('role', 'content', 'tool_calls') if k in response})
                 for call in calls:
@@ -189,6 +209,8 @@ class BasketAgent:
                         args = json.loads(call['function']['arguments'])
                         if not isinstance(args, dict):
                             raise ValueError('Параметры инструмента должны быть объектом')
+                        if name not in {definition['function']['name'] for definition in available_tools}:
+                            raise ValueError('Действие недоступно на этом этапе')
                         result = self._execute(name, args, state, zone, found)
                     except (ValueError, KeyError, TypeError, AttributeError):
                         result = {'error': 'Некорректные параметры инструмента или недопустимый SKU. Исправьте вызов.'}
@@ -196,7 +218,11 @@ class BasketAgent:
                                   'result': jsonable(result)})
                     messages.append({'role': 'tool', 'tool_call_id': call['id'], 'name': name,
                                      'content': json.dumps(jsonable(result), ensure_ascii=False)})
-            return AgentResult('Достигнут лимит шагов поиска.', 'partial', {'tool_trace': trace})
+                if state.get('baskets'):
+                    state['comparison'] = compare_stores(state['baskets'])
+                    return self.render(state, trace, context)
+            return AgentResult('Не удалось завершить подбор корзины. Попробуйте повторить запрос.',
+                               'partial', {'tool_trace': trace})
         except LLMError as exc:
             return AgentResult(str(exc), 'error', {'tool_trace': trace})
         except (KeyError, TypeError, ValueError, AttributeError):

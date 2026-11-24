@@ -46,7 +46,7 @@ async def test_B4_followup_preserves_eggs_and_calls_multiple_tools(app):
     second = await app.handle(1, 'Замени молоко на безлактозное')
     assert first.status == second.status == 'ok'
     assert [t['tool'] for t in first.structured['tool_trace']] == [
-        'set_requirements', 'search_products', 'calculate_basket', 'compare_stores']
+        'set_requirements', 'search_products', 'calculate_basket']
     before = first.structured['requirements'][1]
     assert before == second.structured['requirements'][1]
     assert 'безлактоз' in second.structured['requirements'][0]['query']
@@ -94,6 +94,27 @@ async def test_tool_budget_stops_infinite_model(catalog):
     assert result.status == 'partial'
     assert len(result.structured['tool_trace']) == 3
     assert all('error' in t['result'] for t in result.structured['tool_trace'])
+
+
+async def test_ready_basket_finishes_without_extra_model_calls_or_quantity_changes(catalog):
+    def call(name, args):
+        return {'role': 'assistant', 'tool_calls': [{'id': name, 'type': 'function',
+                'function': {'name': name, 'arguments': json.dumps(args)}}]}
+    need = REQS[0]
+    llm = AsyncMock()
+    llm.complete.side_effect = [
+        call('set_requirements', {'items': [need], 'replace_all': True}),
+        call('search_products', {'queries': [{'requirement_id': 'milk', 'query': 'молоко'}]}),
+        call('set_requirements', {'items': [need | {'quantity': '800'}], 'replace_all': True}),
+        call('calculate_basket', {'baskets': [{'storefront_id': 'samokat:msk_center',
+             'items': [{'requirement_id': 'milk', 'sku': 'samokat_milk'}]}]})]
+    result = await BasketAgent(catalog, llm, max_tools=4).run('молоко 1 л', {'zone_id': 'msk_center'})
+    assert result.status == 'ok'
+    assert result.structured['requirements'][0]['quantity'] == '1000'
+    assert 'error' in result.structured['tool_trace'][2]['result']
+    assert llm.complete.call_count == 4
+    offered = llm.complete.call_args_list[-1].args[1]
+    assert [tool['function']['name'] for tool in offered] == ['calculate_basket']
 
 
 async def test_llm_failure_is_structured(catalog):
