@@ -50,10 +50,10 @@ TOOLS = [
     tool('set_requirements', 'Сохранить весь список или обновить указанные позиции по id.',
          {'items': {'type': 'array', 'items': REQ, 'minItems': 1, 'maxItems': 15},
           'replace_all': {'type': 'boolean'}}, ['items', 'replace_all']),
-    tool('search_products', 'Кандидаты по каждой позиции, максимум limit на витрину в выбранной зоне.',
+    tool('search_products', 'Кандидаты по каждой позиции, максимум 5 на витрину. Все позиции передавай одним вызовом.',
          {'queries': {'type': 'array', 'maxItems': 15, 'items': {'type': 'object', 'properties': {
              'requirement_id': STRING, 'query': STRING}, 'required': ['requirement_id', 'query'],
-             'additionalProperties': False}}, 'limit': {'type': 'integer', 'minimum': 1, 'maximum': 15}}, ['queries']),
+             'additionalProperties': False}}, 'limit': {'type': 'integer', 'minimum': 1, 'maximum': 5}}, ['queries']),
     tool('get_product_details', 'Уточнить данные конкретного SKU в текущей зоне.',
          {'sku': STRING, 'storefront_id': STRING}, ['sku', 'storefront_id']),
     tool('calculate_basket', 'Посчитать целые упаковки и отсутствующие позиции по витринам.',
@@ -81,6 +81,16 @@ class BasketAgent:
             if len(trace) == self.max_tools - 1:
                 names = {'calculate_basket'}
         return [definition for definition in TOOLS if definition['function']['name'] in names]
+
+    @staticmethod
+    def model_result(name, result):
+        if name != 'search_products' or 'results' not in result:
+            return result
+        fields = ('sku', 'name', 'package_qty', 'package_unit', 'price_rub', 'brand', 'category')
+        return {'results': {req: {store: [{key: row[key] for key in fields if key in row}
+                                          for row in products]
+                                 for store, products in stores.items()}
+                            for req, stores in result['results'].items()}}
 
     def _execute(self, name, args, state, zone, found):
         requirements = state.get('requirements', [])
@@ -122,7 +132,8 @@ class BasketAgent:
                 req = needs[query['requirement_id']]
                 filters = {key: req[key] for key in ('brand', 'required_terms', 'exclude_terms', 'exclude_brands') if key in req}
                 filters['unit'] = req['unit']
-                candidates = self.catalog.search_products(query['query'], [zone], filters, args.get('limit', 5))
+                candidates = self.catalog.search_products(query['query'], [zone], filters,
+                                                          min(5, max(1, int(args.get('limit', 5)))))
                 results[req['id']] = candidates
                 for store, products in candidates.items():
                     found.setdefault((req['id'], store), set()).update(p['sku'] for p in products)
@@ -217,7 +228,8 @@ class BasketAgent:
                     trace.append({'tool': name, 'arguments': args if 'args' in locals() else {},
                                   'result': jsonable(result)})
                     messages.append({'role': 'tool', 'tool_call_id': call['id'], 'name': name,
-                                     'content': json.dumps(jsonable(result), ensure_ascii=False)})
+                                     'content': json.dumps(jsonable(self.model_result(name, result)),
+                                                           ensure_ascii=False, separators=(',', ':'))})
                 if state.get('baskets'):
                     state['comparison'] = compare_stores(state['baskets'])
                     return self.render(state, trace, context)

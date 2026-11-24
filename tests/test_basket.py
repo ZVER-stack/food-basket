@@ -85,6 +85,20 @@ def test_hallucinated_sku_rejected_before_calculation(catalog):
             'items': [{'requirement_id': 'milk', 'sku': 'fabricated'}]}]}, state, 'msk_center', {})
 
 
+def test_model_candidates_keep_exact_selection_fields_without_repeating_full_records(catalog):
+    products = catalog.search_products('молоко', ['msk_center'], {'unit': 'ml'})
+    original = {'results': {'milk': products}}
+    compact = BasketAgent.model_result('search_products', original)
+    for store, rows in products.items():
+        for full, short in zip(rows, compact['results']['milk'][store]):
+            assert all(short[key] == full[key] for key in (
+                'sku', 'name', 'package_qty', 'package_unit', 'price_rub', 'brand', 'category'))
+            assert 'captured_at' in full and 'captured_at' not in short
+            assert 'kcal' in full and 'kcal' not in short
+    assert len(json.dumps(compact)) < len(json.dumps(original)) * 0.7
+    assert BasketAgent.model_result('get_product_details', {'product': next(iter(products.values()))[0]})['product']['captured_at']
+
+
 async def test_tool_budget_stops_infinite_model(catalog):
     call = {'role': 'assistant', 'tool_calls': [{'id': 'again', 'type': 'function',
             'function': {'name': 'untrusted_python', 'arguments': '{}'}}]}

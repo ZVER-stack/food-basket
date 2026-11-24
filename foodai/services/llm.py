@@ -33,6 +33,9 @@ class GroqLLM:
                         await asyncio.sleep(pause)
                         continue
                     if response.status_code != 200:
+                        if response.status_code == 413:
+                            raise LLMError('Запрос оказался слишком большим для модели. '
+                                           'Попробуйте разделить список покупок на части.')
                         raise LLMError(f'API модели недоступен (HTTP {response.status_code}). Попробуйте позже.')
                     return response.json()['choices'][0]['message']
                 except (httpx.TimeoutException, httpx.TransportError):
