@@ -1,8 +1,10 @@
 """Replaceable address adapter. Only the supplied ten zone IDs are accepted."""
 import csv
 import json
+import math
 import re
 from pathlib import Path
+from urllib.parse import parse_qs, urlsplit
 from foodai.services.catalog import ZONE_IDS
 
 ZONE_NAMES = ['Центр', 'Северо-восток', 'Восток', 'Юго-восток', 'Юг — восточная часть',
@@ -13,13 +15,41 @@ def address_key(text):
     text = text.casefold().replace('ё', 'е')
     text = re.sub(r'(?<=\d)к(?=\d)', ' корпус ', text)
     text = re.sub(r'\b(?:корпус|корп\.?|к\.?)\s*(?=\d)', ' корпус ', text)
-    text = re.sub(r'\b(?:строение|стр\.?)\s*(?=\d)', ' строение ', text)
+    text = re.sub(r'\b(?:строение|стр\.?|с\.?)\s*(?=\d)', ' строение ', text)
     text = re.sub(r'\b(?:г\.?|город)\s*(?=москва\b)', ' ', text)
     text = re.sub(r'\b(?:москва|улица|ул)\b\.?', ' ', text)
     text = re.sub(r'\b(?:дом|д\.?)\s*(?=\d)', ' ', text)
     text = re.sub(r'\bпр-т\b', 'проспект', text)
     # Keep slash house numbers distinct from separate numbers and building suffixes.
     return tuple(re.findall(r'[а-яa-z]+|\d+(?:/\d+)?', text))
+
+
+def address_parts(text):
+    """Split a trailing house from the street; house token order is significant."""
+    text = text.strip(' ,.').casefold().replace('ё', 'е')
+    text = re.sub(r'(?<=\d)([кс])(?=\d)', r' \1', text)
+    match = re.search(r'(?<![\w/])(\d+(?:/\d+)?[а-яa-z]?'
+                      r'(?:\s*(?:корпус|корп\.?|к\.?|строение|стр\.?|с\.?)\s*\d+[а-яa-z]?)*)(?:\s*)$', text)
+    if not match:
+        return None
+    street = re.sub(r'\b(?:дом|д\.?)\s*$', '', text[:match.start()].strip(' ,'))
+    street_key = address_key(street)
+    return (street, match[1], street_key, address_key(match[1])) if street_key else None
+
+
+def google_maps_point(text):
+    """Read an explicit shared pin, never the map viewport or a shortened URL."""
+    try:
+        url = urlsplit(text)
+        if url.scheme not in ('http', 'https') or url.hostname not in (
+                'maps.google.com', 'www.google.com', 'google.com', 'maps.google.ru', 'www.google.ru'):
+            return None
+        params = parse_qs(url.query)
+        value = next((params[key][0] for key in ('q', 'query') if key in params), '')
+        match = re.fullmatch(r'\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)\s*', value)
+        return (float(match[1]), float(match[2])) if match else None
+    except ValueError:
+        return None
 
 
 def in_ring(x, y, ring):
@@ -52,6 +82,14 @@ class AddressService:
         return info['catalog_address'] or info['zone_name']
 
     async def resolve_user_address(self, address=None, lat=None, lon=None):
+        shared_point = google_maps_point(address) if address else None
+        if shared_point and lat is None and lon is None:
+            lat, lon = shared_point
+        if lat is not None or lon is not None:
+            result = self.resolve_address(lat=lat, lon=lon)
+            if shared_point and result['status'] == 'resolved':
+                result['user_address'] = 'Точка на карте · ' + result['zone_name']
+            return result
         result = self.resolve_address(address, lat, lon)
         if result['status'] == 'resolved' or not address or not self.geocoder:
             return result
@@ -60,8 +98,12 @@ class AddressService:
             return {'status': 'unavailable', 'zone_id': None}
         if not matches:
             return {'status': 'not_found', 'zone_id': None}
+        suggestions = [m['address'] for m in matches if m.get('requires_confirmation')]
+        exact_matches = [m for m in matches if not m.get('requires_confirmation')]
+        if not exact_matches and suggestions:
+            return {'status': 'need_house_details', 'zone_id': None, 'suggestions': sorted(set(suggestions))[:4]}
         resolved = []
-        for match in matches:
+        for match in exact_matches:
             zone = self.resolve_address(lat=match['lat'], lon=match['lon'])
             if zone['status'] == 'resolved':
                 resolved.append(zone | {'user_address': match['address'], 'source': 'geocoded_address'})
@@ -72,6 +114,15 @@ class AddressService:
 
     def resolve_address(self, address=None, lat=None, lon=None):
         source, zone = '', None
+        if lat is not None or lon is not None:
+            try:
+                lat, lon = float(lat), float(lon)
+            except (ValueError, TypeError):
+                return {'status': 'invalid_location', 'zone_id': None}
+            if not (math.isfinite(lat) and math.isfinite(lon) and -90 <= lat <= 90 and -180 <= lon <= 180):
+                return {'status': 'invalid_location', 'zone_id': None}
+            if not (55.1 <= lat <= 56.2 and 36.8 <= lon <= 38.2):
+                return {'status': 'outside_moscow', 'zone_id': None}
         if address:
             literal = address.strip()
             if literal in ZONE_IDS:
@@ -92,7 +143,8 @@ class AddressService:
             if len(matches) == 1:
                 zone, source = matches[0], 'administrative_polygon'
         if zone not in ZONE_IDS or not self.catalog.storefronts(zone):
-            return {'status': 'unsupported', 'zone_id': None, 'storefronts': []}
+            return {'status': 'outside_coverage' if lat is not None and self.geo else 'unsupported',
+                    'zone_id': None, 'storefronts': []}
         return {'status': 'resolved', 'zone_id': zone, 'source': source,
                 **self.zone_info(zone),
                 'storefronts': self.catalog.storefronts(zone),

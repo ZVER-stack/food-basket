@@ -17,7 +17,7 @@ def package_size(quantity, unit):
         qty, unit = qty / 1000, 'л'
     elif unit == 'g' and qty >= 1000:
         qty, unit = qty / 1000, 'кг'
-    return f"{decimal_text(qty)} { {'ml': 'мл', 'g': 'г', 'pcs': 'шт.'}.get(unit, unit)}"
+    return f"{decimal_text(qty)} { {'ml': 'мл', 'g': 'г', 'pcs': 'шт.', 'pack': 'уп.'}.get(unit, unit)}"
 
 
 def store_name(storefront_id, service=''):

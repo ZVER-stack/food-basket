@@ -38,6 +38,14 @@ async def test_menu_unknown_address_and_empty_text(app):
     assert (await app.handle(3, '')).status == 'need_clarification'
 
 
+async def test_outside_moscow_pin_explains_how_to_select_home_and_keeps_address_unset(app):
+    native = await app.handle(37, location={'lat': 44.384147, 'lon': -53.747309})
+    shared = await app.handle(37, 'https://maps.google.com/maps?q=44.384147,-53.747309&ll=44.384147,-53.747309&z=16')
+    assert native.text == shared.text
+    assert 'далеко от Москвы' in native.text and 'вручную' in native.text
+    assert not app.storage.get(37).get('zone_id')
+
+
 class RecordingSession(BaseSession):
     def __init__(self):
         super().__init__()

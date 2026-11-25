@@ -2,6 +2,7 @@
 from collections import defaultdict
 from decimal import ROUND_CEILING
 from foodai.models import number, jsonable
+from foodai.services.matching import matches_ingredient
 
 
 def calculate_basket(requirements, selections, storefront_id, catalog, zone_id):
@@ -17,7 +18,9 @@ def calculate_basket(requirements, selections, storefront_id, catalog, zone_id):
     missing, grouped = [], defaultdict(list)
     for key, req in needs.items():
         product = catalog.get_product_details(selected.get(key), storefront_id, zone_id)
-        if not product or product['available'] is not True or (req['unit'] != 'pack' and product['package_unit'] != req['unit']):
+        if (not product or product['available'] is not True
+                or not matches_ingredient(req['query'], product['name'], product.get('category', ''))
+                or (req['unit'] != 'pack' and product['package_unit'] != req['unit'])):
             missing.append(req['query'])
             continue
         grouped[product['sku']].append((req, product))

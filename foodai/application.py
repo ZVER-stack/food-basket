@@ -37,11 +37,15 @@ class Application:
             if not state.get('zone_id'):
                 resolved = await self.addresses.resolve_user_address(address=text, **(location or {}))
                 if resolved['status'] != 'resolved':
-                    return AgentResult('Сервис определения адреса временно недоступен. Попробуйте позже или отправьте геопозицию.'
-                                       if resolved['status'] == 'unavailable' else
-                                       'Не нашёл точный дом в адресном справочнике. Отправьте геопозицию дома — по ней определю зону.'
-                                       if resolved['status'] == 'not_found' else
-                                       'Не удалось однозначно определить дом в одной из 10 зон. Укажите улицу, дом и корпус либо отправьте геопозицию.', 'need_clarification')
+                    messages = {
+                        'unavailable': 'Сервис определения адреса временно недоступен. Попробуйте позже или отправьте точку дома на карте.',
+                        'not_found': 'Не нашёл точный дом в адресном справочнике. Отправьте точку дома на карте: скрепка → «Геопозиция» → найдите дом → отправьте выбранную точку. Можно прислать ссылку Google Maps с координатами.',
+                        'outside_moscow': 'Полученная точка находится далеко от Москвы. Если вы сейчас не у дома, выберите дом на карте вручную: скрепка → «Геопозиция» → найдите адрес → отправьте выбранную точку.',
+                        'outside_coverage': 'Эта точка находится за пределами десяти зон, для которых сейчас есть товары. Выберите точку дома внутри зоны обслуживания.',
+                        'invalid_location': 'Не удалось прочитать координаты. Отправьте точку дома через «Геопозиция» или ссылку Google Maps с координатами.',
+                        'need_house_details': 'Уточните корпус или строение. В справочнике есть:\n' + '\n'.join(resolved.get('suggestions', [])) + '\nНапишите полный адрес подходящего дома или отправьте его точку на карте.'}
+                    return AgentResult(messages.get(resolved['status'],
+                        'Не удалось однозначно определить дом. Укажите улицу, дом и корпус либо выберите дом на карте.'), 'need_clarification')
                 state.update(mode='MAIN_MENU', zone_id=resolved['zone_id'], address_source=resolved['source'],
                              address_value=location or text,
                              address_display=resolved.get('user_address') or

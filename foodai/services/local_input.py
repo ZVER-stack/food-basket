@@ -2,16 +2,26 @@
 import re
 from foodai.services.units import normalize_quantity
 
-UNITS = r'(?:килограмм(?:а|ов)?|кг|грамм(?:а|ов)?|г|миллилитр(?:а|ов)?|мл|литр(?:а|ов)?|л|штук(?:а|и)?|шт\.?)'
+UNITS = r'(?:килограмм(?:а|ов)?|кило|кг|грамм(?:а|ов)?|г|миллилитр(?:а|ов)?|мл|литр(?:а|ов)?|л|пачк(?:а|и|у|ок)|упаков(?:ка|ки|ку|ок)|штук(?:а|и)?|шт\.?)'
 NUMBERS = {'один': '1', 'одна': '1', 'одну': '1', 'два': '2', 'две': '2', 'три': '3', 'полтора': '1.5'}
 QUANTITY = rf'(?<!\w)(?:(?P<qty>\d+(?:[.,]\d+)?|{"|".join(NUMBERS)})\s*)?(?P<unit>{UNITS})(?!\w)'
+BASIC_ALIASES = {'молоко': 'молоко', 'молока': 'молоко', 'яйца': 'яйца', 'яиц': 'яйца',
+                 'гречка': 'гречка', 'гречки': 'гречка', 'гречку': 'гречка', 'рис': 'рис', 'риса': 'рис',
+                 'хлеб': 'хлеб', 'хлеба': 'хлеб', 'салат': 'салат', 'салата': 'салат',
+                 'капуста': 'капуста', 'капусты': 'капуста', 'чипсы': 'чипсы', 'чипсов': 'чипсы',
+                 'кола': 'кола', 'колу': 'кола', 'колы': 'кола',
+                 'кола без сахара': 'кола без сахара', 'колу без сахара': 'кола без сахара'}
+
+
+def basic_query(query):
+    return BASIC_ALIASES.get(query.casefold().replace('ё', 'е').strip())
 
 
 def parsed_quantity(match):
     qty = match['qty'] or '1'
     qty = NUMBERS.get(qty, qty)
     unit = match['unit']
-    if unit.startswith(('килограмм', 'кг')):
+    if unit.startswith(('кило', 'кг')):
         unit = 'кг'
     elif unit.startswith(('грамм', 'г')):
         unit = 'г'
@@ -19,6 +29,8 @@ def parsed_quantity(match):
         unit = 'мл'
     elif unit.startswith(('литр', 'л')):
         unit = 'л'
+    elif unit.startswith(('пач', 'упаков')):
+        unit = 'pack'
     else:
         unit = 'шт'
     value, unit = normalize_quantity(qty, unit)

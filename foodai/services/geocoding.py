@@ -7,7 +7,7 @@ import sqlite3
 import time
 from pathlib import Path
 import httpx
-from foodai.services.address import address_key
+from foodai.services.address import address_key, address_parts
 
 
 class PhotonGeocoder:
@@ -26,41 +26,74 @@ class PhotonGeocoder:
         if not re.search(r'\bмосква\b', query, flags=re.I):
             query = 'Москва, ' + query
         query = re.sub(r'(?<=\d)\s*(?:корпус|корп\.?|к)\s*(?=\d)', ' к', query, flags=re.I)
-        key = 'v2:' + query.casefold().replace('ё', 'е')
+        requested = address_parts(query)
+        if not requested:
+            return []
+        key = 'v3:' + ' '.join(address_key(query))
         async with self.lock:
             with closing(sqlite3.connect(self.path)) as db, db:
                 row = db.execute('SELECT result FROM geocoding WHERE query=?', (key,)).fetchone()
             if row and json.loads(row[0]):
                 return json.loads(row[0])
-            await asyncio.sleep(max(0, 1 - (time.monotonic() - self.last_request)))
-            self.last_request = time.monotonic()
-            try:
-                async with httpx.AsyncClient(timeout=15) as client:
-                    response = await client.get(self.url, params={'q': query, 'limit': 5,
-                        'bbox': '36.8,55.1,38.2,56.2'},
-                        headers={'User-Agent': 'FoodAI/0.1 (https://github.com/ZVER-stack/food-basket)',
-                                 'Accept-Language': 'ru'})
-                    response.raise_for_status()
-                    features = response.json().get('features', [])
-            except (httpx.HTTPError, ValueError):
+            features = await self._search(query, limit=5)
+            if features is None:
                 return None
-            results = []
-            for feature in features:
-                props = feature.get('properties', {})
-                point = feature.get('geometry', {}).get('coordinates', [])
-                street, house = props.get('street'), props.get('housenumber')
-                if not street or not house or len(point) != 2:
-                    continue
-                # Never accept a nearby different house as the requested house.
-                requested_numbers = re.findall(r'\d+(?:/\d+)?', query)
-                house_number = re.match(r'\d+(?:/\d+)?', house)
-                if not house_number or house_number[0] not in requested_numbers:
-                    continue
-                canonical = f'Москва, {street}, {house}'
-                if sorted(address_key(query)) != sorted(address_key(canonical)):
-                    continue
-                results.append({'address': canonical, 'lon': point[0], 'lat': point[1]})
+            results, suggestions = self._matches(features, requested)
+            if not results:
+                # Photon can rank 47 к2 above 2 к2. Broaden retrieval once, then
+                # validate the ORIGINAL street, house and corpus in exact order.
+                street = re.sub(r'\b(?:(?:г\.?|город)\s+)?москва\b', '', requested[0], flags=re.I).strip(' ,')
+                if not re.search(r'\b(?:улица|ул|шоссе|проспект|проезд|переулок|набережная|бульвар|площадь)\b', street, re.I):
+                    street = 'улица ' + street
+                fallback = await self._search(f'{street} {requested[3][0]}', limit=50, dedupe=0)
+                if fallback is not None:
+                    results, more = self._matches(fallback, requested)
+                    suggestions.extend(more)
+                elif not suggestions:
+                    return None
+            if not results:
+                results = list({r['address']: r for r in suggestions}.values())[:4]
             if results:
                 with closing(sqlite3.connect(self.path)) as db, db:
                     db.execute('INSERT OR REPLACE INTO geocoding VALUES (?,?)', (key, json.dumps(results, ensure_ascii=False)))
             return results
+
+    async def _search(self, query, **params):
+        await asyncio.sleep(max(0, 1 - (time.monotonic() - self.last_request)))
+        self.last_request = time.monotonic()
+        try:
+            async with httpx.AsyncClient(timeout=15) as client:
+                response = await client.get(self.url, params={'q': query, 'bbox': '36.8,55.1,38.2,56.2', **params},
+                    headers={'User-Agent': 'FoodAI/0.1 (https://github.com/ZVER-stack/food-basket)',
+                             'Accept-Language': 'ru'})
+                response.raise_for_status()
+                features = response.json().get('features')
+                return features if isinstance(features, list) else None
+        except (httpx.HTTPError, ValueError, AttributeError):
+            return None
+
+    @staticmethod
+    def _matches(features, requested):
+        results, suggestions = [], []
+        for feature in features:
+            props = feature.get('properties', {})
+            point = feature.get('geometry', {}).get('coordinates', [])
+            street, house = props.get('street'), props.get('housenumber')
+            if not street or not house or len(point) != 2:
+                continue
+            # The bounding box includes the Moscow region: do not relabel its
+            # houses as Moscow just because their street and number coincide.
+            if props.get('city') and props['city'] != 'Москва':
+                continue
+            if props.get('state') and props['state'] != 'Москва':
+                continue
+            canonical = f'Москва, {street}, {house}'
+            candidate = address_parts(canonical)
+            if not candidate or sorted(candidate[2]) != sorted(requested[2]):
+                continue
+            item = {'address': canonical, 'lon': point[0], 'lat': point[1]}
+            if candidate[3] == requested[3]:
+                results.append(item)
+            elif candidate[3][0] == requested[3][0]:
+                suggestions.append(item | {'requires_confirmation': True})
+        return results, suggestions

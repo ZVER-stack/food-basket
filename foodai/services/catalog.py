@@ -2,6 +2,7 @@
 from collections import defaultdict
 from dataclasses import asdict
 from datetime import datetime
+from decimal import ROUND_CEILING
 import json
 from pathlib import Path
 import re
@@ -9,6 +10,7 @@ from rapidfuzz.fuzz import WRatio
 
 from foodai.models import Product, jsonable, number
 from foodai.services.units import normalize_quantity
+from foodai.services.matching import ingredient_kind, matches_ingredient, matches_required_term, brand_key
 
 ZONE_IDS = ['msk_center'] + [f'msk_{i:02}' for i in range(1, 10)]
 
@@ -57,8 +59,12 @@ class Catalog:
             raise ValueError('Поисковый запрос должен содержать от 1 до 250 символов')
         if not 1 <= limit <= 15 or len(zone_ids) != 1:
             raise ValueError('Один поиск использует одну выбранную зону и 1–15 кандидатов на витрину')
-        if set(filters) - {'brand', 'exclude_brands', 'required_terms', 'exclude_terms', 'storefront_id', 'unit'}:
+        if set(filters) - {'brand', 'exclude_brands', 'required_terms', 'exclude_terms', 'storefront_id', 'unit', 'quantity', 'package_qty'}:
             raise ValueError('Неизвестный фильтр')
+        requested_quantity = number(filters['quantity']) if 'quantity' in filters else None
+        if requested_quantity is not None and requested_quantity <= 0:
+            raise ValueError('Количество должно быть положительным')
+        kind = ingredient_kind(query)
         zone_id = zone_ids[0]
         allowed = set(self.storefronts(zone_id))
         grouped = defaultdict(list)
@@ -70,11 +76,15 @@ class Catalog:
                 continue
             if filters.get('unit') and product.package_unit != filters['unit']:
                 continue
-            if filters.get('brand') and words(product.brand) != words(filters['brand']):
+            if filters.get('package_qty') and product.package_qty != number(filters['package_qty']):
                 continue
-            if any(words(product.brand) == words(b) for b in filters.get('exclude_brands', [])):
+            if not matches_ingredient(query, product.name, product.category):
                 continue
-            if any(t.casefold().replace('ё', 'е') not in text for t in filters.get('required_terms', [])):
+            if filters.get('brand') and brand_key(product.brand) != brand_key(filters['brand']):
+                continue
+            if any(brand_key(product.brand) == brand_key(b) for b in filters.get('exclude_brands', [])):
+                continue
+            if any(not matches_required_term(t, text) for t in filters.get('required_terms', [])):
                 continue
             if any(t.casefold().replace('ё', 'е') in text for t in filters.get('exclude_terms', [])):
                 continue
@@ -83,8 +93,17 @@ class Catalog:
                     t in text for t in ('копчен', 'готовое блюдо', 'колбас')):
                 continue
             score = WRatio(' '.join(words(query)), text)
+            if kind:
+                score = max(score, 90)
             if score >= 58:
                 grouped[product.storefront_id].append((score, product))
+        def rank(value):
+            score, product = value
+            price = product.price_rub
+            if requested_quantity is not None:
+                packs = (requested_quantity / product.package_qty).to_integral_value(rounding=ROUND_CEILING) if filters.get('unit') else requested_quantity
+                price *= packs
+            return (price, -score, product.sku) if kind and requested_quantity is not None else (-score, price, product.sku)
         return {store: [self.get_product_details(p.sku, store, zone_id)
-                        for _, p in sorted(values, key=lambda v: (-v[0], v[1].price_rub, v[1].sku))[:limit]]
+                        for _, p in sorted(values, key=rank)[:limit]]
                 for store, values in grouped.items()}

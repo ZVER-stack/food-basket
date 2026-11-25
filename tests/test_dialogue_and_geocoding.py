@@ -96,6 +96,70 @@ async def test_moskvorechye_is_not_mistaken_for_moscow_and_corpus_is_normalized(
     assert result == [{'address': 'Москва, улица Москворечье, 2 к2', 'lon': 37.61, 'lat': 55.71}]
 
 
+async def test_low_ranked_exact_corpus_is_found_by_bounded_fallback(tmp_path):
+    requests = []
+    def feature(house, city='Москва'):
+        return {'properties': {'street': 'улица Москворечье', 'housenumber': house, 'city': city},
+                'geometry': {'coordinates': [37.6495659, 55.6457851]}}
+    def response(request):
+        requests.append(request)
+        return httpx.Response(200, json={'features': [feature('47 к2')] if len(requests) == 1 else
+            [feature('2 к2', 'Домодедово'), feature('2 с2'), feature('3 к2'), feature('2 к2')]})
+    real = httpx.AsyncClient
+    with patch('foodai.services.geocoding.httpx.AsyncClient', side_effect=lambda **kw: real(**kw, transport=httpx.MockTransport(response))):
+        geocoder = PhotonGeocoder(tmp_path / 'geo.sqlite')
+        result = await geocoder.lookup('Москворечье 2 корпус 2')
+        again = await geocoder.lookup('Москворечье 2к2')
+    assert len(requests) == 2 and result == again
+    assert requests[1].url.params['q'] == 'улица москворечье 2'
+    assert requests[1].url.params['limit'] == '50'
+    assert result == [{'address': 'Москва, улица Москворечье, 2 к2', 'lon': 37.6495659, 'lat': 55.6457851}]
+
+
+async def test_house_and_corpus_numbers_cannot_be_swapped(tmp_path):
+    def response(request):
+        return httpx.Response(200, json={'features': [
+            {'properties': {'street': 'улица Москворечье', 'housenumber': '3 к2'},
+             'geometry': {'coordinates': [37.6, 55.7]}}]})
+    real = httpx.AsyncClient
+    with patch('foodai.services.geocoding.httpx.AsyncClient', side_effect=lambda **kw: real(**kw, transport=httpx.MockTransport(response))):
+        assert await PhotonGeocoder(tmp_path / 'geo.sqlite').lookup('Москворечье 2 к3') == []
+
+
+async def test_partial_house_suggestions_need_confirmation_and_do_not_assign_zone(catalog, tmp_path):
+    requests = []
+    def response(request):
+        requests.append(request)
+        return httpx.Response(200, json={'features': [
+            {'properties': {'street': 'Каширское шоссе', 'housenumber': house, 'city': city},
+             'geometry': {'coordinates': [37.6284234, 55.670806]}}
+            for house, city in [('5', 'Домодедово'), ('5 к1', 'Москва'), ('57 к5', 'Москва'), ('5 к2 с6', 'Москва')]]})
+    real = httpx.AsyncClient
+    with patch('foodai.services.geocoding.httpx.AsyncClient', side_effect=lambda **kw: real(**kw, transport=httpx.MockTransport(response))):
+        service = AddressService(catalog, geocoder=PhotonGeocoder(tmp_path / 'geo.sqlite'))
+        result = await service.resolve_user_address('Каширское шоссе 5')
+        again = await service.resolve_user_address('Каширское шоссе 5')
+    assert len(requests) == 2 and result == again
+    assert result['status'] == 'need_house_details' and result['zone_id'] is None
+    assert result['suggestions'] == ['Москва, Каширское шоссе, 5 к1', 'Москва, Каширское шоссе, 5 к2 с6']
+
+
+async def test_shared_pin_and_native_location_have_same_coverage_and_no_network(catalog):
+    geocoder = AsyncMock()
+    service = AddressService(catalog, geocoder=geocoder)
+    service.geo = {'features': [{'properties': {'zone_id': 'msk_center'},
+        'geometry': {'type': 'Polygon', 'coordinates': [[[37,55.5], [38,55.5], [38,56], [37,56], [37,55.5]]]}}]}
+    link = 'https://maps.google.com/maps?q=55.76,37.61&ll=44.384147,-53.747309&z=16'
+    assert (await service.resolve_user_address(link))['zone_id'] == 'msk_center'
+    assert (await service.resolve_user_address(lat=55.76, lon=37.61))['zone_id'] == 'msk_center'
+    assert (await service.resolve_user_address('https://maps.google.com/maps?q=44.384147,-53.747309'))['status'] == 'outside_moscow'
+    assert (await service.resolve_user_address(lat=44.384147, lon=-53.747309))['status'] == 'outside_moscow'
+    assert (await service.resolve_user_address(lat=55.2, lon=37.61))['status'] == 'outside_coverage'
+    assert (await service.resolve_user_address(lat=float('nan'), lon=37.61))['status'] == 'invalid_location'
+    assert (await service.resolve_user_address(lat=155, lon=37.61))['status'] == 'invalid_location'
+    geocoder.lookup.assert_not_called()
+
+
 async def test_house_coordinates_select_polygon_and_ambiguous_address_is_not_guessed(catalog):
     geocoder = AsyncMock()
     service = AddressService(catalog, geocoder=geocoder)
