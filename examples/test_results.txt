@@ -1,3 +1,6 @@
-64 passed in 4.64s
-Includes persistent brand edits, salad clarification, explicit package substitution consent and previous regressions.
-Real saved-basket replay on a copy passed. No Groq calls for verification or data repair.
+Bot and strict launcher: 72 passed in 4.26s.
+Parser source: 419 unittest tests passed in 15.446s.
+Installed parser dependency checks: 35 tests passed.
+Real local catalog replay and live new-snapshot price-provenance checks passed.
+Full ten-zone recollection is running; full completion is not yet claimed.
+No Groq calls were used for verification.

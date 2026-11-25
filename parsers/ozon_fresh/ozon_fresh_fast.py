@@ -139,9 +139,16 @@ def load_zones(path):
     seen = set()
     active, skipped = [], []
     for zone in zones:
-        zid = zone.get("h3_index", "")
-        if not re.fullmatch(r"87[0-9a-f]{13}", zid) or zid in seen:
-            raise ParseError(f"Invalid or duplicate resolution-7 zone: {zid!r}")
+        admin = "zone_id" in zone
+        zid = zone.get("zone_id" if admin else "h3_index", "")
+        pattern = r"msk_(?:center|0[1-9])" if admin else r"87[0-9a-f]{13}"
+        if not re.fullmatch(pattern, zid) or zid in seen:
+            raise ParseError(f"Invalid or duplicate delivery zone: {zid!r}")
+        if admin:
+            if zone.get("h3_index") not in (None, "", zid):
+                raise ParseError("Conflicting administrative zone identifiers")
+            # Internal checkpoint key. Public administrative exports use zone_id.
+            zone["h3_index"] = zid
         seen.add(zid)
         if not truth(zone.get("address_in_zone")):
             skipped.append(zone)

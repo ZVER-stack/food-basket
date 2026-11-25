@@ -25,14 +25,22 @@ def can_select_without_model(query):
         'гречка', 'гречки', 'крупа гречневая', 'гречневая крупа', 'гречневая ядрица',
         'рис', 'риса', 'салат', 'листовой салат', 'салат листовой', 'айсберг', 'романо', 'салат айсберг', 'салат романо',
         'молоко', 'молока', 'молоко безлактозное', 'чипсы', 'чипсов',
-        'картофельные чипсы', 'чипсы картофельные', 'кола', 'кола без сахара', 'кола zero', 'кола зеро'}
+        'картофельные чипсы', 'чипсы картофельные', 'чипсы сметана зелень',
+        'чай', 'чай черный', 'черный чай', 'макароны', 'салат греческий', 'греческий салат',
+        'кола', 'кола без сахара', 'кола zero', 'кола зеро'}
 
 
 def ingredient_kind(query):
     query = normalized(query)
+    if re.search(r'\bчай\b', query):
+        return 'tea'
+    if re.fullmatch(r'макарон\w*', query):
+        return 'pasta'
+    if re.fullmatch(r'салат греческий|греческий салат', query):
+        return 'greek_salad'
     if re.search(r'\bкол[ауы]\b|\b(?:coca[- ]?cola|coolcola|cola)\b', query):
         return 'cola'
-    if re.fullmatch(r'чипс(?:ы|ов)|(?:картофельные чипсы|чипсы картофельные)', query):
+    if re.fullmatch(r'чипс(?:ы|ов)|(?:картофельные чипсы|чипсы картофельные)|чипсы сметана зелень', query):
         return 'potato_chips'
     if re.fullmatch(r'молок[оа](?: безлактозное)?', query):
         return 'milk'
@@ -57,11 +65,23 @@ def matches_ingredient(query, name, category=''):
     if kind is None:
         return True
     name, category = normalized(name), normalized(category)
+    if kind == 'tea':
+        if not re.search(r'\bчай\b', name) or re.search(r'бытовая|стирк|ополаскиват|детское питание|детский', name + ' ' + category):
+            return False
+        if 'черн' in normalized(query) and not re.search(r'черн|black', name):
+            return False
+        return True
+    if kind == 'pasta':
+        return bool(re.search(r'макарон|спагетти|пенне|фузилли|вермишел|лапша|паста', name)) and not re.search(
+            r'готовая еда|бытовая|зубн|чистящ|арахис|шоколад|томатн', name + ' ' + category)
+    if kind == 'greek_salad':
+        return bool(re.search(r'\bсалат\b', name) and 'греческ' in name) and not re.search(r'сыр|для салата', name)
     if kind == 'cola':
         return bool(re.search(r'\bкола\b|\b(?:coca[- ]?cola|coolcola|cola)\b', name)) and not re.search(
             r'конфет|мармелад|шоколад|морожен|жевател', name + ' ' + category)
     if kind == 'potato_chips':
-        return bool(re.search(r'\bчипс\w*\b', name) and re.search(r'картофел', name))
+        return bool(re.search(r'\bчипс\w*\b', name) and re.search(r'картофел', name)) and all(
+            stem not in normalized(query) or stem in name for stem in ('сметан', 'зелень'))
     if kind == 'milk':
         return bool(re.search(r'\bмолок[оа]\b', name)) and not re.search(
             r'растительн|миндаль|кокос|овсян|соев|сухое|сгущенн', name)

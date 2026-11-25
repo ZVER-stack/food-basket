@@ -46,21 +46,29 @@ def convert(raw, service, zid, captured_at, price_mode):
 
 def import_data(source, output, kind='snapshot', price_mode='ordinary', append=False):
     products, coverage, rejected = {}, {}, Counter()
+    excluded = {}
     if append and Path(output).exists():
         previous = json.loads(Path(output).read_text(encoding='utf-8-sig'))
         if previous.get('demo') or previous.get('price_mode') != price_mode:
             raise ValueError('Дополнение требует реального каталога с тем же типом цены')
         products = {(p['zone_id'], p['storefront_id'], p['sku']): p for p in previous['products']}
         coverage = {(p['zone_id'], p['storefront_id']): p for p in previous['coverage']}
+        excluded = {(p['zone_id'], p['sku']): p for p in previous.get('excluded_products', [])}
     def add(raw, service, zid, stamp, status):
         try:
             product = convert(raw, service, zid, stamp, price_mode)
-        except (ValueError, TypeError, KeyError):
+        except (ValueError, TypeError, KeyError) as exc:
             rejected['invalid_or_unverified_offer'] += 1
+            if str(exc) == 'ordinary_price_not_verified' and raw.get('product_id') and raw.get('name'):
+                excluded[(zid, str(raw['product_id']))] = {
+                    'zone_id': zid, 'sku': str(raw['product_id']), 'name': raw['name'],
+                    'category': raw.get('category') or '', 'brand': raw.get('brand') or '',
+                    'reason': 'unverified_ordinary_price'}
             return
         key = (product['zone_id'], product['storefront_id'], product['sku'])
         if key not in products or products[key]['captured_at'] < product['captured_at']:
             products[key] = product
+        excluded.pop((zid, product['sku']), None)
         coverage[(zid, product['storefront_id'])] = {'zone_id': zid,
             'storefront_id': product['storefront_id'], 'service': service, 'status': status,
             'captured_at': stamp, 'price_mode': price_mode,
@@ -91,7 +99,8 @@ def import_data(source, output, kind='snapshot', price_mode='ordinary', append=F
     if not products:
         raise ValueError('Нет пригодных предложений. Проверьте зоны, фасовки, даты и тип цены.')
     data = {'demo': False, 'price_mode': price_mode, 'coverage': list(coverage.values()),
-            'products': list(products.values()), 'import_report': dict(rejected)}
+            'products': list(products.values()), 'import_report': dict(rejected),
+            'excluded_products': list(excluded.values())}
     output = Path(output)
     output.parent.mkdir(parents=True, exist_ok=True)
     temp = output.with_suffix('.json.tmp')

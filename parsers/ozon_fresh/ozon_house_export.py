@@ -8,9 +8,9 @@ import sqlite3
 from contextlib import contextmanager
 from pathlib import Path
 
-FIELDS = ['product_id','price_card','price','price_regular','amount','brand',
+FIELDS = ['product_id','name','price_card','price','price_regular','amount','brand',
           'description','kcal','protein','fat','carbs']
-HEADERS = ['Код гексагона','Адрес дома','ID товара','Цена с Ozon Картой',
+HEADERS = ['Код гексагона','Адрес дома','ID товара','Название товара','Цена с Ozon Картой',
            'Цена без Ozon Карты','Цена без скидки','Вес','Бренд','Описание',
            'Калории','Белки','Жиры','Углеводы']
 STATIC = ('brand','description','kcal','protein','fat','carbs')
@@ -129,7 +129,7 @@ def merge_row(row,entry):
         result['amount']=''
     return result
 
-def export(snapshot,zones_file,store_path,output):
+def export(snapshot,zones_file,store_path,output,*,source_rows=None,check=None):
     output=Path(output);output.parent.mkdir(parents=True,exist_ok=True)
     with Path(zones_file).open(encoding='utf-8-sig',newline='') as stream:
         addresses={z['h3_index']:z['address'] for z in csv.DictReader(stream)}
@@ -138,16 +138,20 @@ def export(snapshot,zones_file,store_path,output):
     temp=output.with_suffix('.csv.tmp')
     with temp.open('w',encoding='utf-8-sig',newline='') as stream:
         writer=csv.writer(stream);writer.writerow(HEADERS)
-        for h3,stamp,rows in house_rows(snapshot):
+        for h3,stamp,rows in (house_rows(snapshot) if source_rows is None else source_rows):
+            if check:check()
             if h3 not in addresses:raise ValueError('Saved house has no verified address mapping: '+h3)
             houses.append(h3)
             for row in rows:
                 if row.get('h3_index') not in (None,'',h3):raise ValueError('Saved row belongs to another house')
                 result=merge_row(row,entries.get(identity(row)))
+                if not str(result.get('name') or '').strip():
+                    raise ValueError('Saved product has no name: '+str(row['product_id']))
                 writer.writerow([h3,addresses[h3]]+[result.get(k) if result.get(k) is not None else '' for k in FIELDS])
                 for field in FIELDS:
                     if not present(result.get(field)):missing[field]+=1
                 rows_written+=1;skus.add(str(row['product_id']))
+    if check:check()
     temp.replace(output)
     report={'columns':len(HEADERS),'house_product_rows':rows_written,'unique_products':len(skus),
             'houses_including_partial':len(houses),'missing':dict(missing),

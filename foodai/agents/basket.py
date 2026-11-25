@@ -8,7 +8,7 @@ from foodai.presentation import money, package_size, price_dates, store_name
 from foodai.services.llm import LLMError, MockLLM
 from foodai.services.pricing import calculate_basket, compare_stores
 from foodai.services.units import normalize_quantity
-from foodai.services.local_input import QUANTITY, parsed_quantity, prepare_items, basic_query
+from foodai.services.local_input import QUANTITY, parsed_quantity, prepare_items, basic_query, clean_product_query
 from foodai.services.matching import matches_ingredient, can_select_without_model, ingredient_kind, brand_key
 from foodai.services.usage import request_id
 
@@ -113,7 +113,7 @@ class BasketAgent:
     def type_reply(text, draft):
         if not draft or re.search(r'\d|без|\b(?:замени|вместо|удали|убери|добавь|добавить|ещё|еще|купи|купить|говорил|почему|сколько|где)\b', text.casefold()):
             return None
-        text = re.sub(r'^(?:(?:хочу|мне|нужен|нужна|нужно|пожалуйста)\s+)+', '', text.casefold().strip())
+        text = clean_product_query(text)
         parts = re.split(r'\s*[,;]\s*|\s+и\s+', text)
         families = {'салат': ('капуст', 'айсберг', 'романо', 'руккол', 'салат', 'листов'),
                     'хлеб': ('батон', 'буханк', 'чиабатт', 'хлеб')}
@@ -252,6 +252,8 @@ class BasketAgent:
             seen = set()
             for raw in incoming:
                 raw = dict(raw)
+                if isinstance(raw.get('query'), str):
+                    raw['query'] = clean_product_query(raw['query'])
                 if not replace:
                     tokens = set(re.findall(r'\w+', raw.get('query', '').casefold()))
                     matches = [r for r in values.values() if tokens and (
@@ -373,6 +375,14 @@ class BasketAgent:
                 selections[store].append({'requirement_id': req['id'], 'sku': best['sku']})
         state['baskets'] = [calculate_basket(requirements, choices, store, self.catalog, zone)
                             for store, choices in selections.items()]
+        for basket in state['baskets']:
+            basket['unresolved'] = []
+            for req in requirements:
+                if req['query'] not in basket['missing'] or can_select_without_model(req['query']):
+                    continue
+                offers = self.catalog.search_products(req['query'], [zone], self.search_filters(req, state))
+                if offers.get(basket['storefront_id']):
+                    basket['unresolved'].append(req['query'])
         state['comparison'] = compare_stores(state['baskets'])
         result = self.render(state, trace, context)
         result.structured['selection_fallback'] = {'reason': reason, 'verified_ingredient_types_only': True}
@@ -393,10 +403,10 @@ class BasketAgent:
             state.clear()
             state['zone_id'] = zone
         state.setdefault('draft', [dict(row) for row in state.get('requirements', [])])
-        if state.get('rules_version') != 4:
+        if state.get('rules_version') != 5:
             state.pop('comparison', None)
             state.pop('baskets', None)
-            state['rules_version'] = 4
+            state['rules_version'] = 5
         try:
             parsed, _, pending = prepare_items(user_text)
         except (ValueError, TypeError):
@@ -411,7 +421,15 @@ class BasketAgent:
         pending = state.get('pending_preference', {})
         target = next((r for r in state['draft'] if r['id'] == pending.get('id')), None)
         answer = user_text.casefold().strip(' .!?')
-        if target and pending.get('kind') == 'salad' and answer in ('любой листовой', 'листовой', 'листовой салат', 'любой листовой салат'):
+        removed_label = None
+        removal = re.sub(r'\s+', ' ', re.sub(r'[,]+', ' ', answer.replace('ё', 'е'))).strip()
+        if target and re.fullmatch(r'(?:не )?не надо (?:ее|его|это)|(?:убери|удали)(?: (?:ее|его|это))?', removal):
+            removed_label = target['query']
+            preference_updates = [dict(r) for r in state['draft'] if r['id'] != target['id']]
+            state['_allow_replace'] = True
+            state.pop('pending_preference', None)
+            context['_basket_notice'] = 'Убрал из списка: ' + removed_label + '.'
+        elif target and pending.get('kind') == 'salad' and answer in ('любой листовой', 'листовой', 'листовой салат', 'любой листовой салат'):
             preference_updates = [target | {'query': 'салат листовой'}]
         elif target and pending.get('kind') in ('brand', 'package') and pending.get('signature') == self.package_signature(target):
             allow = True if answer in ('да', 'можно', 'подойдет', 'подойдёт', 'согласен', 'любой бренд', 'другой бренд') else False if answer in (
@@ -427,26 +445,32 @@ class BasketAgent:
                     else:
                         state.setdefault('brand_decisions', {})[target['id']] = self.package_signature(target)
                     preference_updates = [row]
-        cached_question = self.preference_question(state, zone) if not preference_updates and all(
+        cached_question = self.preference_question(state, zone) if not removed_label and not preference_updates and all(
             r.get('quantity') is not None and r.get('unit') for r in state['draft']) else None
-        if state.get('comparison') and re.fullmatch(r'[\s?!.,]*(?:а\s+)?(?:где покупать|где купить|сколько стоит|сколько денег|денег сколько|итого|покажи корзину)[\s?!.,]*', user_text.casefold()):
+        is_recall = bool(re.fullmatch(r'[\s?!.,]*(?:а\s+)?(?:где покупать|где купить|сколько стоит|сколько денег|денег сколько|итого|покажи корзину)[\s?!.,]*', user_text.casefold()))
+        if state.get('comparison') and is_recall:
             if cached_question:
                 return AgentResult(cached_question, 'need_clarification')
             return self.render(state, [], context)
         # A new user turn must get a fresh comparison before returning numeric results.
         state.pop('baskets', None)
-        local_updates = (preference_updates or self.brand_reply(user_text, state.get('draft')) or
+        local_updates = preference_updates if removed_label else (preference_updates or self.brand_reply(user_text, state.get('draft')) or
                          self.quantity_reply(user_text, state.get('draft')) or
                          self.type_reply(user_text, state.get('draft')))
-        local_replace = False
-        if not local_updates and state['_allow_replace']:
+        local_replace = bool(removed_label)
+        if local_updates is None and is_recall and state['draft'] and all(
+                r.get('quantity') is not None and r.get('unit') for r in state['draft']):
+            local_updates = [dict(r) for r in state['draft']]
+        if local_updates is None and state['_allow_replace']:
             local_updates = self.explicit_list(user_text)
             local_replace = bool(local_updates)
         local_trace = []
-        if local_updates:
+        if local_updates is not None:
             args = {'items': local_updates, 'replace_all': local_replace}
             result = self._execute('set_requirements', args, state, zone, {})
             local_trace.append({'tool': 'set_requirements', 'arguments': args, 'result': result})
+            if not state['draft']:
+                return AgentResult((context.get('_basket_notice', '') + '\nКорзина пуста. Напишите новый список.').strip(), 'ok', {'tool_trace': local_trace})
             missing = [r['query'] for r in state['draft'] if r['quantity'] is None or not r['unit']]
             if missing:
                 question = 'Количество сохранено. Укажите количество для: ' + ', '.join(missing) + '.'
@@ -455,7 +479,7 @@ class BasketAgent:
             state.pop('last_question', None)
             question = self.preference_question(state, zone)
             if question:
-                return AgentResult(question, 'need_clarification', {'tool_trace': local_trace})
+                return AgentResult((context.get('_basket_notice', '') + '\n' + question).strip(), 'need_clarification', {'tool_trace': local_trace})
         elif cached_question and not state['_allow_replace']:
             return AgentResult(cached_question, 'need_clarification')
         model_context = {'zone_id': zone, 'storefronts': allowed,
@@ -585,13 +609,13 @@ class BasketAgent:
         context = context or {}
         title = 'ТЕСТОВЫЕ цены и товары. Офлайн-демонстрация.\n' if self.catalog.demo else ''
         address = context.get('user_address') or context.get('catalog_address') or context.get('zone_name') or 'Выбранный адрес'
-        lines = [title + '📍 ' + address]
+        lines = ([context['_basket_notice']] if context.get('_basket_notice') else []) + [title + '📍 ' + address]
         baskets = comparison['full'] + comparison['partial']
         if comparison['winner'] and len(baskets) > 1:
             winner = next(b for b in baskets if b['storefront_id'] == comparison['winner'])
             lines.append('Выгоднее среди найденных вариантов: ' + store_name(winner['storefront_id'], winner['service']))
         elif not comparison['winner']:
-            lines.append('Все товары в одном магазине найти не удалось.')
+            lines.append('Полный расчёт пока не готов.')
         for basket in baskets:
             label = 'Корзина' if basket['complete'] else 'Найденные товары'
             lines.append(f"\n🛒 {label} в {store_name(basket['storefront_id'], basket['service'])} — {money(basket['total'])}")
@@ -600,14 +624,24 @@ class BasketAgent:
                              f"{row['packages']} уп. по {package_size(row['package_qty'], row['package_unit'])} "
                              f"× {money(row['package_price'])} = {money(row['subtotal'])}")
             if basket['missing']:
-                missing = []
+                missing, unverified, unresolved = [], [], []
                 for query in basket['missing']:
                     req = next((r for r in state['requirements'] if r['query'] == query), {})
                     label = query + (' ' + req['brand'] if req.get('brand') else '')
                     if req:
                         label += ' — ' + package_size(req['quantity'], req['unit'])
-                    missing.append(label)
-                lines.append('Не подобраны (остались в списке): ' + '; '.join(missing))
+                    if self.catalog.missing_reason(query, state['zone_id'], req.get('brand')) == 'unverified_ordinary_price':
+                        unverified.append(label)
+                    elif query in basket.get('unresolved', []):
+                        unresolved.append(label)
+                    else:
+                        missing.append(label)
+                if missing:
+                    lines.append('Не подобраны (остались в списке): ' + '; '.join(missing))
+                if unverified:
+                    lines.append('Товар есть в выгрузке, но обычную цену нужно проверить: ' + '; '.join(unverified))
+                if unresolved:
+                    lines.append('Подбор ещё не завершён: ' + '; '.join(unresolved))
         dates = price_dates(baskets)
         lines.append('\n' + dates + ' Стоимость доставки не включена.')
         structured = {'comparison': comparison, 'requirements': state['requirements'],

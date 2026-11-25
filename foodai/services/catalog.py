@@ -26,6 +26,9 @@ class Catalog:
         self.coverage = data.get('coverage', [])
         self.products = {}
         self.by_zone = defaultdict(list)
+        self.excluded_by_zone = defaultdict(list)
+        for excluded in data.get('excluded_products', []):
+            self.excluded_by_zone[excluded['zone_id']].append(excluded)
         for raw in data['products']:
             row = dict(raw)
             row['package_qty'], row['package_unit'] = normalize_quantity(row['package_qty'], row['package_unit'])
@@ -52,6 +55,18 @@ class Catalog:
     def get_product_details(self, sku, storefront_id, zone_id):
         product = self.products.get((storefront_id, zone_id, str(sku)))
         return jsonable(asdict(product)) if product else None
+
+    def missing_reason(self, query, zone_id, brand=None):
+        if not ingredient_kind(query):
+            return None
+        for p in self.excluded_by_zone[zone_id]:
+            if p.get('reason') != 'unverified_ordinary_price':
+                continue
+            if brand and brand_key(p.get('brand', '')) != brand_key(brand):
+                continue
+            if matches_ingredient(query, p['name'], p.get('category', '')):
+                return 'unverified_ordinary_price'
+        return None
 
     def search_products(self, query, zone_ids, filters=None, limit=5):
         filters = filters or {}

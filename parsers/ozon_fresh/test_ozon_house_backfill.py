@@ -31,7 +31,7 @@ class HouseExportTests(unittest.TestCase):
             reader=csv.DictReader(stream);self.assertEqual(reader.fieldnames,HEADERS);rows=list(reader)
         self.assertEqual(report['house_product_rows'],2)
         self.assertEqual(rows[1]['Адрес дома'],'House B')
-        self.assertEqual([rows[1][k] for k in HEADERS[3:6]],['','110','150'])
+        self.assertEqual([rows[1][k] for k in HEADERS[4:7]],['','110','150'])
         self.assertEqual(rows[1]['Описание'],'Site description');self.assertEqual(rows[1]['Белки'],'0')
         self.assertEqual(before,(self.snapshot/'snapshot.sqlite').read_bytes())
     def test_identity_is_strict_and_never_global_sku_only(self):
