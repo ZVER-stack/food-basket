@@ -1,0 +1,3 @@
+Source parser: 422 unittest tests passed.
+Installed amount, price and metadata checks: 31 tests passed.
+Missing amounts are not guessed; wrong-SKU continuation is rejected.

@@ -167,21 +167,39 @@ def enrich_prices(client, zone, item):
     data = product_request(client,item)
     observed_at = core.observed_now()
     try:
-        result = _enrich_prices_data(data, zone, item, observed_at=observed_at)
+        def read_details():
+            link = (tiles.widget(data, 'paginator-') or {}).get('nextPage')
+            if not link:
+                return None
+            target = urlsplit(core.public_url(link))
+            original = urlsplit(core.public_url(item['url']))
+            query = parse_qs(target.query)
+            if (target.path != original.path or query.get('layout_page_index') != ['2'] or
+                    not query.get('layout_container',[''])[0].startswith('pdp')):
+                raise core.ParseError('Product details continuation differs from the verified SKU')
+            details = product_request(client,item,target.path + '?' + target.query)
+            header = tiles.address_title(details)
+            if header and tiles.normalized_address(header) != tiles.normalized_address(zone['address']):
+                raise core.ParseError('Product details changed the verified house')
+            return details
+        details = None
+        try:
+            result = _enrich_prices_data(data, zone, item, observed_at=observed_at)
+        except MissingAmountError:
+            if not (item.get('extra') or {}).get('product_details_required'):
+                raise
+            details = read_details()
+            if details is None:
+                raise
+            combined = deepcopy(data)
+            combined['widgetStates'] = dict(tiles.widgets(data))
+            combined['widgetStates'].update({key:value for key,value in tiles.widgets(details).items()
+                if key.startswith(('webCharacteristics-','webShortCharacteristics-'))})
+            result = _enrich_prices_data(combined, zone, item, observed_at=observed_at)
         if (item.get('extra') or {}).get('product_details_required'):
-            paginator = tiles.widget(data, 'paginator-') or {}
-            link = paginator.get('nextPage')
-            if link:
-                target = urlsplit(core.public_url(link))
-                original = urlsplit(core.public_url(item['url']))
-                query = parse_qs(target.query)
-                if (target.path != original.path or query.get('layout_page_index') != ['2'] or
-                        not query.get('layout_container',[''])[0].startswith('pdp')):
-                    raise core.ParseError('Product details continuation differs from the verified SKU')
-                details = product_request(client,item,target.path + '?' + target.query)
-                header = tiles.address_title(details)
-                if header and tiles.normalized_address(header) != tiles.normalized_address(zone['address']):
-                    raise core.ParseError('Product details changed the verified house')
+            if details is None:
+                details = read_details()
+            if details is not None:
                 metadata, characteristics = product_metadata(details)
                 result.update(metadata)
                 result['extra']['product_characteristics'].update(characteristics)
