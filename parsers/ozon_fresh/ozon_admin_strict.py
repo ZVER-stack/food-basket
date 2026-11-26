@@ -7,16 +7,16 @@ from pathlib import Path
 import sys
 
 
-def build_options(root, out, zones, categories, product_url):
+def build_options(root, out, zones, categories, product_url, *, defer_incomplete=False, requested_interval=None):
     return argparse.Namespace(
         mode='full', cdp='http://127.0.0.1:9222', zones=str(zones), categories=str(categories),
         out_dir=str(out), transport_state=str(root/'work/browser_transport_9222.json'),
-        limit=0, interval=1.5, max_interval=6.0, http_error_steps=(2.5,3.5,4.5,5.5,6.0),
+        limit=0, interval=requested_interval or 1.5, explicit_requested_interval=requested_interval is not None, max_interval=6.0, http_error_steps=(2.5,3.5,4.5,5.5,6.0),
         http_error_statuses=(403,429), seconds=7200, max_requests=1000000,
         retry_after_pause=False, enrich_pilot_prices=True, browser_page_url=product_url,
         price_workers=7, catalog_workers=7, price_policy='verified_each_address',
         reference_snapshot=None, metadata_store=None, allow_duplicate_test_tabs=True,
-        continue_until_finished=True, wait_on_403=True, quarantine_incomplete=False,
+        continue_until_finished=True, wait_on_403=True, quarantine_incomplete=defer_incomplete,
         product_mode='api', active_pointer=str(out/'active_run.json'))
 
 
@@ -70,6 +70,8 @@ def main(argv=None):
     parser.add_argument('--out-dir', required=True)
     parser.add_argument('--output', required=True)
     parser.add_argument('--previous-snapshot', required=True)
+    parser.add_argument('--defer-incomplete', action='store_true', help='Retain unresolved products durably and continue; never declare a gapped zone complete')
+    parser.add_argument('--requested-interval', type=float, choices=(1.5,), help='Apply the fresh human request for a shorter pause once')
     args = parser.parse_args(argv)
     root, out = Path(args.parser_root).resolve(), Path(args.out_dir).resolve()
     sys.path.insert(0, str(root))
@@ -106,7 +108,8 @@ def main(argv=None):
     index.CatalogIndex = strict_index_type(index, core)
     try:
         with system_awake():
-            return live.run(build_options(root, out, args.zones, args.categories, ready['product_url']))
+            return live.run(build_options(root, out, args.zones, args.categories, ready['product_url'],
+                defer_incomplete=args.defer_incomplete, requested_interval=args.requested_interval))
     finally:
         index.CatalogIndex = original
         report = export_template(out, args.zones, args.template, args.output)

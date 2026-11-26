@@ -78,7 +78,7 @@ def product_amount(data):
         if isinstance(node, list):
             for value in node:visit(value)
         elif isinstance(node, dict):
-            title=node.get('title')
+            title=node.get('title') or node.get('name')
             if isinstance(title,dict):
                 title=''.join(part.get('content','') for part in title.get('textRs',[]) if part.get('type')=='text')
             if isinstance(title,str):
@@ -126,7 +126,7 @@ def product_metadata(data):
         if isinstance(node, list):
             for value in node: walk(value)
         elif isinstance(node, dict):
-            title = text(node.get('title')); values = node.get('values')
+            title = text(node.get('title') or node.get('name')); values = node.get('values')
             if title and isinstance(values, list):
                 displayed = [text(v) for v in values]; displayed = [v for v in displayed if v]
                 if displayed:

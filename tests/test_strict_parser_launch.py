@@ -32,3 +32,13 @@ def test_strict_index_requires_pdp_even_if_other_zone_price_or_metadata_match():
     import pytest
     with pytest.raises(ValueError, match='current-house'):
         index.remember_product('new_house', {'extra':{'ordinary_price_inferred':True}})
+
+
+def test_explicit_speed_and_deferred_products_keep_price_guards(tmp_path):
+    args = strict.build_options(tmp_path, tmp_path/'out', 'zones', 'categories',
+        'https://www.ozon.ru/product/1/', defer_incomplete=True, requested_interval=1.5)
+    assert args.interval == 1.5 and args.explicit_requested_interval
+    assert args.max_interval == 6 and args.quarantine_incomplete
+    assert args.price_policy == 'verified_each_address'
+    assert args.price_workers == args.catalog_workers == 7
+    assert args.reference_snapshot is None and args.metadata_store is None

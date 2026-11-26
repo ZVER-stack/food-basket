@@ -44,3 +44,13 @@ class AmountContinuationTests(unittest.TestCase):
         with patch('ozon_product_prices.product_request',return_value=data) as request:
             with self.assertRaises(core.ParseError):enrich_prices(Mock(),zone,item)
         self.assertEqual(request.call_count,1)
+
+    def test_full_characteristics_name_schema_reads_amount_and_brand(self):
+        data,detail,item,zone=self.setup_case()
+        detail={'widgetStates':{'webCharacteristics-test':{'characteristics':[{'short':[
+            {'name':'Объем, мл','values':[{'text':'500'}]},
+            {'name':'Бренд','values':[{'text':'Доместос'}]}]}]}}}
+        with patch('ozon_product_prices.product_request',side_effect=[data,detail]):
+            result=enrich_prices(Mock(),zone,item)
+        self.assertEqual(result['amount'],'500 мл')
+        self.assertEqual(result['brand'],'Доместос')
